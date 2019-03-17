@@ -25,3 +25,10 @@
 .div .description {
 
 }
+.productsTable td {
+    text-align: center;
+}
+.productsTable td img {
+    width: 30%;
+
+}
