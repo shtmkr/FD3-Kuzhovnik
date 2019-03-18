@@ -7,7 +7,7 @@ const products = [
     {name: 'CD-ROM', price: '1 USD', img: 'https://ae01.alicdn.com/kf/HTB1axBaSVXXXXXsXVXXq6xXFXXXG/Full-new-for-ASUS-Black-12X-BD-ROM-16X-DVD-ROM-48X-CD-ROM-SATA-Internal.jpg_640x640.jpg', count: 500}
 ];
 const titles = ["product name", "price", "img", "count" ];
-var ProductsTable = React.createClass ({
+const ProductsTable = React.createClass ({
     displayName: '',
     render(){
         const
