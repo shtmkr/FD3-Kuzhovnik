@@ -7,12 +7,13 @@ const products = [
     {name: 'CD-ROM', price: '1 USD', img: 'https://ae01.alicdn.com/kf/HTB1axBaSVXXXXXsXVXXq6xXFXXXG/Full-new-for-ASUS-Black-12X-BD-ROM-16X-DVD-ROM-48X-CD-ROM-SATA-Internal.jpg_640x640.jpg', count: 500}
 ];
 const titles = ["product name", "price", "img", "count" ];
-class ProductsTable extends React.Component {
+var ProductsTable = React.createClass ({
+    displayName: '',
     render(){
         const
             items = this.props.items,
-            titles = this.props.titles,
-            name = this.props.name;
+            titles = this.props.titles;
+        this.displayName = this.props.name;
         return (
             React.DOM.table({className: 'productsTable'},
                 React.DOM.thead(null,
@@ -40,9 +41,9 @@ class ProductsTable extends React.Component {
                 )
             )
         )
-
     }
 }
+);
 
 ReactDOM.render(
     React.createElement(ProductsTable, {name: "ishop", items: products, titles: titles}), appContainer,

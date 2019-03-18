@@ -12,7 +12,7 @@ class ProductsTable extends React.Component {
         const items = this.props.items;
         const inner = items.map(function (item, index) {
             return (
-                React.DOM.li({className: 'item', key: items[index].key},
+                React.DOM.li({className: 'item', key: index},
                     React.DOM.img({className:'item-img', src: items[index].img}),
                     React.DOM.div({className:'item-description'},
                         React.DOM.h2({}, items[index].name),

@@ -27,8 +27,12 @@
 }
 .productsTable td {
     text-align: center;
+    width: 1px;
 }
 .productsTable td img {
-    width: 30%;
+    width: 60%;
 
+}
+.productsTable th {
+    padding-left: 10px;
 }
