@@ -5,7 +5,7 @@ const products = [
     {name: 'Toaster', price: '100 USD', img: 'https://media.ao.com/en-GB/Productimages/Images/rvMedium/russellhobbs_18782_bk_01_m_p.jpg', count: 1000},
     {name: 'CD-ROM', price: '1 USD', img: 'https://ae01.alicdn.com/kf/HTB1axBaSVXXXXXsXVXXq6xXFXXXG/Full-new-for-ASUS-Black-12X-BD-ROM-16X-DVD-ROM-48X-CD-ROM-SATA-Internal.jpg_640x640.jpg', count: 500}
 ];
-const titles = ["product name", "price", "img", "count" ];
+const titles = ["product name", "price", "img", "count"];
 
 const ProductsTable = React.createClass ({
     displayName: 'productsTable',
@@ -22,8 +22,15 @@ const ProductsTable = React.createClass ({
                 {name: 'Product', price: '999 USD', img: 'No image', count: 999},
                 {name: 'Product', price: '999 USD', img: 'No image', count: 999}],
             name: 'shop',
-            titles: ['title1','title2','title3','title4'],
+            titles: ['title1','title2','title3','title4', 'title5'],
         }
+    },
+    handleClick(id) {
+        this.refs[id].style.display = 'none';
+    },
+    rowHandleClick(id) {
+        if (this.refs[id].style.backgroundColor === 'rgb(243, 183, 64)') { this.refs[id].style.backgroundColor = '#fff';}
+        else { this.refs[id].style.backgroundColor = '#f3b740'; }
     },
     render(){
         const
@@ -40,7 +47,7 @@ const ProductsTable = React.createClass ({
                 React.DOM.tbody(null,
                     items.map((row, index) => {
                         return (
-                            React.DOM.tr({key: index},
+                            React.DOM.tr({key: index, ref: `tr${index}`, onClick: this.rowHandleClick.bind(this, `tr${index}`)},
                                 Object.keys(row).map((col, index) => {
                                     if (col !== 'img') return React.DOM.td({key: index}, row[col]);
                                     else return (
@@ -48,7 +55,10 @@ const ProductsTable = React.createClass ({
                                             React.DOM.img({key: index, src: row[col]})
                                         )
                                     )
-                                })
+                                }),
+                                React.DOM.td({className: 'productsTable__button'},
+                                    React.DOM.button({onClick: this.handleClick.bind(this, `tr${index}`)}, "Del")
+                                )
                             )
                         );
                     })

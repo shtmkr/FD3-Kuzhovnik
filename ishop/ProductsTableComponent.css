@@ -22,12 +22,11 @@
     font-size: 24px;
     color:#FF6600;
 }
-.div .description {
 
-}
 .productsTable td {
     text-align: center;
     width: 1px;
+    border-bottom: 1px solid #ddd;
 }
 .productsTable td img {
     width: 60%;
@@ -35,4 +34,6 @@
 }
 .productsTable th {
     padding-left: 10px;
+    background-color: #4CAF50;
+    color: white;
 }

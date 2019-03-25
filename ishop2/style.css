@@ -1,0 +1,39 @@
+#app {
+}
+.productsTable {
+    width: 60%;
+}
+.item {
+    display: flex;
+    justify-content: start;
+    list-style: none;
+    padding-top: 10px;
+    border-bottom: 1px groove;
+}
+.item-img {
+    width: 30%;
+    height: 30%;
+    margin-right: 50px;
+}
+.item-p {
+    font-size: 36px;
+}
+.item-p-price {
+    font-size: 24px;
+    color:#FF6600;
+}
+
+.productsTable td {
+    text-align: center;
+    width: 1px;
+    border-bottom: 1px solid #ddd;
+}
+.productsTable td img {
+    width: 60%;
+
+}
+.productsTable th {
+    padding-left: 10px;
+    background-color: #4CAF50;
+    color: white;
+}
