@@ -19,17 +19,18 @@ const ProductsTable = React.createClass ({
     getInitialState(){
         return {
             selectedRow: null,
+            items: this.props.items,
         }
     },
     rowHandleClick(id){
-        console.log('prod table handler');
-        console.log(id);
         this.setState({selectedRow: id});
-        console.log(this.state);
+    },
+    rowDeleteClick(id){
+        this.setState({items: this.state.items.filter( (item) => item.uid !== id)});
     },
     render(){
         const
-            items = this.props.items,
+            items = this.state.items,
             titles = this.props.titles;
         this.displayName = this.props.name;
         return (
@@ -45,6 +46,7 @@ const ProductsTable = React.createClass ({
                         selected: this.state.selectedRow,
                         item: item,
                         cb_rowHandleClick: this.rowHandleClick,
+                        cb_rowDeleteClick: this.rowDeleteClick,
                     }))
                 )
             )

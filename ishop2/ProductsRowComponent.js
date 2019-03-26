@@ -2,10 +2,6 @@ const ProductsRow = React.createClass({
     displayName: 'ProductRow',
     propsTypes: {
     },
-    getDefaultProps() {
-        return {
-        }
-    },
     getInitialState(){
         return {
             rowStyle: {
@@ -18,14 +14,17 @@ const ProductsRow = React.createClass({
     },
     button_onClickHandler(e){
       e.stopPropagation();
+      confirm('Are you sure?')
+          ? this.props.cb_rowDeleteClick(this.props.item.uid)
+          : false
+      ;
     },
     render(){
-        let rowBg = this.state.rowStyle.backgroundColor;
-        console.log(rowBg);
+        let rowBg = {...this.state.rowStyle};
         const item = this.props.item;
-        this.props.selected === item.uid ? rowBg = '#f3b740': rowBg = '#fff';
+        this.props.selected === item.uid ? rowBg.backgroundColor = '#f3b740': rowBg.backgroundColor = '#fff';
             return (
-                React.DOM.tr({key: item.uid, onClick: this.row_onClickHandler, style: {backgroundColor: rowBg}},
+                React.DOM.tr({key: item.uid, onClick: this.row_onClickHandler, style: rowBg},
                     Object.keys(item)
                         .filter(p => p !== 'uid')
                         .map((col, index) => {
