@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>filter</title>
+</head>
+<body>
+<div id="app"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react-dom.js"></script>
+<script src="FilterComponent.js"></script>
+<script>
+    const appContainer = document.querySelector('#app');
+    const titles = ["product_name", "price", "img", "count", 'control', 'communication', 'transaction', 'assembly', 'quarantine' ];
+
+    ReactDOM.render(
+        React.createElement(Filter, {name: "filter", titles: titles, filtered: false, defaultInputValue: ''}), appContainer,
+    );
+</script>
+</body>
+</html>
