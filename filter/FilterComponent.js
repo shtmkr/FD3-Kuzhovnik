@@ -15,15 +15,17 @@ const Filter = React.createClass({
             },
             titles: this.props.titles,
             default: [...this.props.titles],
+            prev: [...this.props.titles],
             filtered: this.props.filtered,
             buffer: [],
             defaultInputValue: this.props.defaultInputValue,
         }
     },
     input_onChangeHandler(e){
-        this.setState({titles: this.state.titles.filter( (title) => {
+        this.setState({titles: this.state.prev.filter( (title) => {
             if (~title.indexOf(e.target.value)) return true;
-        })
+        }),
+            filtered: this.state.filtered ? !this.state.filtered : false,
         });
     },
     checkbox_onChangeHandler(e){
