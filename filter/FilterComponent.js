@@ -12,49 +12,47 @@ const Filter = React.createClass({
                 display: 'block',
                 width: '230px',
                 margin: '10px',
+                height: '300px'
             },
             titles: this.props.titles,
-            default: [...this.props.titles],
-            prev: [...this.props.titles],
-            filtered: this.props.filtered,
-            buffer: [],
+            sorted: this.props.sorted,
+            filter: '',
             defaultInputValue: this.props.defaultInputValue,
         }
     },
+    listHandler(){
+        let list;
+        if (this.state.filter !== ''){
+            list = this.props.titles.filter( (title) => {
+                if(~title.indexOf(this.state.filter)) return true
+            });
+        }
+        else {
+            list = [...this.props.titles];
+        }
+        if (this.state.sorted){
+            list.sort();
+        }
+        this.setState({titles: list});
+    },
     input_onChangeHandler(e){
-        this.setState({titles: this.state.prev.filter( (title) => {
-            if (~title.indexOf(e.target.value)) return true;
-        }),
-            filtered: this.state.filtered ? !this.state.filtered : false,
-        });
+        this.setState({filter: e.target.value}, () => this.listHandler())
     },
     checkbox_onChangeHandler(e){
-        let buff = this.state.titles;
-        !this.state.filtered
-            ? this.setState({
-                filtered: !this.state.filtered,
-                titles: [].concat(this.state.titles).sort(),
-                buffer: buff,
-            })
-            : this.setState({
-                filtered: !this.state.filtered,
-                titles: this.state.buffer,
-            });
+        this.setState({sorted: !this.state.sorted}, () => this.listHandler())
     },
     button_onClickHandler(e){
-        this.setState({titles: this.state.default, filtered: this.props.filtered, defaultInputValue: 'sd'});
         e.target.previousSibling.value = '';
+        this.setState({sorted: false, defaultInputValue: '', filter: ''}, () => this.listHandler());
     },
     render(){
-        const titles = this.state.titles;
-        this.displayName = this.props.name;
         return (
             React.DOM.div({className:'main'},
-                React.DOM.input({type: "checkbox", onChange: this.checkbox_onChangeHandler, checked: this.state.filtered}, null),
+                React.DOM.input({type: "checkbox", onChange: this.checkbox_onChangeHandler, checked: this.state.sorted}, null),
                 React.DOM.input({type: "input", onChange: this.input_onChangeHandler, defaultValue: this.state.defaultInputValue}, null),
                 React.DOM.button({onClick: this.button_onClickHandler}, "Reset"),
                 React.DOM.select({multiple: true, style: this.state.style},
-                    titles.map( item => React.DOM.option({key: item}, item))
+                    this.state.titles.map( item => React.DOM.option({key: item}, item))
                 )
             )
         )

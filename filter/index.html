@@ -11,10 +11,14 @@
 <script src="FilterComponent.js"></script>
 <script>
     const appContainer = document.querySelector('#app');
-    const titles = ["product_name", "price", "img", "count", 'control', 'communication', 'transaction', 'assembly', 'quarantine' ];
+    const titles = ["product_name", "price", "img", "count", 'control',
+        'communication', 'transaction', 'assembly', 'quarantine',
+        'accordingly', 'unfortunately', 'transportation', 'recognition', 'oscillation', 'qualification',
+        'consequences'
+    ];
 
     ReactDOM.render(
-        React.createElement(Filter, {name: "filter", titles: titles, filtered: false, defaultInputValue: ''}), appContainer,
+        React.createElement(Filter, {titles: titles, sorted: false, defaultInputValue: ''}), appContainer,
     );
 </script>
 </body>
