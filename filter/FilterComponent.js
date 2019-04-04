@@ -36,20 +36,19 @@ const Filter = React.createClass({
         this.setState({titles: list});
     },
     input_onChangeHandler(e){
-        this.setState({filter: e.target.value}, () => this.listHandler())
+        this.setState({filter: e.target.value},  this.listHandler)
     },
     checkbox_onChangeHandler(e){
-        this.setState({sorted: !this.state.sorted}, () => this.listHandler())
+        this.setState({sorted: e.target.checked}, this.listHandler)
     },
     button_onClickHandler(e){
-        e.target.previousSibling.value = '';
-        this.setState({sorted: false, defaultInputValue: '', filter: ''}, () => this.listHandler());
+        this.setState({sorted: false, filter: ''}, this.listHandler);
     },
     render(){
         return (
             React.DOM.div({className:'main'},
                 React.DOM.input({type: "checkbox", onChange: this.checkbox_onChangeHandler, checked: this.state.sorted}, null),
-                React.DOM.input({type: "input", onChange: this.input_onChangeHandler, defaultValue: this.state.defaultInputValue}, null),
+                React.DOM.input({type: "input", onChange: this.input_onChangeHandler, value: this.state.filter}, null),
                 React.DOM.button({onClick: this.button_onClickHandler}, "Reset"),
                 React.DOM.select({multiple: true, style: this.state.style},
                     this.state.titles.map( item => React.DOM.option({key: item}, item))
