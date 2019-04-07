@@ -1,26 +1,8 @@
 #app {
 }
+
 .productsTable {
     width: 60%;
-}
-.item {
-    display: flex;
-    justify-content: start;
-    list-style: none;
-    padding-top: 10px;
-    border-bottom: 1px groove;
-}
-.item-img {
-    width: 30%;
-    height: 30%;
-    margin-right: 50px;
-}
-.item-p {
-    font-size: 36px;
-}
-.item-p-price {
-    font-size: 24px;
-    color:#FF6600;
 }
 
 .productsTable td {
@@ -36,4 +18,17 @@
     padding-left: 10px;
     background-color: #4CAF50;
     color: white;
+}
+
+.productCard {
+    border: 1px solid #ddd;
+    width: 60%;
+    height: auto;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+}
+
+.productCard img {
+    width: 25%;
 }

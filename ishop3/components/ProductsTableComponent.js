@@ -1,7 +1,8 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import PropTypes from 'prop-types';
 import './style.css';
 import ProductsRow from './ProductsRowComponent';
+import ProductCard from './ProductCardComponent';
 
 class ProductsTable extends React.Component {
 
@@ -51,14 +52,22 @@ class ProductsTable extends React.Component {
             );
 
         return (
-            <table className='productsTable'>
-                <thead>
-                    <tr>{ths}</tr>
-                </thead>
-                <tbody>
-                    {rows}
-                </tbody>
-            </table>
+            <Fragment>
+                <table className='productsTable'>
+                    <thead>
+                        <tr>{ths}</tr>
+                    </thead>
+                    <tbody>
+                        {rows}
+                    </tbody>
+                </table>
+                {
+                    (this.state.selectedRow !== null)
+                        ? <ProductCard rows={rows} selected={this.state.selectedRow}/>
+                        : false
+                }
+            </Fragment>
+
         )
     }
 }

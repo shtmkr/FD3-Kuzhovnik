@@ -5,7 +5,7 @@ class ProductsRow extends React.Component {
 
     static propsTypes = {
         key: PropTypes.number,
-        selected: PropTypes.bool,
+        selected: PropTypes.number,
         item: PropTypes.object,
         cb_rowHandleClick: PropTypes.func,
         cb_rowDeleteClick: PropTypes.func,
@@ -25,12 +25,20 @@ class ProductsRow extends React.Component {
       this.props.cb_rowHandleClick(this.props.item.uid);
     };
 
-    button_onClickHandler = (e) => {
-      e.stopPropagation();
-      confirm('Are you sure?')
-          ? this.props.cb_rowDeleteClick(this.props.item.uid)
-          : false
-      ;
+    controlsHandler = (e) => {
+        e.stopPropagation();
+        const {del, edit} = this.refs;
+        switch (e.target) {
+            case del:
+                confirm('Are you sure?')
+                    ? this.props.cb_rowDeleteClick(this.props.item.uid)
+                    : false
+                ;
+                break;
+            case edit:
+                console.log('edit');
+                break;
+        }
     };
 
     render(){
@@ -53,8 +61,9 @@ class ProductsRow extends React.Component {
                             )
                         })
                 }
-                <td className='productsRow__button'>
-                    <button onClick={this.button_onClickHandler}>Del</button>
+                <td className='productsRow__controls'>
+                    <button ref='del' onClick={this.controlsHandler}>Del</button>
+                    <button ref='edit' onClick={this.controlsHandler}>Edit</button>
                 </td>
             </tr>
         )
