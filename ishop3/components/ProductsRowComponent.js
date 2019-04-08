@@ -8,7 +8,7 @@ class ProductsRow extends React.Component {
         selected: PropTypes.number,
         item: PropTypes.object,
         cb_rowHandleClick: PropTypes.func,
-        cb_rowDeleteClick: PropTypes.func,
+        cb_controlsClick: PropTypes.func,
     };
 
     static defaultProps = {
@@ -26,17 +26,17 @@ class ProductsRow extends React.Component {
     };
 
     controlsHandler = (e) => {
-        e.stopPropagation();
         const {del, edit} = this.refs;
         switch (e.target) {
             case del:
+                e.stopPropagation();
                 confirm('Are you sure?')
-                    ? this.props.cb_rowDeleteClick(this.props.item.uid)
+                    ? this.props.cb_controlsClick(this.props.item.uid, "del")
                     : false
                 ;
                 break;
             case edit:
-                console.log('edit');
+                this.props.cb_controlsClick(this.props.item.uid, "edit");
                 break;
         }
     };

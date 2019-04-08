@@ -25,14 +25,36 @@ class ProductsTable extends React.Component {
     state = {
         selectedRow: null,
         items: this.props.items,
+        productCardMode: 1,
     };
 
     rowHandleClick = (id) => {
         this.setState({selectedRow: id});
     };
 
-    rowDeleteClick = (id) => {
-        this.setState({items: this.state.items.filter( (item) => item.uid !== id)});
+    controlsHandleClick = (id, fn) => {
+        switch (fn) {
+            case "del":
+                this.setState({
+                    items: this.state.items.filter( (item) => item.uid !== id),
+                    selectedRow: this.state.selectedRow ? this.state.selectedRow - 1 : null
+                });
+                break;
+            case "edit":
+                console.log('edit ' +  id);
+                this.setState({
+                    productCardMode: 2
+                });
+                break;
+        }
+    };
+
+    inputChanged = (input) => {
+        console.log(input)
+    };
+
+    _getRow = (rows, id) => {
+        return rows.filter( row => parseInt(row.key) === id)[0].props.item;
     };
 
     render(){
@@ -47,7 +69,7 @@ class ProductsTable extends React.Component {
                      selected={this.state.selectedRow}
                      item={item}
                      cb_rowHandleClick={ this.rowHandleClick }
-                     cb_rowDeleteClick={ this.rowDeleteClick }
+                     cb_controlsClick={ this.controlsHandleClick }
                 />
             );
 
@@ -63,11 +85,13 @@ class ProductsTable extends React.Component {
                 </table>
                 {
                     (this.state.selectedRow !== null)
-                        ? <ProductCard rows={rows} selected={this.state.selectedRow}/>
+                        ? <ProductCard
+                            row={this._getRow(rows, this.state.selectedRow)}
+                            productCardMode={this.state.productCardMode}
+                            cb_inputChanged={ this.inputChanged }/>
                         : false
                 }
             </Fragment>
-
         )
     }
 }
