@@ -36,6 +36,7 @@ class ProductsRow extends React.Component {
                 ;
                 break;
             case edit:
+                e.stopPropagation();
                 this.props.cb_controlsClick(this.props.item.uid, "edit");
                 break;
         }

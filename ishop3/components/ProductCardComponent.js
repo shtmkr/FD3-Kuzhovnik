@@ -7,7 +7,9 @@ class ProductCard extends React.Component {
         row: PropTypes.any,
         titles: PropTypes.array,
         productCardMode: PropTypes.number,
-        cb_saveData: PropTypes.func
+        cb_saveData: PropTypes.func,
+        isFormValid: PropTypes.bool,
+        cb_isFormValid: PropTypes.func
     };
 
     static defaultProps = {
@@ -35,28 +37,39 @@ class ProductCard extends React.Component {
     };
 
     userInputsHandler = (e) => {
-        console.log(e.type);
-        /*if (e.type === 'keyup'){
-            console.dir(e.target);
-            this._isValid(e.target.value) ? e.target.previousSibling.innerHtml='valid' : console.log('please enter a value')
-        }*/
         const {name, price, quantity, save, cancel, img} = this.refs;
         let valid = '';
         switch (e.target) {
             case name:
-                (this._isValid(name.value)) ? valid = '' :  valid = 'please enter value';
+                if (this._isValid(name.value)) {
+                    valid = '';
+                } else {
+                    valid = 'enter name';
+                }
                 this.setState({name: e.target.value, validName: valid});
                 break;
             case price:
-                (this._isValid(price.value)) ? valid = '' :  valid = 'please enter value';
+                if (this._isValid(price.value)) {
+                    valid = '';
+                } else {
+                    valid = 'enter price';
+                }
                 this.setState({price: e.target.value, validPrice: valid});
                 break;
             case quantity:
-                (this._isValid(quantity.value)) ? valid = '' :  valid = 'please enter value';
+                if (this._isValid(quantity.value)) {
+                    valid = '';
+                } else {
+                    valid = 'enter quantity';
+                }
                 this.setState({count: e.target.value, validCount: valid});
                 break;
             case img:
-                (this._isValid(img.value)) ? valid = '' :  valid = 'please enter value';
+                if (this._isValid(img.value)) {
+                    valid = '';
+                } else {
+                    valid = 'enter img url';
+                }
                 this.setState({img: e.target.value, validImg: valid});
                 break;
             case save:// отправить измененный товар
@@ -107,7 +120,7 @@ class ProductCard extends React.Component {
                                 <span className='warn'>{this.state.validImg}</span>
                             <img src={this.state.img} alt=''/>
                             <div className='cardControls'>
-                                <button ref='save' onClick={this.userInputsHandler}>Save</button>
+                                <button ref='save' onClick={this.userInputsHandler} disabled={!this.props.isFormValid}>Save</button>
                                 <button ref='cancel' onClick={this.userInputsHandler}>Cancel</button>
                             </div>
                         </div>

@@ -26,10 +26,11 @@ class ProductsTable extends React.Component {
         selectedRow: null,
         items: this.props.items,
         productCardMode: 1,
+        isProductCardValid: true
     };
 
     rowHandleClick = (id) => {
-        this.setState({selectedRow: id});
+        this.setState({selectedRow: id, productCardMode: 1});
     };
 
     controlsHandleClick = (id, fn) => {
@@ -43,7 +44,8 @@ class ProductsTable extends React.Component {
             case "edit":
                 console.log('edit ' +  id);
                 this.setState({
-                    productCardMode: 2
+                    productCardMode: 2,
+                    selectedRow: id
                 });
                 break;
         }
@@ -57,6 +59,14 @@ class ProductsTable extends React.Component {
             this.setState({productCardMode: 1})
         }
 
+    };
+
+    setFormValid = (input) => {
+        if (input === ''){
+            this.setState({isProductCardValid: true })
+        } else {
+            this.setState({isProductCardValid: false })
+        }
     };
 
     _modRow = (rows, newRow) => {
@@ -100,7 +110,10 @@ class ProductsTable extends React.Component {
                         ? <ProductCard
                             row={this._getRow(rows, this.state.selectedRow)}
                             productCardMode={this.state.productCardMode}
-                            cb_saveData={ this.saveData }/>
+                            cb_saveData={ this.saveData }
+                            isFormValid = {this.state.isProductCardValid}
+                            cb_isFormValid = {this.setFormValid}
+                        />
                         : false
                 }
             </Fragment>
