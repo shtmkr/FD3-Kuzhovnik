@@ -49,8 +49,15 @@ class ProductsTable extends React.Component {
         }
     };
 
-    inputChanged = (input) => {
-        console.log(input)
+    saveData = (input) => {
+        let mod = this._modRow([...this.state.items], input);
+        this.setState({productCardMode: 1, items: mod})
+    };
+
+    _modRow = (rows, newRow) => {
+        let index = rows.findIndex(row => row.uid === newRow.uid);
+        rows[index] = newRow;
+        return rows;
     };
 
     _getRow = (rows, id) => {
@@ -88,7 +95,7 @@ class ProductsTable extends React.Component {
                         ? <ProductCard
                             row={this._getRow(rows, this.state.selectedRow)}
                             productCardMode={this.state.productCardMode}
-                            cb_inputChanged={ this.inputChanged }/>
+                            cb_saveData={ this.saveData }/>
                         : false
                 }
             </Fragment>

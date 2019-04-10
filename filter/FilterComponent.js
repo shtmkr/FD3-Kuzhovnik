@@ -42,7 +42,7 @@ const Filter = React.createClass({
         this.setState({sorted: e.target.checked}, this.listHandler)
     },
     button_onClickHandler(e){
-        this.setState({sorted: false, filter: ''}, this.listHandler);
+        this.setState({sorted: false, filter: ''}, this.listHandler)
     },
     render(){
         return (
