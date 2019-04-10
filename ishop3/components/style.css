@@ -48,3 +48,7 @@ span, input {
 .cardControls {
     position: absolute;
 }
+
+.warn {
+    color: red;
+}

@@ -31,10 +31,20 @@ class ProductCard extends React.Component {
     };
 
     userInputsHandler = (e) => {
+        console.log(e.type);
+        /*if (e.type === 'keyup'){
+            console.dir(e.target);
+            this._isValid(e.target.value) ? e.target.previousSibling.innerHtml='valid' : console.log('please enter a value')
+        }*/
         const {name, price, quantity, save, cancel, img} = this.refs;
         switch (e.target) {
             case name:
-                console.log('name input changed');
+                if (this._isValid(name.value)) {
+                    console.log('valid');
+                    console.log('name input changed');
+                } else {
+                    this.refs.warn.innerHTML = 'please enter a value';
+                }
                 this.setState({name: e.target.value});
                 break;
             case price:
@@ -61,9 +71,14 @@ class ProductCard extends React.Component {
                 console.log('save');
                 break;
             case cancel:
+                this.props.cb_saveData(null);
                 console.log('cancel');
                 break;
         }
+    };
+
+    _isValid = (input) => {
+        return input !== '';
     };
 
     render() {
@@ -77,7 +92,7 @@ class ProductCard extends React.Component {
                             <img src={this.state.img} alt=''/>
                         </div>
                     :   <div className='productCard'>
-                            <span>Product Name</span><input ref='name' value={this.state.name || ''} onChange={this.userInputsHandler}/>
+                            <span>Product Name</span><input ref='name' value={this.state.name || ''} onChange={this.userInputsHandler}/><span className='warn' ref='warn'></span>
                             <span>Product Price</span>  <input ref='price' value={this.state.price || ''} onChange={this.userInputsHandler}/>
                             <span>Product Quantity</span><input ref='quantity' value={this.state.count || ''} onChange={this.userInputsHandler}/>
                             <span>Product image</span><input ref='img' value={this.state.img || ''} onChange={this.userInputsHandler}/>

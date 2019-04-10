@@ -50,8 +50,13 @@ class ProductsTable extends React.Component {
     };
 
     saveData = (input) => {
-        let mod = this._modRow([...this.state.items], input);
-        this.setState({productCardMode: 1, items: mod})
+        if (input !== null){
+            let mod = this._modRow([...this.state.items], input);
+            this.setState({productCardMode: 1, items: mod})
+        } else {
+            this.setState({productCardMode: 1})
+        }
+
     };
 
     _modRow = (rows, newRow) => {
