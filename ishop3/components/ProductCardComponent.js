@@ -27,7 +27,11 @@ class ProductCard extends React.Component {
         name:   this.props.row.name,
         price:  this.props.row.price,
         count:  this.props.row.count,
-        img:    this.props.row.img
+        img:    this.props.row.img,
+        validName: '',
+        validPrice: '',
+        validCount: '',
+        validImg: ''
     };
 
     userInputsHandler = (e) => {
@@ -37,27 +41,23 @@ class ProductCard extends React.Component {
             this._isValid(e.target.value) ? e.target.previousSibling.innerHtml='valid' : console.log('please enter a value')
         }*/
         const {name, price, quantity, save, cancel, img} = this.refs;
+        let valid = '';
         switch (e.target) {
             case name:
-                if (this._isValid(name.value)) {
-                    console.log('valid');
-                    console.log('name input changed');
-                } else {
-                    this.refs.warn.innerHTML = 'please enter a value';
-                }
-                this.setState({name: e.target.value});
+                (this._isValid(name.value)) ? valid = '' :  valid = 'please enter value';
+                this.setState({name: e.target.value, validName: valid});
                 break;
             case price:
-                console.log('price input changed');
-                this.setState({price: e.target.value});
+                (this._isValid(price.value)) ? valid = '' :  valid = 'please enter value';
+                this.setState({price: e.target.value, validPrice: valid});
                 break;
             case quantity:
-                console.log('quantity input changed');
-                this.setState({count: e.target.value});
+                (this._isValid(quantity.value)) ? valid = '' :  valid = 'please enter value';
+                this.setState({count: e.target.value, validCount: valid});
                 break;
             case img:
-                console.log('img input changed');
-                this.setState({img: e.target.value});
+                (this._isValid(img.value)) ? valid = '' :  valid = 'please enter value';
+                this.setState({img: e.target.value, validImg: valid});
                 break;
             case save:// отправить измененный товар
                 let newRow = ({
@@ -71,7 +71,12 @@ class ProductCard extends React.Component {
                 console.log('save');
                 break;
             case cancel:
-                this.props.cb_saveData(null);
+                this.setState({
+                    validName: '',
+                    validPrice: '',
+                    validCount: '',
+                    validImg: ''}, this.props.cb_saveData(null)
+                );
                 console.log('cancel');
                 break;
         }
@@ -92,10 +97,14 @@ class ProductCard extends React.Component {
                             <img src={this.state.img} alt=''/>
                         </div>
                     :   <div className='productCard'>
-                            <span>Product Name</span><input ref='name' value={this.state.name || ''} onChange={this.userInputsHandler}/><span className='warn' ref='warn'></span>
+                            <span>Product Name</span><input ref='name' value={this.state.name || ''} onChange={this.userInputsHandler}/>
+                                <span className='warn'>{this.state.validName}</span>
                             <span>Product Price</span>  <input ref='price' value={this.state.price || ''} onChange={this.userInputsHandler}/>
+                                <span className='warn'>{this.state.validPrice}</span>
                             <span>Product Quantity</span><input ref='quantity' value={this.state.count || ''} onChange={this.userInputsHandler}/>
+                                <span className='warn'>{this.state.validCount}</span>
                             <span>Product image</span><input ref='img' value={this.state.img || ''} onChange={this.userInputsHandler}/>
+                                <span className='warn'>{this.state.validImg}</span>
                             <img src={this.state.img} alt=''/>
                             <div className='cardControls'>
                                 <button ref='save' onClick={this.userInputsHandler}>Save</button>
