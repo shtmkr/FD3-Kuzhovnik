@@ -9,6 +9,7 @@ class ProductsRow extends React.Component {
         item: PropTypes.object,
         cb_rowHandleClick: PropTypes.func,
         cb_controlsClick: PropTypes.func,
+        isProductChanged: PropTypes.bool
     };
 
     static defaultProps = {
@@ -22,7 +23,9 @@ class ProductsRow extends React.Component {
     };
 
     row_onClickHandler = () => {
-      this.props.cb_rowHandleClick(this.props.item.uid);
+        if (!this.props.isProductChanged){
+            this.props.cb_rowHandleClick(this.props.item.uid);
+        }
     };
 
     controlsHandler = (e) => {
@@ -63,8 +66,8 @@ class ProductsRow extends React.Component {
                         })
                 }
                 <td className='productsRow__controls'>
-                    <button ref='del' onClick={this.controlsHandler}>Del</button>
-                    <button ref='edit' onClick={this.controlsHandler}>Edit</button>
+                    <button ref='del' onClick={this.controlsHandler}  disabled={this.props.productCardMode > 1}>Del</button>
+                    <button ref='edit' onClick={this.controlsHandler} disabled={this.props.productCardMode > 2}>Edit</button>
                 </td>
             </tr>
         )
