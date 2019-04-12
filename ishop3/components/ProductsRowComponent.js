@@ -67,7 +67,7 @@ class ProductsRow extends React.Component {
                 }
                 <td className='productsRow__controls'>
                     <button ref='del' onClick={this.controlsHandler}  disabled={this.props.productCardMode > 1}>Del</button>
-                    <button ref='edit' onClick={this.controlsHandler} disabled={this.props.productCardMode > 2}>Edit</button>
+                    <button ref='edit' onClick={this.controlsHandler} disabled={this.props.productCardMode > 2 || this.props.isProductChanged}>Edit</button>
                 </td>
             </tr>
         )
