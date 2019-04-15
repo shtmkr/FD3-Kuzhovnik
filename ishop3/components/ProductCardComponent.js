@@ -16,12 +16,18 @@ class ProductCard extends React.Component {
 
     };
 
-    componentWillUpdate(nextProps) {
-        console.log(nextProps);
-        this.state.name = nextProps.row.name;
-        this.state.price = nextProps.row.price;
-        this.state.count = nextProps.row.count;
-        this.state.img = nextProps.row.img;
+    componentDidUpdate(oldProps) {
+        console.log(oldProps);
+        if (oldProps.row.name !== this.props.row.name ||
+            oldProps.row.price !== this.props.row.price ||
+            oldProps.row.count !== this.props.row.count ||
+            oldProps.row.img !== this.props.row.img)
+        this.setState({
+            name: this.props.row.name,
+            price: this.props.row.price,
+            count: this.props.row.count,
+            img: this.props.row.img
+        })
     }
 
     state = {
