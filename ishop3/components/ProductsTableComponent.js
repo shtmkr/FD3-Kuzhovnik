@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import './style.css';
 import ProductsRow from './ProductsRowComponent';
 import ProductCard from './ProductCardComponent';
+import AddProductForm from './AddProductFormComponent';
 
 class ProductsTable extends React.Component {
 
@@ -25,8 +26,9 @@ class ProductsTable extends React.Component {
     state = {
         selectedRow: null,
         items: this.props.items,
-        productCardMode: 1,
-        isProductCardValid: true
+        productCardMode: 1, // 1- View mode; 2 - Edit mode; 3 - Add mode
+        isProductCardValid: true,
+        isProductChanged: false
     };
 
     rowHandleClick = (id) => {
@@ -48,25 +50,33 @@ class ProductsTable extends React.Component {
                     selectedRow: id
                 });
                 break;
+            case "add":
+                console.log('add');
+                this.setState({productCardMode: 3, isProductChanged: true})
         }
     };
 
-    saveData = (input) => {
-        if (input !== null){
-            let mod = this._modRow([...this.state.items], input);
-            this.setState({productCardMode: 1, items: mod})
-        } else {
-            this.setState({productCardMode: 1})
+    saveData = (input, newProduct = false) => {
+        if (!newProduct){   // modified product
+            if (input !== null){
+                let mod = this._modRow([...this.state.items], input);
+                this.setState({productCardMode: 1, items: mod, isProductChanged: false})
+            } else {
+                this.setState({productCardMode: 1, isProductChanged: false})
+            }
+        } else {        // new product
+            if (input !== null){
+                console.log('adding new product....');
+                let items = [...this.state.items];
+                items.push(input);
+                this.setState({productCardMode: 1, items: items, isProductChanged: false})
+            } else {
+                this.setState({productCardMode: 1, isProductChanged: false})
+            }
+
         }
 
-    };
 
-    setFormValid = (input) => {
-        if (input === ''){
-            this.setState({isProductCardValid: true })
-        } else {
-            this.setState({isProductCardValid: false })
-        }
     };
 
     _modRow = (rows, newRow) => {
@@ -77,6 +87,17 @@ class ProductsTable extends React.Component {
 
     _getRow = (rows, id) => {
         return rows.filter( row => parseInt(row.key) === id)[0].props.item;
+    };
+
+    addProduct = (e) => {
+        e.stopPropagation();
+        this.controlsHandleClick(null, 'add');
+    };
+
+    productChanged = (e) => {
+        console.log(e)
+        console.log('product changed');
+        this.setState({isProductChanged: true})
     };
 
     render(){
@@ -90,8 +111,10 @@ class ProductsTable extends React.Component {
                 <ProductsRow key={item.uid}
                      selected={this.state.selectedRow}
                      item={item}
+                     productCardMode={ this.state.productCardMode}
                      cb_rowHandleClick={ this.rowHandleClick }
                      cb_controlsClick={ this.controlsHandleClick }
+                     isProductChanged = { this.state.isProductChanged }
                 />
             );
 
@@ -105,16 +128,26 @@ class ProductsTable extends React.Component {
                         {rows}
                     </tbody>
                 </table>
+                <div>
+                    <button onClick={this.addProduct} disabled={this.state.productCardMode > 1}>New product</button>
+                </div>
+                <AddProductForm
+                    productCardMode={this.state.productCardMode}
+                    cb_saveData={ this.saveData }
+                    rows = {rows}
+                    isProductChanged = { this.state.isProductChanged }
+                    cb_isProductChanged = { this.productChanged }
+
+                />
                 {
                     (this.state.selectedRow !== null)
-                        ? <ProductCard
+                        && <ProductCard
                             row={this._getRow(rows, this.state.selectedRow)}
                             productCardMode={this.state.productCardMode}
                             cb_saveData={ this.saveData }
-                            isFormValid = {this.state.isProductCardValid}
-                            cb_isFormValid = {this.setFormValid}
+                            isProductChanged = { this.state.isProductChanged }
+                            cb_isProductChanged = { this.productChanged }
                         />
-                        : false
                 }
             </Fragment>
         )
