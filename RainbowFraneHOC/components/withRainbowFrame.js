@@ -1,8 +1,8 @@
 import React from 'react'
 
-function withRainbowFrame(colors) {
+function withRainbowFrame(colors){
     return function (Comp) {
-        return function (props) {
+        return function WrappedWithRainbowFrame(props) {
             let hoc = <Comp {...props}/>;
             for (let i = 0; i < colors.length; i++) {
                 hoc =
@@ -15,4 +15,4 @@ function withRainbowFrame(colors) {
     }
 }
 
-export  { withRainbowFrame }
+export {withRainbowFrame}
