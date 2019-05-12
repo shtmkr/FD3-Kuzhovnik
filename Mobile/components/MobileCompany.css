@@ -1,0 +1,21 @@
+.MobileCompany {
+    border: solid gray 3px;
+    width: 99%;
+    padding: 3px 7px;
+}
+
+.MobileCompanyName {
+    font-weight: bold;
+}
+
+.MobileCompanyClients {
+    width: 100%;
+    padding-top: 5px;
+    text-align: center;
+}
+
+.MobileCompany .clients_filter {
+    margin-top: 20px;
+    padding: 10px;
+    border-top: solid #FF6600 1px;
+}
