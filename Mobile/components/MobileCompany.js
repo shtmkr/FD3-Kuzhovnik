@@ -1,7 +1,9 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import PropTypes from 'prop-types';
 
 import MobileClient from './MobileClient';
+import MobileCompanyCard from './MobileCompanyCard';
+import {cardEvents} from './events';
 
 import './MobileCompany.css';
 
@@ -9,7 +11,7 @@ class MobileCompany extends React.PureComponent {
 
     static propTypes = {
         name: PropTypes.string.isRequired,
-        titles: PropTypes.array,
+        titles: PropTypes.array.isRequired,
         clients:PropTypes.arrayOf(
             PropTypes.shape({
                 id: PropTypes.number.isRequired,
@@ -21,9 +23,34 @@ class MobileCompany extends React.PureComponent {
         ),
     };
 
+    componentDidMount = () => {
+        cardEvents.addListener('saveData',this.saveData);
+        cardEvents.addListener('cancel',this.cancel);
+    };
+
+    componentWillUnmount = () => {
+        cardEvents.removeListener('saveData',this.saveData);
+        cardEvents.removeListener('cancel',this.cancel);
+    };
+
     state = {
         name: this.props.name,
-        clients: this.props.clients,
+        clients: [...this.props.clients],
+        isCardOpened: false,
+    };
+
+    saveData = (clientData) => {
+        //console.log('handle save event', clientData);
+        this.addClient(clientData)
+    };
+
+    cancel = () => {
+        console.log('handle cancel event');
+        this.cardToggler();
+    };
+
+    cardToggler = () => {
+        this.setState({isCardOpened: !this.state.isCardOpened})
     };
 
     setName1 = () => {
@@ -32,6 +59,18 @@ class MobileCompany extends React.PureComponent {
 
     setName2 = () => {
         this.setState({name:'Velcom'});
+    };
+
+    addClient = (clientData) => {
+        let [last] = this.state.clients.slice(-1);
+        let newClient = {
+            id: last.id + 1,
+            ...clientData,
+            balance: parseInt(clientData.balance),
+            status: (parseInt(clientData.balance) > 0) ? 'active': 'blocked',
+        };
+        let newClients = [...this.state.clients, newClient];
+        this.setState({clients: newClients});
     };
 
     setBalance = (clientId,newBalance) => {
@@ -62,9 +101,8 @@ class MobileCompany extends React.PureComponent {
         console.log("MobileCompany render");
 
 
-        let clientsCode=this.state.clients.map( client => {
-                return <MobileClient client={client} />;
-            }
+        let clientsCode = this.state.clients.map( (client, index) =>
+                <MobileClient client={client} key={index} />
         );
 
         let ths = this.props.titles.map(title =>
@@ -72,32 +110,35 @@ class MobileCompany extends React.PureComponent {
         );
 
         return (
-            <div className='MobileCompany'>
-                <input type="button" value="МТС" onClick={this.setName1} />
-                <input type="button" value="Velcom" onClick={this.setName2} />
-                <div>{`Комнания: ${this.state.name}`}</div>
+            <Fragment>
+                <div className='MobileCompany'>
+                    <input type="button" value="МТС" onClick={this.setName1} />
+                    <input type="button" value="Velcom" onClick={this.setName2} />
+                    <div>{`Комнания: ${this.state.name}`}</div>
 
-                <div className='clients_filter'>
-                    <input type="button" value="Все"  />
-                    <input type="button" value="Активные"  />
-                    <input type="button" value="Заблокированные"  />
+                    <div className='clients_filter'>
+                        <input type="button" value="Все"  />
+                        <input type="button" value="Активные"  />
+                        <input type="button" value="Заблокированные"  />
+                    </div>
+                    <table className='MobileCompanyClients'>
+                        <thead>
+                        <tr>{ths}</tr>
+                        </thead>
+                        <tbody>
+                        {clientsCode}
+                        </tbody>
+                    </table>
+                    <div className='addClient'>
+                        <input type="button" value="Добавить клиента" onClick={this.cardToggler} />
+                    </div>
                 </div>
-                <table className='MobileCompanyClients'>
-                    <thead>
-                    <tr>{ths}</tr>
-                    </thead>
-                    <tbody>
-                    {clientsCode}
-                    </tbody>
-                </table>
-                <div className='addClient'>
-                    <input type="button" value="Добавить клиента"  />
-                </div>
+                {
+                    this.state.isCardOpened && <MobileCompanyCard/>
+                }
+            </Fragment>
 
-            </div>
-        )
-            ;
-
+        );
     }
 
 }
