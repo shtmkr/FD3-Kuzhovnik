@@ -15,3 +15,7 @@ span.MobileClientFIO
 {
     margin-right: 30px;
 }
+
+.MobileClient .editClient {
+    width: 100px;
+}

@@ -27,14 +27,14 @@ class MobileCompany extends React.PureComponent {
         cardEvents.addListener('saveData',this.saveData);
         cardEvents.addListener('cancel',this.cancel);
         clientEvents.addListener('delete', this.delete);
-        clientEvents.addListener('edit', this.delete);
+        clientEvents.addListener('edit', this.edit);
     };
 
     componentWillUnmount = () => {
         cardEvents.removeListener('saveData',this.saveData);
         cardEvents.removeListener('cancel',this.cancel);
         clientEvents.addListener('delete', this.delete);
-        clientEvents.addListener('edit', this.delete);
+        clientEvents.addListener('edit', this.edit);
     };
 
     state = {
@@ -51,6 +51,15 @@ class MobileCompany extends React.PureComponent {
     delete = (id) => {
         this.setState({
             clients: this.state.clients.filter(client => client.id !== id)
+        });
+    };
+
+    edit = (client) => {
+        let newClients = [...this.state.clients];
+        let index = newClients.findIndex(element => element.id === client.id);
+        newClients[index] = client;
+        this.setState({
+            clients: newClients
         });
     };
 
