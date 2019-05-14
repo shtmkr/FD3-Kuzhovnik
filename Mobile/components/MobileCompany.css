@@ -1,7 +1,8 @@
 .MobileCompany {
     border: solid gray 3px;
-    width: 100%;
+    width: 97%;
     padding: 3px 7px;
+    display: table;
 }
 
 .MobileCompanyName {

@@ -21,6 +21,7 @@ class MobileCompany extends React.PureComponent {
                 balance: PropTypes.number.isRequired,
             })
         ),
+        buf: PropTypes.object,
     };
 
     componentDidMount = () => {
@@ -40,6 +41,7 @@ class MobileCompany extends React.PureComponent {
     state = {
         name: this.props.name,
         clients: [...this.props.clients],
+        buf: [...this.props.clients],
         isCardOpened: false,
     };
 
@@ -50,7 +52,8 @@ class MobileCompany extends React.PureComponent {
 
     delete = (id) => {
         this.setState({
-            clients: this.state.clients.filter(client => client.id !== id)
+            clients: this.state.clients.filter(client => client.id !== id),
+            buf: this.state.clients.filter(client => client.id !== id),
         });
     };
 
@@ -89,7 +92,10 @@ class MobileCompany extends React.PureComponent {
             status: (parseInt(clientData.balance) > 0) ? 'active': 'blocked',
         };
         let newClients = [...this.state.clients, newClient];
-        this.setState({clients: newClients});
+        this.setState({
+            clients: newClients,
+            buf: newClients
+        });
     };
 
     setBalance = (clientId,newBalance) => {
@@ -115,6 +121,25 @@ class MobileCompany extends React.PureComponent {
         this.setBalance(105,250);
     };
 
+    filter = (e) => {
+        const {all, active, blocked} = this.refs;
+        let b = [...this.state.buf];// clients buffer
+        switch (e.target) {
+            case all:
+                console.log(this.state.buf);
+                this.setState({clients: [...this.state.buf]});
+                break;
+            case active:
+                console.log(this.state.clients.filter(client => client.status === 'active'));
+                this.setState({clients: b.filter(client => client.status === 'active')});
+                break;
+            case blocked:
+                console.log(this.state.clients.filter(client => client.status === 'blocked'));
+                this.setState({clients: b.filter(client => client.status === 'blocked')});
+                break;
+        }
+    };
+
     render() {
 
         console.log("MobileCompany render");
@@ -136,9 +161,9 @@ class MobileCompany extends React.PureComponent {
                     <div>{`Комнания: ${this.state.name}`}</div>
 
                     <div className='clients_filter'>
-                        <input type="button" value="Все"  />
-                        <input type="button" value="Активные"  />
-                        <input type="button" value="Заблокированные"  />
+                        <input type="button" value="Все" ref='all' onClick={this.filter} />
+                        <input type="button" value="Активные" ref='active' onClick={this.filter} />
+                        <input type="button" value="Заблокированные" ref='blocked' onClick={this.filter} />
                     </div>
                     <table className='MobileCompanyClients'>
                         <thead>

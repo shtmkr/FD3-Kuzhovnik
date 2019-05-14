@@ -19,3 +19,12 @@ span.MobileClientFIO
 .MobileClient .editClient {
     width: 100px;
 }
+
+.MobileClient .active {
+    background-color: #4CAF50;
+    color: #fff;
+}
+.MobileClient .blocked {
+    background-color: #af1626;
+    color: #fff;
+}

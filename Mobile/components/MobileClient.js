@@ -38,12 +38,6 @@ class MobileClient extends React.PureComponent {
 
     save = () => {
         const {dataIM, dataFAM, dataOTCH, dataBALANCE} = this.refs;
-        /*let editedClient = {
-            im: dataIM.value,
-            fam: dataFAM.value,
-            otch: dataOTCH.value,
-            balance: dataBALANCE.value
-        };*/
         let editedClient = {
             id: this.state.client.id,
             fam: dataFAM.value,
@@ -59,13 +53,25 @@ class MobileClient extends React.PureComponent {
     render() {
 
         console.log("MobileClient id="+this.state.client.id+" render");
-
         return (
             <tr key={this.state.client.id} className='MobileClient'>
                 {!this.state.editMode &&
                     Object.keys(this.state.client)
                         .filter(p => p !== 'id')
-                        .map((col, index) => <td key={index}>{this.state.client[col]}</td>)
+                        .map((col, index) => {
+                            if (col === 'status') {
+                                if (this.state.client['balance'] > 0){
+                                    return <td key={index} className='active'>{this.state.client[col]}</td>// active td
+                                } else {
+                                    return <td key={index} className='blocked'>{this.state.client[col]}</td>// blocked td
+                                }
+                            } else {
+                                return <td key={index}>{this.state.client[col]}</td> // base td
+                            }
+                        })
+
+
+
                 }
                 {this.state.editMode &&
                 Object.keys(this.state.client)
