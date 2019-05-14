@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 
 import './MobileClient.css';
 
+import {clientEvents} from './events';
+
 class MobileClient extends React.PureComponent {
 
     static propTypes = {
@@ -14,8 +16,17 @@ class MobileClient extends React.PureComponent {
     };
 
     componentWillReceiveProps = (newProps) => {
-        //console.log("MobileClient id="+this.props.id+" componentWillReceiveProps");
-        //this.setState({FIO:newProps.FIO,balance:newProps.balance});
+       //console.log("MobileClient id="+newProps.client.id+" componentWillReceiveProps");
+        if (newProps.client.id !== this.props.client.id){
+            this.setState({
+                client: newProps.client,
+            })
+        }
+    };
+
+    delete = () => {
+        console.log('delete event handle');
+        clientEvents.emit('delete', this.state.client.id);
     };
 
     render() {
@@ -30,10 +41,10 @@ class MobileClient extends React.PureComponent {
                         .map((col, index) => <td key={index}>{this.state.client[col]}</td>)
                 }
                 <td className='MobileClient__controls_edit'>
-                    <button ref='del' onClick={this.controlsHandler}  disabled={this.props.productCardMode > 1}>Редактировать</button>
+                    <button ref='del' onClick={this.edit}>Редактировать</button>
                 </td>
                 <td className='MobileClient__controls_delete'>
-                    <button ref='edit' onClick={this.controlsHandler} disabled={this.props.productCardMode > 2 || this.props.isProductChanged}>Удалить</button>
+                    <button ref='edit' onClick={this.delete}>Удалить</button>
                 </td>
             </tr>
         );

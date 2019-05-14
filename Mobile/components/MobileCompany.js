@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import MobileClient from './MobileClient';
 import MobileCompanyCard from './MobileCompanyCard';
-import {cardEvents} from './events';
+import {cardEvents, clientEvents} from './events';
 
 import './MobileCompany.css';
 
@@ -26,11 +26,15 @@ class MobileCompany extends React.PureComponent {
     componentDidMount = () => {
         cardEvents.addListener('saveData',this.saveData);
         cardEvents.addListener('cancel',this.cancel);
+        clientEvents.addListener('delete', this.delete);
+        clientEvents.addListener('edit', this.delete);
     };
 
     componentWillUnmount = () => {
         cardEvents.removeListener('saveData',this.saveData);
         cardEvents.removeListener('cancel',this.cancel);
+        clientEvents.addListener('delete', this.delete);
+        clientEvents.addListener('edit', this.delete);
     };
 
     state = {
@@ -42,6 +46,12 @@ class MobileCompany extends React.PureComponent {
     saveData = (clientData) => {
         //console.log('handle save event', clientData);
         this.addClient(clientData)
+    };
+
+    delete = (id) => {
+        this.setState({
+            clients: this.state.clients.filter(client => client.id !== id)
+        });
     };
 
     cancel = () => {
@@ -102,7 +112,7 @@ class MobileCompany extends React.PureComponent {
 
 
         let clientsCode = this.state.clients.map( (client, index) =>
-                <MobileClient client={client} key={index} />
+            <MobileClient client={client} key={index} />
         );
 
         let ths = this.props.titles.map(title =>

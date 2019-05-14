@@ -38,6 +38,7 @@ class MobileCompanyCard extends React.PureComponent {
     };
 
     render() {
+        console.log("MobileCompanyCard render");
         return (
                 <div className='MobileCompanyCard'>
                     <span>Имя</span><input ref='clientName'  />
