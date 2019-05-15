@@ -13,10 +13,17 @@
     width: 100%;
     padding-top: 5px;
     text-align: center;
+    table-layout: fixed;
 }
 
 .MobileCompany .clients_filter {
     margin-top: 20px;
     padding: 10px;
     border-top: solid #FF6600 1px;
+}
+
+.MobileCompany button {
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
 }

@@ -25,15 +25,27 @@ class MobileClient extends React.PureComponent {
         }
     };
 
+    controlsHandler = (e) => {
+        const {del, edit, save} = this.refs;
+        switch (e.target) {
+            case del:
+                this.delete();
+                break;
+            case edit:
+                this.edit();
+                break;
+            case save:
+                this.save();
+                break;
+        }
+    };
+
     delete = () => {
-        console.log('delete event handle');
         clientEvents.emit('delete', this.state.client.id);
     };
 
     edit = () => {
-        console.log('edit event handle');
         this.setState({editMode: true});
-
     };
 
     save = () => {
@@ -69,26 +81,35 @@ class MobileClient extends React.PureComponent {
                                 return <td key={index}>{this.state.client[col]}</td> // base td
                             }
                         })
-
-
-
                 }
                 {this.state.editMode &&
                 Object.keys(this.state.client)
                     .filter(p => p !== 'id')
-                    .map((col, index) =>
-                        <td key={index}>
-                            <input className="editClient" defaultValue={this.state.client[col]} ref={`data${col.toUpperCase()}`}/>
-                        </td>)
+                    .map((col, index) => {
+                        if (col !== 'status') {
+                            return (
+                                    <td key={index}>
+                                        <input className="editClient" defaultValue={this.state.client[col]} ref={`data${col.toUpperCase()}`}/>
+                                    </td>
+                            )
+                        } else {
+                            return <td key={index} className='editing'>editing...</td>// active td
+                        }
+                    }
+                        )
                 }
+                {!this.state.editMode &&
                 <td className='MobileClient__controls_edit'>
-                    <button ref='del' onClick={this.edit}>Редактировать</button>
+                    <button ref='edit' onClick={this.controlsHandler}>Редактировать</button>
                 </td>
+                }
+                {this.state.editMode &&
+                <td className='MobileClient__controls_edit'>
+                    <button ref='save' onClick={this.controlsHandler}>Сохранить</button>
+                </td>
+                }
                 <td className='MobileClient__controls_delete'>
-                    <button ref='edit' onClick={this.delete}>Удалить</button>
-                </td>
-                <td className='MobileClient__controls_edit'>
-                    <button ref='del' onClick={this.save} disabled={!this.state.editMode}>Сохранить</button>
+                    <button ref='del' onClick={this.controlsHandler}>Удалить</button>
                 </td>
             </tr>
         );

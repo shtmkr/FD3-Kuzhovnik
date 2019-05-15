@@ -47,14 +47,13 @@ class MobileCompany extends React.PureComponent {
 
     saveData = (clientData) => {
         //console.log('handle save event', clientData);
-        this.addClient(clientData)
+        this.addClient(clientData);
+        this.cardToggler();
     };
 
     delete = (id) => {
-        this.setState({
-            clients: this.state.clients.filter(client => client.id !== id),
-            buf: this.state.clients.filter(client => client.id !== id),
-        });
+        let f = this.state.clients.filter(client => client.id !== id);
+        this.setState({clients: f, buf: f,});
     };
 
     edit = (client) => {
@@ -67,7 +66,6 @@ class MobileCompany extends React.PureComponent {
     };
 
     cancel = () => {
-        console.log('handle cancel event');
         this.cardToggler();
     };
 
@@ -96,29 +94,6 @@ class MobileCompany extends React.PureComponent {
             clients: newClients,
             buf: newClients
         });
-    };
-
-    setBalance = (clientId,newBalance) => {
-        let changed=false;
-        let newClients=[...this.state.clients]; // копия самого массива клиентов
-        newClients.forEach( (c,i) => {
-            if ( c.id==clientId && c.balance!=newBalance ) {
-                let newClient={...c}; // копия хэша изменившегося клиента
-                newClient.balance=newBalance;
-                newClients[i]=newClient;
-                changed=true;
-            }
-        } );
-        if ( changed )
-            this.setState({clients:newClients});
-    };
-
-    setBalance1 = () => {
-        this.setBalance(105,230);
-    };
-
-    setBalance2 = () => {
-        this.setBalance(105,250);
     };
 
     filter = (e) => {

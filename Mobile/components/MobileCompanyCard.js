@@ -41,10 +41,10 @@ class MobileCompanyCard extends React.PureComponent {
         console.log("MobileCompanyCard render");
         return (
                 <div className='MobileCompanyCard'>
-                    <span>Имя</span><input ref='clientName'  />
-                    <span>Фамилия</span>  <input ref='clientSurname'  />
-                    <span>Отчество</span><input ref='clientOtch'  />
-                    <span>Баланс</span><input ref='clientBalance'  />
+                    <label>Имя</label><input ref='clientName' />
+                    <label>Фамилия</label><input ref='clientSurname' />
+                    <label>Отчество</label><input ref='clientOtch'  />
+                    <label>Баланс</label><input ref='clientBalance'  />
                     <div className='MobileCompanyCard__controls'>
                         <button ref='save' onClick={this.save}>Сохранить</button>
                         <button ref='cancel' onClick={this.cancel}>Отменить</button>

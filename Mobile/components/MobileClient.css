@@ -17,7 +17,11 @@ span.MobileClientFIO
 }
 
 .MobileClient .editClient {
-    width: 100px;
+    text-align: center;
+    width: 120px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
 }
 
 .MobileClient .active {
@@ -26,5 +30,9 @@ span.MobileClientFIO
 }
 .MobileClient .blocked {
     background-color: #af1626;
+    color: #fff;
+}
+.MobileClient .editing {
+    background-color: #af9a36;
     color: #fff;
 }

@@ -1,3 +1,15 @@
 .MobileCompanyCard {
     width: 25%;
 }
+.MobileCompanyCard input {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+.MobileCompanyCard button {
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    width: 50%;
+}
