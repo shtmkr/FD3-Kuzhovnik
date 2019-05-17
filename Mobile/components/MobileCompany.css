@@ -30,6 +30,12 @@
 
 .MobileCompany .activeFilter {
     background-color: #f5c4c6;
-    border: 3px solid #e4def3;
+    border: 1px solid #e4def3;
+    outline: none;
+}
+
+.MobileCompany .defaultFilter {
+    background-color: #fff;
+    border: 1px solid #e4def3;
     outline: none;
 }

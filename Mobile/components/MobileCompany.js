@@ -158,9 +158,9 @@ class MobileCompany extends React.PureComponent {
                     <div>{`Комнания: ${this.state.name}`}</div>
 
                     <div className='clients_filter'>
-                        <input type="button" className={this.state.filterType === 'all' ? 'activeFilter' : null} value="Все" ref='all' onClick={this.filter} />
-                        <input type="button" className={this.state.filterType === 'active' ? 'activeFilter' : null} value="Активные" ref='active' onClick={this.filter} />
-                        <input type="button" className={this.state.filterType === 'blocked' ? 'activeFilter' : null} value="Заблокированные" ref='blocked' onClick={this.filter} />
+                        <input type="button" className={this.state.filterType === 'all' ? 'activeFilter' : 'defaultFilter'} value="Все" ref='all' onClick={this.filter} />
+                        <input type="button" className={this.state.filterType === 'active' ? 'activeFilter' : 'defaultFilter'} value="Активные" ref='active' onClick={this.filter} />
+                        <input type="button" className={this.state.filterType === 'blocked' ? 'activeFilter' : 'defaultFilter'} value="Заблокированные" ref='blocked' onClick={this.filter} />
                     </div>
                     <table className='MobileCompanyClients'>
                         <thead>
