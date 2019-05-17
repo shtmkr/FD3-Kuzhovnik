@@ -43,6 +43,7 @@ class MobileCompany extends React.PureComponent {
         clients: [...this.props.clients],
         buf: [...this.props.clients],
         isCardOpened: false,
+        filterType: '',
     };
 
     defaultId = 120;
@@ -60,12 +61,14 @@ class MobileCompany extends React.PureComponent {
 
     edit = (client) => {
         let newClients = [...this.state.clients];
-        let index = newClients.findIndex(element => element.id === client.id);
-        newClients[index] = client;
+        let newBuffer = [...this.state.buf];
+        let indexBuf = newBuffer.findIndex(element => element.id === client.id); // editing id at buffer
+        let index = newClients.findIndex(element => element.id === client.id); // editing id at current clients
+        newClients[index] = newBuffer[indexBuf] = client;
         this.setState({
             clients: newClients,
-            buf: newClients
-        });
+            buf: newBuffer,
+        }, this.filter);
     };
 
     cancel = () => {
@@ -85,7 +88,7 @@ class MobileCompany extends React.PureComponent {
     };
 
     addClient = (clientData) => {
-        let [last] = this.state.clients.slice(-1);
+        let [last] = this.state.buf.slice(-1);
         let newClient = {
             id: (last !== undefined) ? last.id + 1 : this.defaultId, //default first id
             ...clientData,
@@ -96,25 +99,41 @@ class MobileCompany extends React.PureComponent {
         this.setState({
             clients: newClients,
             buf: [...this.state.buf, newClient]
-        });
+        }, this.filter);
+
     };
 
-    filter = (e) => {
+    filter = (e = {target: this.state.filterType}) => { // e dafault value is fake event = filterType
         const {all, active, blocked} = this.refs;
         let b = [...this.state.buf];// clients buffer
         switch (e.target) {
             case all:
-                console.log(this.state.buf);
-                this.setState({clients: [...this.state.buf]});
+            case 'all': {
+                console.log('1');
+                this.setState({
+                    clients: [...this.state.buf],
+                    filterType: 'all',
+                });
                 break;
+            }
             case active:
-                console.log(this.state.clients.filter(client => client.status === 'active'));
-                this.setState({clients: b.filter(client => client.status === 'active')});
+            case 'active': {
+                console.log('2');
+                this.setState({
+                    clients: b.filter(client => client.status === 'active'),
+                    filterType: 'active',
+                });
                 break;
+            }
             case blocked:
-                console.log(this.state.clients.filter(client => client.status === 'blocked'));
-                this.setState({clients: b.filter(client => client.status === 'blocked')});
+            case 'blocked': {
+                console.log('3');
+                this.setState({
+                    clients: b.filter(client => client.status === 'blocked'),
+                    filterType: 'blocked',
+                });
                 break;
+            }
         }
     };
 
@@ -139,9 +158,9 @@ class MobileCompany extends React.PureComponent {
                     <div>{`Комнания: ${this.state.name}`}</div>
 
                     <div className='clients_filter'>
-                        <input type="button" value="Все" ref='all' onClick={this.filter} />
-                        <input type="button" value="Активные" ref='active' onClick={this.filter} />
-                        <input type="button" value="Заблокированные" ref='blocked' onClick={this.filter} />
+                        <input type="button" className={this.state.filterType === 'all' ? 'activeFilter' : null} value="Все" ref='all' onClick={this.filter} />
+                        <input type="button" className={this.state.filterType === 'active' ? 'activeFilter' : null} value="Активные" ref='active' onClick={this.filter} />
+                        <input type="button" className={this.state.filterType === 'blocked' ? 'activeFilter' : null} value="Заблокированные" ref='blocked' onClick={this.filter} />
                     </div>
                     <table className='MobileCompanyClients'>
                         <thead>
