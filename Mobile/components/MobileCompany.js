@@ -45,6 +45,8 @@ class MobileCompany extends React.PureComponent {
         isCardOpened: false,
     };
 
+    defaultId = 120;
+
     saveData = (clientData) => {
         //console.log('handle save event', clientData);
         this.addClient(clientData);
@@ -61,7 +63,8 @@ class MobileCompany extends React.PureComponent {
         let index = newClients.findIndex(element => element.id === client.id);
         newClients[index] = client;
         this.setState({
-            clients: newClients
+            clients: newClients,
+            buf: newClients
         });
     };
 
@@ -84,7 +87,7 @@ class MobileCompany extends React.PureComponent {
     addClient = (clientData) => {
         let [last] = this.state.clients.slice(-1);
         let newClient = {
-            id: last.id + 1,
+            id: (last !== undefined) ? last.id + 1 : this.defaultId, //default first id
             ...clientData,
             balance: parseInt(clientData.balance),
             status: (parseInt(clientData.balance) > 0) ? 'active': 'blocked',
