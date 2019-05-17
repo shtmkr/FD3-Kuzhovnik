@@ -95,7 +95,7 @@ class MobileCompany extends React.PureComponent {
         let newClients = [...this.state.clients, newClient];
         this.setState({
             clients: newClients,
-            buf: newClients
+            buf: [...this.state.buf, newClient]
         });
     };
 
