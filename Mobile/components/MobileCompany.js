@@ -10,7 +10,6 @@ import './MobileCompany.css';
 class MobileCompany extends React.PureComponent {
 
     static propTypes = {
-        name: PropTypes.string.isRequired,
         titles: PropTypes.array.isRequired,
         clients:PropTypes.arrayOf(
             PropTypes.shape({
@@ -39,7 +38,6 @@ class MobileCompany extends React.PureComponent {
     };
 
     state = {
-        name: this.props.name,
         clients: [...this.props.clients],
         buf: [...this.props.clients],
         isCardOpened: false,
@@ -79,14 +77,6 @@ class MobileCompany extends React.PureComponent {
         this.setState({isCardOpened: !this.state.isCardOpened})
     };
 
-    setName1 = () => {
-        this.setState({name:'МТС'});
-    };
-
-    setName2 = () => {
-        this.setState({name:'Velcom'});
-    };
-
     addClient = (clientData) => {
         let [last] = this.state.buf.slice(-1);
         let newClient = {
@@ -103,13 +93,13 @@ class MobileCompany extends React.PureComponent {
 
     };
 
-    filter = (e = {target: this.state.filterType}) => { // e dafault value is fake event = filterType
+    filter = (e = {target: this.state.filterType}) => { // e default value is fake event = filterType
         const {all, active, blocked} = this.refs;
         let b = [...this.state.buf];// clients buffer
         switch (e.target) {
             case all:
             case 'all': {
-                console.log('1');
+                console.log('filter --------all');
                 this.setState({
                     clients: [...this.state.buf],
                     filterType: 'all',
@@ -118,7 +108,7 @@ class MobileCompany extends React.PureComponent {
             }
             case active:
             case 'active': {
-                console.log('2');
+                console.log('filter --------active');
                 this.setState({
                     clients: b.filter(client => client.status === 'active'),
                     filterType: 'active',
@@ -127,7 +117,7 @@ class MobileCompany extends React.PureComponent {
             }
             case blocked:
             case 'blocked': {
-                console.log('3');
+                console.log('filter --------blocked');
                 this.setState({
                     clients: b.filter(client => client.status === 'blocked'),
                     filterType: 'blocked',
@@ -153,10 +143,6 @@ class MobileCompany extends React.PureComponent {
         return (
             <Fragment>
                 <div className='MobileCompany'>
-                    <input type="button" value="МТС" onClick={this.setName1} />
-                    <input type="button" value="Velcom" onClick={this.setName2} />
-                    <div>{`Комнания: ${this.state.name}`}</div>
-
                     <div className='clients_filter'>
                         <input type="button" className={this.state.filterType === 'all' ? 'activeFilter' : 'defaultFilter'} value="Все" ref='all' onClick={this.filter} />
                         <input type="button" className={this.state.filterType === 'active' ? 'activeFilter' : 'defaultFilter'} value="Активные" ref='active' onClick={this.filter} />
