@@ -69,8 +69,9 @@ input[type="submit"]:hover {
     width: 520px;
     min-height: 100vh;
     background: #fff;
-    margin: auto;
-    padding: 10px;
+    border-radius: 2px;
+    position: relative;
+    padding: 20px 50px;
 }
 .wrap-login-warn {
     width: 520px;
@@ -97,10 +98,10 @@ input[type="submit"]:hover {
     top: 0;
     left: 0;
     background: #e8519e;
-    background: -webkit-linear-gradient(to bottom, #e8519e, #c77ff2);
-    background: -o-linear-gradient(to bottom, #e8519e, #c77ff2);
-    background: -moz-linear-gradient(to bottom, #e8519e, #c77ff2);
-    background: linear-gradient(to bottom, #e8519e, #c77ff2);
+    background: -webkit-linear-gradient(bottom, #e8519e, #c77ff2);
+    background: -o-linear-gradient(bottom, #e8519e, #c77ff2);
+    background: -moz-linear-gradient(bottom, #e8519e, #c77ff2);
+    background: linear-gradient(bottom, #e8519e, #c77ff2);
     opacity: 0
 }
 .login-form {
@@ -163,8 +164,11 @@ input[type="submit"]:hover {
     width: 0;
     height: 2px;
     transition: all 0.8s;
-    background: #d5042d;
-
+    background: #d5007d;
+    background: -webkit-linear-gradient(45deg, #d5007d, #e53935);
+    background: -o-linear-gradient(45deg, #d5007d, #e53935);
+    background: -moz-linear-gradient(45deg, #d5007d, #e53935);
+    background: linear-gradient(45deg, #d5007d, #e53935);
 }
 .input:focus + .focus-input:before {
     width: 100%;
@@ -190,10 +194,10 @@ input[type="submit"]:hover {
     z-index: -1;
     width: 100%;
     height: 300%;
-    background: #356399;
-    /*background: -webkit-linear-gradient(to top, #660099, #86f220, #330033, #8cf216);
-    background: -moz-linear-gradient(to top, #660099, #c77ff2, #330033, #c77ff2);
-    background: linear-gradient(to top, #549299, #1ef23a, #0a330a, #4ef232);*/
+    background: #660099;
+    background: -webkit-linear-gradient(top, #660099, #c77ff2, #330033, #c77ff2);
+    background: -moz-linear-gradient(top, #660099, #c77ff2, #330033, #c77ff2);
+    background: linear-gradient(top, #660099, #c77ff2, #330033, #c77ff2);
     bottom: -100%;
     left: 0;
     transition: all 0.4s;
