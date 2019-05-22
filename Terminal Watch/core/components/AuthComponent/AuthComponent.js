@@ -27,7 +27,7 @@ class AuthComponent extends React.PureComponent {
 
     render() {
 
-        console.log("AuthComponent render");
+        console.log("LogIn render");
         return (
             <div className="container-login">
                 <div className="wrap-login">
