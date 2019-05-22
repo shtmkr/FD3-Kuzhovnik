@@ -1,11 +1,12 @@
 import React from 'react';
 import logo from './logo.svg';
-import AuthComponent from './components/AuthComponent/AuthComponent'
+import LogIn from './components/AuthComponent/LogIn'
 import './App.css';
 
 function App() {
   return (
-    <AuthComponent/>
+    <LogIn/>
+
   );
 }
 
