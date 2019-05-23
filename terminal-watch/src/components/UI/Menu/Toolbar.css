@@ -1,0 +1,71 @@
+.Toolbar {
+    padding: 0;
+    background-color: white;
+    border: 1px solid #c8c8c8;;
+}
+.Toolbar .toolbar-list {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.Toolbar .toolbar-item {
+    display: inline-block;
+    position: relative;
+    margin: 0;
+}
+.Toolbar .toolbar-item-link {
+    padding: 0.714em 0.857em;
+    display: block;
+    position: relative;
+    text-decoration: none;
+    color: #333333;
+    font-weight: normal;
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+    -moz-transition: background-color 0.2s, box-shadow 0.2s;
+    -o-transition: background-color 0.2s, box-shadow 0.2s;
+    -webkit-transition: background-color 0.2s, box-shadow 0.2s;
+    transition: background-color 0.2s, box-shadow 0.2s;
+}
+.Toolbar .toolbar-item-icon {
+    vertical-align: middle;
+    margin-right: 0.5em;
+}
+.Toolbar .toolbar-item-text {
+    vertical-align: middle;
+    color: #333333;
+}
+.Toolbar .toolbar-item-arrow {
+    vertical-align: middle;
+    margin-left: .25em;
+}
+.Toolbar .toolbar-additional {
+    float: right;
+    padding: .25em;
+}
+.Toolbar .toolbar-input-search {
+    font-size: 14px;
+    color: #333333;
+    background: #ffffff;
+    padding: 0.429em;
+    border: 1px solid #a6a6a6;
+    -moz-transition: border-color 0.2s, box-shadow 0.2s;
+    -o-transition: border-color 0.2s, box-shadow 0.2s;
+    -webkit-transition: border-color 0.2s, box-shadow 0.2s;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+}
+.Toolbar .toolbar-input-search:hover, .Toolbar .toolbar-input-search:focus {
+    border-color: #212121!important;
+}
+.Toolbar .toolbar-logout {
+    margin-left: 5px;
+    background-color: darkred;
+}
+.material-icons.md-18 { font-size: 18px; }
