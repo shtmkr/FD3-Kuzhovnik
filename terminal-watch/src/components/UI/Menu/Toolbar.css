@@ -1,5 +1,5 @@
 .Toolbar {
-    padding: 0;
+    padding: 0 5px;
     background-color: white;
     border: 1px solid #c8c8c8;;
 }
@@ -13,6 +13,25 @@
     display: inline-block;
     position: relative;
     margin: 0;
+}
+.Toolbar .nested-list-hidden {
+    display: none;
+}
+.Toolbar .nested-list-active {
+    display: block;
+    position: absolute;
+    padding: 0;
+    background-color: #ffffff;
+    border: 1px solid #c8c8c8;
+    width: 160px;
+    text-align: left;
+    list-style: none;
+}
+.Toolbar .nested-list-active li:hover{
+    background-color: #eaeaea
+}
+.Toolbar .toolbar-item:hover {
+    background-color: #eaeaea;
 }
 .Toolbar .toolbar-item-link {
     padding: 0.714em 0.857em;
@@ -67,5 +86,10 @@
 .Toolbar .toolbar-logout {
     margin-left: 5px;
     background-color: darkred;
+    border-radius: 20px;
+}
+.Toolbar i {
+    padding-right: 5px;
+    font-size: 18px;
 }
 .material-icons.md-18 { font-size: 18px; }

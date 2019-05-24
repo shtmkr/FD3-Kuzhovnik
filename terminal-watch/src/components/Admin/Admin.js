@@ -2,9 +2,14 @@ import React from "react";
 
 import Toolbar from '../UI/Menu/Toolbar.js'
 
-class Admin extends React.PureComponent{
+const menu = require('./menu');
+
+class Admin extends React.PureComponent {
+
     render () {
-        return <Toolbar/>;
+        return (
+            <Toolbar menu={menu}/>
+        );
     }
 }
 
