@@ -1,7 +1,6 @@
 import React, {Fragment} from 'react';
 import PropTypes from 'prop-types';
 import {withRouter} from "react-router-dom";
-import Message from '../Message/Message'
 
 import './Toolbar.css';
 
@@ -12,7 +11,6 @@ class Toolbar extends React.PureComponent {
     };
 
     componentDidMount = () => {
-        this.props.evt.emit('loaded', 'Welcome to tWatch!');
     };
 
     componentWillUnmount = () => {
@@ -90,7 +88,6 @@ class Toolbar extends React.PureComponent {
                     <input className='toolbar-input-search' type='text' placeholder='Поиск...'/>
                     <button className="mdc-button mdc-button--raised toolbar-logout " onClick={this.logout}><i className="material-icons">exit_to_app</i>Выйти</button>
                 </div>
-                <Message/>
             </div>
         );
     }

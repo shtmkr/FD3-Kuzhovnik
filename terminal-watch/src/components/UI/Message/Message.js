@@ -2,7 +2,7 @@ import React, {Fragment} from 'react';
 import PropTypes from 'prop-types';
 
 import './Message.css';
-import {toolbarEvents} from '../../Admin/Admin'
+import {appEvents} from '../../../App'
 
 class Message extends React.PureComponent {
 
@@ -10,22 +10,48 @@ class Message extends React.PureComponent {
     };
 
     componentDidMount = () => {
-        toolbarEvents.addListener('loaded',this.show);
+        appEvents.addListener('loaded',this.show);
     };
 
     componentWillUnmount = () => {
-        toolbarEvents.removeListener('loaded');
+        appEvents.removeListener('loaded', this.show);
     };
 
     state = {
         isShowed: false,
         messageText: '',
+        style: {
+            background: ''
+        },
+        icon: 'verified_user'
     };
 
-    show = (data) => {
-        this.setState({isShowed: true, messageText: data}, () => {
-            setTimeout(this.hide, 3000)
-        })
+    show = (messageData) => {
+        if (messageData.type === 'success'){
+            this.setState({isShowed: true,
+                messageText: messageData.message,
+                style: {background: 'rgba(51, 170, 51, .4)'}}, () => {
+                setTimeout(this.hide, 6000)
+            })
+        }
+        if (messageData.type === 'warning'){
+            this.setState({isShowed: true,
+                messageText: messageData.message,
+                style: {background: 'rgba(255, 204, 0, .4)'},
+                icon: 'warning'
+            }, () => {
+                setTimeout(this.hide, 6000)
+            })
+        }
+        if (messageData.type === 'error'){
+            this.setState({isShowed: true,
+                messageText: messageData.message,
+                style: {background: 'rgba(226, 0, 0, .4)'},
+                icon: 'error'
+            }, () => {
+                setTimeout(this.hide, 6000)
+            })
+        }
     };
 
     hide = () => {
@@ -37,7 +63,13 @@ class Message extends React.PureComponent {
         console.log("Message render");
 
         return (
-            this.state.isShowed && <div className='Message'><span>{this.state.messageText}</span></div>
+            this.state.isShowed
+            &&
+            <div className='Message' style={this.state.style}>
+                <i className="material-icons message-icon">{this.state.icon}</i>
+                <span>{this.state.messageText}</span>
+                <i className="material-icons message-clear" onClick={this.hide}>clear</i>
+            </div>
         );
     }
 

@@ -1,17 +1,21 @@
-import React from "react";
-import {EventEmitter} from 'events';
+import React, {Fragment} from "react";
+import Toolbar from '../UI/Menu/Toolbar'
+import Message from "../UI/Message/Message";
 
-import Toolbar from '../UI/Menu/Toolbar.js'
-
-
-export const toolbarEvents = new EventEmitter();
 const menu = require('./menu');
 
 class Admin extends React.PureComponent {
 
+    componentDidMount = () => {
+        this.props.evt.emit('loaded', {type: 'success', message: 'Welcome to tWatch!'});
+    };
+
     render () {
         return (
-            <Toolbar menu={menu} evt={toolbarEvents}/>
+            <Fragment>
+                <Toolbar menu={menu}/>
+                <Message/>
+            </Fragment>
         );
     }
 }
