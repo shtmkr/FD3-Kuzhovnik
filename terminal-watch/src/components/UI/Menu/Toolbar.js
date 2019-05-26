@@ -8,6 +8,7 @@ class Toolbar extends React.PureComponent {
 
     static propTypes = {
         menu: PropTypes.array.isRequired,
+        evt: PropTypes.object.isRequired,
     };
 
     componentDidMount = () => {
@@ -22,13 +23,16 @@ class Toolbar extends React.PureComponent {
     };
 
     menuItemClick = (e, index) => {
-        console.log(e.target);
         e.stopPropagation();
         if (this.state.activeIdx === index) {
             this.setState({activeIdx: null})
         } else {
             this.setState({activeIdx: index})
         }
+    };
+
+    subMenuClick = (e) => {
+        this.props.evt.emit('subMenuSelected', e.target)
     };
 
     menuItemHover = (e, index) => {
@@ -64,11 +68,12 @@ class Toolbar extends React.PureComponent {
                                     {item.nested && <span className='toolbar-item-arrow material-icons md-18'>arrow_drop_down</span>}
                                 </a>
                                     {(item.nested && this.state.activeIdx === index)
-                                        ? <ul className={'nested-list-active'} ref={`nested${index}`}>
+                                        ? <ul className={'nested-list-active'}>
                                             {
                                                 item.nested.map((nestedItem, nestedIndex) => {
                                                 return (
-                                                    <li key={nestedIndex}>
+                                                    <li key={nestedIndex}
+                                                        onClick={this.subMenuClick}>
                                                         <a className='toolbar-item-link' href="#">
                                                             <span className='toolbar-item-icon material-icons md-18'>{nestedItem.icon}</span>
                                                             <span className='toolbar-item-text'>{nestedItem.label}</span>

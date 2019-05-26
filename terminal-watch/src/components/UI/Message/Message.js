@@ -11,10 +11,12 @@ class Message extends React.PureComponent {
 
     componentDidMount = () => {
         appEvents.addListener('loaded',this.show);
+        appEvents.addListener('atmLoaded',this.show);
     };
 
     componentWillUnmount = () => {
         appEvents.removeListener('loaded', this.show);
+        appEvents.removeListener('atmLoaded', this.show);
     };
 
     state = {
@@ -31,7 +33,7 @@ class Message extends React.PureComponent {
             this.setState({isShowed: true,
                 messageText: messageData.message,
                 style: {background: 'rgba(51, 170, 51, .4)'}}, () => {
-                setTimeout(this.hide, 6000)
+                setTimeout(this.hide, 5000)
             })
         }
         if (messageData.type === 'warning'){
@@ -40,7 +42,7 @@ class Message extends React.PureComponent {
                 style: {background: 'rgba(255, 204, 0, .4)'},
                 icon: 'warning'
             }, () => {
-                setTimeout(this.hide, 6000)
+                setTimeout(this.hide, 5000)
             })
         }
         if (messageData.type === 'error'){
@@ -49,7 +51,7 @@ class Message extends React.PureComponent {
                 style: {background: 'rgba(226, 0, 0, .4)'},
                 icon: 'error'
             }, () => {
-                setTimeout(this.hide, 6000)
+                setTimeout(this.hide, 5000)
             })
         }
     };
