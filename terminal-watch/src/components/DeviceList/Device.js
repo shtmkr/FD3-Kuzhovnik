@@ -57,11 +57,16 @@ class Device extends React.PureComponent {
         /*clientEvents.emit('edit', editedClient);*/
     };
 
+    showContextMenu = (e) => {
+        e.preventDefault();
+        console.dir(e.nativeEvent)
+    };
+
     render() {
 
         console.log("Device id="+this.state.device.serialNum+" render");
         return (
-            <tr key={this.state.device.id} className='Device'>
+            <tr key={this.state.device.id} className='Device' onContextMenu={this.showContextMenu}>
                 {!this.state.editMode &&
                 Object.keys(this.state.device)
                     .filter(p => p !== 'id')
