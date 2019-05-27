@@ -107,7 +107,9 @@ class DeviceList extends React.PureComponent {
         const indexOfFirst = indexOfLast - this.props.devicesPerPage;
         const currentDevices = devices.slice(indexOfFirst, indexOfLast);
 
-        return currentDevices.map(device => <Device device={device} key={device.serialNum} selected={this.state.selectedItemIdx}/>);
+        return currentDevices.map(device => (this.state.selectedItemIdx === device.serialNum)
+            ? <Device device={device} key={device.serialNum} selected={this.state.selectedItemIdx}/>
+            : <Device device={device} key={device.serialNum}/>)
     };
 
     render () {

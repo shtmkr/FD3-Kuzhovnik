@@ -6,7 +6,7 @@ class Device extends React.PureComponent {
 
     static propTypes = {
         device: PropTypes.object.isRequired,
-        selected: PropTypes.string.isRequired,
+        selected: PropTypes.string,
     };
 
     state = {
@@ -20,10 +20,10 @@ class Device extends React.PureComponent {
     };
 
     componentWillReceiveProps = (newProps) => {
-        if (newProps.selected !== this.props.selected) {
+        /*if (newProps.selected !== this.props.selected) {
             this.setState({selected: newProps.selected})
         }
-        console.log('new props')
+        console.log('new props')*/
     };
 
     controlsHandler = (e) => {
@@ -77,7 +77,7 @@ class Device extends React.PureComponent {
 
         console.log("Device id="+this.state.device.serialNum+" render");
         let style = {...this.state.style};
-        (this.state.selected === this.props.device.serialNum) ? style.backgroundColor = '#f3b740' : style.backgroundColor = '#fff';
+        (this.props.hasOwnProperty('selected')) ? style.backgroundColor = '#f3b740' : style.backgroundColor = '#fff';
         return (
             <Fragment>
                 <tr key={this.state.device.serialNum}
