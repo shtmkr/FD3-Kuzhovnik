@@ -1,0 +1,29 @@
+.ContextMenu {
+    display: block;
+    z-index: 100;
+    opacity: 1;
+    border: 1px solid #c8c8c8;;
+    width: 12em;
+    height: auto;
+    position: absolute;
+    background-color: #ffffff;
+}
+.ContextMenu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.ContextMenu .context-list-item {
+    padding: 0.714em 0.857em;
+    color: #333333;
+    font-weight: normal;
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+}
+.ContextMenu .context-list-item span {
+    padding-right: 10px;
+}
+.ContextMenu .context-list-item:hover {
+    background-color: #eaeaea;
+}

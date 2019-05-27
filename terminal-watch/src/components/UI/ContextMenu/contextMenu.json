@@ -1,0 +1,5 @@
+[
+  {"icon":  "search", "label":  "Просмотр"},
+  {"icon":  "edit", "label":  "Редактирование"},
+  {"icon":  "delete", "label":  "Удалить"}
+]

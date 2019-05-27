@@ -1,23 +1,29 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import PropTypes from 'prop-types';
+import {listUnitsEvents} from "../../events/events";
 
 class Device extends React.PureComponent {
 
     static propTypes = {
         device: PropTypes.object.isRequired,
+        selected: PropTypes.string.isRequired,
     };
 
     state = {
         device: this.props.device,
         editMode: false,
+        style: {
+            backgroundColor: '#fff',
+            color: '#000'
+        },
+        selected: this.props.selected,
     };
 
     componentWillReceiveProps = (newProps) => {
-        if (newProps.device !== this.props.device){
-            this.setState({
-                device: newProps.device,
-            })
+        if (newProps.selected !== this.props.selected) {
+            this.setState({selected: newProps.selected})
         }
+        console.log('new props')
     };
 
     controlsHandler = (e) => {
@@ -59,22 +65,35 @@ class Device extends React.PureComponent {
 
     showContextMenu = (e) => {
         e.preventDefault();
-        console.dir(e.nativeEvent)
+        listUnitsEvents.emit('showContext', e);
+        listUnitsEvents.emit('highlightItem', this.state.device.serialNum);
+    };
+
+    hideContextMenu = (e) => {
+        listUnitsEvents.emit('hideContext', e);
     };
 
     render() {
 
         console.log("Device id="+this.state.device.serialNum+" render");
+        let style = {...this.state.style};
+        (this.state.selected === this.props.device.serialNum) ? style.backgroundColor = '#f3b740' : style.backgroundColor = '#fff';
         return (
-            <tr key={this.state.device.id} className='Device' onContextMenu={this.showContextMenu}>
-                {!this.state.editMode &&
-                Object.keys(this.state.device)
-                    .filter(p => p !== 'id')
-                    .map((col, index) => {
-                        return <td key={index}>{this.state.device[col]}</td> // base td
-                    })
-                }
-                {/*{this.state.editMode &&
+            <Fragment>
+                <tr key={this.state.device.serialNum}
+                    className='Device'
+                    onContextMenu={this.showContextMenu}
+                    /*onClick={this.hideContextMenu}*/
+                    style={style}
+                >
+                    {!this.state.editMode &&
+                    Object.keys(this.state.device)
+                        .filter(p => p !== 'id')
+                        .map((col, index) => {
+                            return <td key={index}>{this.state.device[col]}</td> // base td
+                        })
+                    }
+                    {/*{this.state.editMode &&
                 Object.keys(this.state.device)
                     .filter(p => p !== 'id')
                     .map((col, index) => {
@@ -103,7 +122,8 @@ class Device extends React.PureComponent {
                 <td className='MobileClient__controls_delete'>
                     <button ref='del' onClick={this.controlsHandler}>Удалить</button>
                 </td>*/}
-            </tr>
+                </tr>
+            </Fragment>
         );
 
     }

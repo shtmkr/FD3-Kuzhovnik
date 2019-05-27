@@ -4,8 +4,8 @@ import Toolbar from '../UI/Menu/Toolbar'
 import Message from "../UI/Message/Message";
 import DeviceList from "../DeviceList/DeviceList";
 
-const menu = require('./menu');
-const atm = require('./devicesATM');
+const menu = require('./menu.json');
+const atm = require('./devicesATM.json');
 
 class Admin extends React.PureComponent {
 

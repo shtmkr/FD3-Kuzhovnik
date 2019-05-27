@@ -2,6 +2,8 @@ import React, {Fragment} from "react";
 import PropTypes from 'prop-types';
 import './DeviceList.css'
 import Device from "./Device";
+import ContextMenu from '../UI/ContextMenu/ContextMenu'
+import {listUnitsEvents} from "../../events/events";
 
 const titles = ['Номер устройства','Модель устройства', 'Адрес установки', 'Статус'];
 
@@ -17,9 +19,19 @@ class DeviceList extends React.PureComponent {
         devices: this.props.devices,
         pagesCount: Math.round(this.props.devices.length/this.props.devicesPerPage),
         currentPage: 1,
+        selectedItemIdx: '',
     };
 
     componentDidMount = () => {
+        listUnitsEvents.addListener('highlightItem',this.highlightItem);
+    };
+
+    componentWillUnmount = () => {
+        listUnitsEvents.removeListener('highlightItem', this.highlightItem);
+    };
+
+    highlightItem = (id) => {
+        this.setState({selectedItemIdx: id})
     };
 
     paginatorHandler = (e) => {
@@ -95,7 +107,7 @@ class DeviceList extends React.PureComponent {
         const indexOfFirst = indexOfLast - this.props.devicesPerPage;
         const currentDevices = devices.slice(indexOfFirst, indexOfLast);
 
-        return currentDevices.map(device => <Device device={device} key={device.serialNum}/>);
+        return currentDevices.map(device => <Device device={device} key={device.serialNum} selected={this.state.selectedItemIdx}/>);
     };
 
     render () {
@@ -110,6 +122,7 @@ class DeviceList extends React.PureComponent {
                     <tbody>{this.createPage(this.state.currentPage)}</tbody>
                 </table>
                 {this.createPaginator()}
+                <ContextMenu/>
             </Fragment>
 
         );

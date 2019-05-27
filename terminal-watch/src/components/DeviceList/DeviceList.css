@@ -14,8 +14,6 @@
 .DeviceList tbody > tr > td {
     padding: 0.571em 0.857em;
     border: 1px solid #c8c8c8;
-    color: #333333;
-    background-color: #ffffff;
     text-align: center;
 }
 .DeviceList thead > tr > th > input {
