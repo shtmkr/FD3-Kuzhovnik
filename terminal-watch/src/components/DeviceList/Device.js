@@ -63,27 +63,28 @@ class Device extends React.PureComponent {
         /*clientEvents.emit('edit', editedClient);*/
     };
 
-    showContextMenu = (e) => {
+    itemRightClick = (e) => {
         e.preventDefault();
         listUnitsEvents.emit('showContext', e);
         listUnitsEvents.emit('highlightItem', this.state.device.serialNum);
     };
 
-    hideContextMenu = (e) => {
-        listUnitsEvents.emit('hideContext', e);
+    itemLeftClick = (e) => {
+        listUnitsEvents.emit('highlightItem', this.state.device.serialNum); // request highlight on click
+        listUnitsEvents.emit('hideContext', e); // request hide context menu on click
     };
 
     render() {
 
         console.log("Device id="+this.state.device.serialNum+" render");
         let style = {...this.state.style};
-        (this.props.hasOwnProperty('selected')) ? style.backgroundColor = '#f3b740' : style.backgroundColor = '#fff';
+        (this.props.hasOwnProperty('selected')) ? style.backgroundColor = '#d2d2d2' : style.backgroundColor = '#fff';
         return (
             <Fragment>
                 <tr key={this.state.device.serialNum}
                     className='Device'
-                    onContextMenu={this.showContextMenu}
-                    /*onClick={this.hideContextMenu}*/
+                    onContextMenu={this.itemRightClick}
+                    onClick={this.itemLeftClick}
                     style={style}
                 >
                     {!this.state.editMode &&

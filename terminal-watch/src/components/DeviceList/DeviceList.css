@@ -1,7 +1,8 @@
 .DeviceList {
     width: 100%;
     table-layout: fixed;
-    border-collapse: collapse
+    border-collapse: collapse;
+    cursor: pointer;
 }
 .DeviceList thead > tr > th {
     padding: 0.571em 0.857em;
@@ -10,6 +11,7 @@
     color: #333333;
     background-color: #f4f4f4;
     text-align: center;
+    cursor: default;
 }
 .DeviceList tbody > tr > td {
     padding: 0.571em 0.857em;
@@ -33,9 +35,9 @@
     box-sizing: border-box;
 }
 .DeviceList thead > tr > th > input:focus {
-    -webkit-box-shadow: 0px 0px 3px 1px rgba(28,153,88,0.84);
-    -moz-box-shadow: 0px 0px 3px 1px rgba(28,153,88,0.84);
-    box-shadow: 0px 0px 3px 1px rgba(28,153,88,0.84);
+    -webkit-box-shadow: 0px 0px 3px 1px rgba(97, 99, 90, 0.84);
+    -moz-box-shadow: 0px 0px 3px 1px rgba(97, 99, 90, 0.84);
+    box-shadow: 0px 0px 3px 1px rgba(97, 99, 90, 0.84);
 }
 .paginator-bottom {
     border: 1px solid #c8c8c8;

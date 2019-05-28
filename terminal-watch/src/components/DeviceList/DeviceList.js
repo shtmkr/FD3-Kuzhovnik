@@ -17,9 +17,11 @@ class DeviceList extends React.PureComponent {
 
     state = {
         devices: this.props.devices,
-        pagesCount: Math.round(this.props.devices.length/this.props.devicesPerPage),
+        pagesCount: Math.ceil(this.props.devices.length/this.props.devicesPerPage),
         currentPage: 1,
         selectedItemIdx: '',
+        filter: '',
+        filterIdx: null,
     };
 
     componentDidMount = () => {
@@ -68,33 +70,67 @@ class DeviceList extends React.PureComponent {
         }
     };
 
+    filter = () => {
+        let list;
+        let colName;
+        if (this.state.filter !== ''){
+            list = this.props.devices.filter( (device) => {
+                colName = Object.keys(device)[this.state.filterIdx]; // get a specific col name by index for filtering
+                if(~device[colName].indexOf(this.state.filter)) return true
+            });
+        }
+        else {
+            list = [...this.props.devices];
+        }
+        /*if (this.state.sorted){ //TODO sort?
+            list.sort();
+        }*/
+        this.setState({devices: list});
+    };
+
+    filterHandler = (e) => {
+        console.log(e.target.value);
+        console.dir();
+        this.setState({
+            filter: e.target.value,
+            filterIdx: parseInt(e.target.id.match(/\d+/)[0]), // filter input index
+        },  this.filter)
+    };
+
     createPaginator = () => {
         let pages = [];
-        for (let i = 1; i <= this.state.pagesCount; i++ ) {
+        let count = Math.ceil(this.state.devices.length/this.props.devicesPerPage);
+        for (let i = 1; i <= count; i++ ) {
             pages.push(
                 <button className={this.state.currentPage === i ? 'paginator-page-index active' : 'paginator-page-index'}
                                key={`paginator-page-index-${i}`}
                                onClick={this.paginatorHandler}
                 >{i}</button>)
         }
-        let paginator = (
+        return (
             <div className='paginator-bottom'>
-                <button className='paginator-first material-icons' key={'paginator-first'} ref='first' onClick={this.paginatorHandler}>first_page</button>
-                <button className='paginator-prev material-icons' key={'paginator-prev'} ref='prev' onClick={this.paginatorHandler}>chevron_left</button>
+                <button className='paginator-first material-icons' key={'paginator-first'} ref='first'
+                        onClick={this.paginatorHandler}>first_page
+                </button>
+                <button className='paginator-prev material-icons' key={'paginator-prev'} ref='prev'
+                        onClick={this.paginatorHandler}>chevron_left
+                </button>
                 {pages}
-                <button className='paginator-next material-icons' key={'paginator-next'} ref='next' onClick={this.paginatorHandler}>chevron_right</button>
-                <button className='paginator-last material-icons' key={'paginator-last'} ref='last' onClick={this.paginatorHandler}>last_page</button>
-            </div>);
-        console.log(paginator);
-        return paginator
+                <button className='paginator-next material-icons' key={'paginator-next'} ref='next'
+                        onClick={this.paginatorHandler}>chevron_right
+                </button>
+                <button className='paginator-last material-icons' key={'paginator-last'} ref='last'
+                        onClick={this.paginatorHandler}>last_page
+                </button>
+            </div>)
     };
 
     createHead = () => {
-        return titles.map(title => {
+        return titles.map((title, index) => {
                 return (
                     <th key={title}>
                         <span>{title}</span>
-                        <input/>
+                        <input onKeyUp={this.filterHandler} id={`filterInput${index}`}/>
                     </th>
                 )
             }
