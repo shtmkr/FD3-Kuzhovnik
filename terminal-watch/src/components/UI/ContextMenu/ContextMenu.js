@@ -47,6 +47,10 @@ class ContextMenu extends React.PureComponent {
         return {top: e.nativeEvent.clientY, left: e.nativeEvent.clientX}
     };
 
+    handleContextMenuItemClick = (e) => {
+        console.log('context menu ' + e.target + ' clicked')
+    };
+
     render () {
         console.log('ContextMenu render');
         return (
@@ -57,7 +61,7 @@ class ContextMenu extends React.PureComponent {
                     <ul className='context-list'>
                         {contextMenu.map((contextMenuItem, index) => {
                             return (
-                                <li className='context-list-item' key={`context-item-${index}`}>
+                                <li className='context-list-item' key={`context-item-${index}`} onClick={this.handleContextMenuItemClick}>
                                     <span className='material-icons'>{contextMenuItem.icon}</span>
                                     <span className=''>{contextMenuItem.label}</span>
                                 </li>

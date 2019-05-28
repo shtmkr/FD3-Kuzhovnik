@@ -89,8 +89,6 @@ class DeviceList extends React.PureComponent {
     };
 
     filterHandler = (e) => {
-        console.log(e.target.value);
-        console.dir();
         this.setState({
             filter: e.target.value,
             filterIdx: parseInt(e.target.id.match(/\d+/)[0]), // filter input index
