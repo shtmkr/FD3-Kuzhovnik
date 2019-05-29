@@ -14,7 +14,7 @@ class Admin extends React.PureComponent {
     };
 
     state = {
-        deviceList: '',
+        list: '',
     };
 
     componentDidMount = () => {
@@ -28,7 +28,7 @@ class Admin extends React.PureComponent {
 
     startSubMenuProcess = (submenu) => {
         if (submenu.textContent === 'Банкоматы'){
-            this.setState({deviceList: submenu.textContent})
+            this.setState({list: submenu.textContent})
         }
     };
 
@@ -37,7 +37,7 @@ class Admin extends React.PureComponent {
             <Fragment>
                 <Toolbar menu={menu} evt={this.props.evt}/>
                 <Message/>
-                {this.state.deviceList === 'Банкоматы'
+                {this.state.list === 'Банкоматы'
                 && <DeviceList evt={this.props.evt} devices={atm} devicesPerPage={10}/>
                 }
             </Fragment>
