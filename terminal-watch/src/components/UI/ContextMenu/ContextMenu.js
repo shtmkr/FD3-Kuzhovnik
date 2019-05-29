@@ -8,6 +8,7 @@ const contextMenu = require('./contextMenu.json');
 class ContextMenu extends React.PureComponent {
 
     static propTypes = {
+        forElement: PropTypes.string,
     };
 
     state = {
@@ -48,7 +49,12 @@ class ContextMenu extends React.PureComponent {
     };
 
     handleContextMenuItemClick = (e) => {
-        console.log('context menu ' + e.target + ' clicked')
+        let li;
+        (e.target.tagName !== 'LI') ? li = e.target.parentElement :  li = e.target; // selected context menu li
+        let id = parseInt(li.id.match(/\d+/)[0]);
+        let selectedContextMenu = contextMenu.find( (contextMenuItem, index) => (index === id) ? contextMenuItem : false);
+
+        listUnitsEvents.emit('performFn', selectedContextMenu.fn, this.props.forElement); // emit event for DeviceList
     };
 
     render () {
@@ -61,7 +67,10 @@ class ContextMenu extends React.PureComponent {
                     <ul className='context-list'>
                         {contextMenu.map((contextMenuItem, index) => {
                             return (
-                                <li className='context-list-item' key={`context-item-${index}`} onClick={this.handleContextMenuItemClick}>
+                                <li className='context-list-item'
+                                    key={`context-item-${index}`}
+                                    id={`context-item-${index}`}
+                                    onClick={this.handleContextMenuItemClick}>
                                     <span className='material-icons'>{contextMenuItem.icon}</span>
                                     <span className=''>{contextMenuItem.label}</span>
                                 </li>

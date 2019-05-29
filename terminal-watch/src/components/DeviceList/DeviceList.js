@@ -26,14 +26,31 @@ class DeviceList extends React.PureComponent {
 
     componentDidMount = () => {
         listUnitsEvents.addListener('highlightItem',this.highlightItem);
+        listUnitsEvents.addListener('performFn', this.contextMenuHandler);
     };
 
     componentWillUnmount = () => {
         listUnitsEvents.removeListener('highlightItem', this.highlightItem);
+        listUnitsEvents.removeListener('performFn', this.contextMenuHandler)
     };
 
     highlightItem = (id) => {
         this.setState({selectedItemIdx: id})
+    };
+
+    contextMenuHandler = (fn, id) => {
+        console.log(fn, id);
+        switch (fn) {
+            case 'deleteElement': {
+                let f = this.state.devices.filter(device => device.serialNum !== id);
+                let conf = window.confirm(`Вы действительно хотите удалить ${id}?`); //TODO create modal message component?
+                if (conf){
+                    listUnitsEvents.emit('hideContext');
+                    this.props.evt.emit('info', {type: 'success', message: `Устройство ${id} удалено`});
+                    this.setState({devices: f, });
+                }
+            }
+        }
     };
 
     paginatorHandler = (e) => {
@@ -78,6 +95,9 @@ class DeviceList extends React.PureComponent {
                 colName = Object.keys(device)[this.state.filterIdx]; // get a specific col name by index for filtering
                 if(~device[colName].indexOf(this.state.filter)) return true
             });
+            if (list.length === 0 || list === undefined) { // if filter no results
+                this.props.evt.emit('info', {type: 'error', message: `Нет такого устройства`});
+            }
         }
         else {
             list = [...this.props.devices];
@@ -158,7 +178,7 @@ class DeviceList extends React.PureComponent {
                     <tbody>{this.createPage(this.state.currentPage)}</tbody>
                 </table>
                 {this.createPaginator()}
-                <ContextMenu/>
+                <ContextMenu forElement={this.state.selectedItemIdx}/>
             </Fragment>
 
         );

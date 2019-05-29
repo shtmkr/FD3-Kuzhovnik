@@ -11,12 +11,14 @@ class Message extends React.PureComponent {
 
     componentDidMount = () => {
         appEvents.addListener('loaded',this.show);
+        appEvents.addListener('info',this.show);
         appEvents.addListener('atmLoaded',this.show);
     };
 
     componentWillUnmount = () => {
         appEvents.removeListener('loaded', this.show);
         appEvents.removeListener('atmLoaded', this.show);
+        appEvents.removeListener('info', this.show);
     };
 
     state = {

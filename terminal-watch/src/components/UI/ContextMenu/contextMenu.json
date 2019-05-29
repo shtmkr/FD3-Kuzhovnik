@@ -1,5 +1,5 @@
 [
-  {"icon":  "search", "label":  "Просмотр"},
-  {"icon":  "edit", "label":  "Редактирование"},
-  {"icon":  "delete", "label":  "Удалить"}
+  {"icon":  "search", "label":  "Просмотр", "fn": "viewElement"},
+  {"icon":  "edit", "label":  "Редактирование", "fn": "editElement"},
+  {"icon":  "delete", "label":  "Удалить", "fn": "deleteElement"}
 ]
