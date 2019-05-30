@@ -54,7 +54,7 @@ class ContextMenu extends React.PureComponent {
         let id = parseInt(li.id.match(/\d+/)[0]);
         let selectedContextMenu = contextMenu.find( (contextMenuItem, index) => (index === id) ? contextMenuItem : false);
 
-        listUnitsEvents.emit('performFn', selectedContextMenu.fn, this.props.forElement); // emit event for DeviceList
+        listUnitsEvents.emit('performFn', selectedContextMenu.fn, this.props.forElement); // emit event to DeviceList
     };
 
     render () {

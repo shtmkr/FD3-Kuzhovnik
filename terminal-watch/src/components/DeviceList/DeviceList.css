@@ -3,6 +3,7 @@
     table-layout: fixed;
     border-collapse: collapse;
     cursor: pointer;
+    user-select: none;
 }
 .DeviceList thead > tr > th {
     padding: 0.571em 0.857em;
@@ -12,6 +13,12 @@
     background-color: #f4f4f4;
     text-align: center;
     cursor: default;
+    background-clip: padding-box;
+    position: relative;
+
+}
+.DeviceList .user-select-none {
+    user-select: none;
 }
 .DeviceList tbody > tr > td {
     padding: 0.571em 0.857em;
@@ -74,4 +81,15 @@
 .active {
     background-color: darkred;
     color: #fff!important;
+}
+.resizer {
+    display: block;
+    position: absolute!important;
+    top: 0;
+    right: 0;
+    margin: 0;
+    height: 100%;
+    padding: 0;
+    cursor: col-resize;
+    border: 1px solid transparent;
 }

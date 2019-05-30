@@ -13,6 +13,7 @@ class DeviceList extends React.PureComponent {
         evt: PropTypes.object.isRequired,
         devices: PropTypes.array.isRequired,
         devicesPerPage: PropTypes.number.isRequired,
+        resizable: PropTypes.bool,
     };
 
     state = {
@@ -115,6 +116,32 @@ class DeviceList extends React.PureComponent {
         },  this.filter)
     };
 
+    dragStartResizer = (e) => {
+        console.log('resizing.....');
+        e.target.style.backgroundColor = "red";
+    };
+
+    dragEndResizer = (e) => {
+        console.log('resizing..... end');
+        e.target.style.backgroundColor = "transparent";
+        let colWidth = e.target.offsetParent.clientWidth;
+        let offsetX = e.nativeEvent.offsetX;
+        let lastColWidth = (colWidth + offsetX).toString() + 'px';
+        console.dir(colWidth);
+        console.log(offsetX);
+        console.log(lastColWidth);
+        e.target.parentElement.style.width = lastColWidth; // TODO : resize?
+    };
+
+    dragOverResizer = (e) => {
+        e.preventDefault();
+        console.log('dragover....');
+    };
+
+    dropResizer = (e) => {
+        console.log('dropped....');
+    };
+
     createPaginator = () => {
         let pages = [];
         let count = Math.ceil(this.state.devices.length/this.props.devicesPerPage);
@@ -144,6 +171,23 @@ class DeviceList extends React.PureComponent {
     };
 
     createHead = () => {
+        if (this.props.resizable) {
+            return titles.map((title, index) => {
+                    return (
+                        <th key={title}>
+                            <span className='resizer'
+                                  onDragStart={this.dragStartResizer}
+                                  onDragEnd={this.dragEndResizer}
+                                  onDragOver={this.dragOverResizer}
+                                  onDrop={this.dropResizer}
+                                  draggable/>
+                            <span>{title}</span>
+                            <input onKeyUp={this.filterHandler} id={`filterInput${index}`}/>
+                        </th>
+                    )
+                }
+            )
+        }
         return titles.map((title, index) => {
                 return (
                     <th key={title}>
@@ -153,6 +197,7 @@ class DeviceList extends React.PureComponent {
                 )
             }
         )
+
     };
 
     createPage = (currentPage) => {

@@ -38,7 +38,7 @@ class Admin extends React.PureComponent {
                 <Toolbar menu={menu} evt={this.props.evt}/>
                 <Message/>
                 {this.state.list === 'Банкоматы'
-                && <DeviceList evt={this.props.evt} devices={atm} devicesPerPage={10}/>
+                && <DeviceList evt={this.props.evt} devices={atm} devicesPerPage={10} resizable={true}/>
                 }
             </Fragment>
         );
