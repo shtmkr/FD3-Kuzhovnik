@@ -118,28 +118,21 @@ class DeviceList extends React.PureComponent {
 
     dragStartResizer = (e) => {
         console.log('resizing.....');
-        e.target.style.backgroundColor = "red";
     };
 
     dragEndResizer = (e) => {
         console.log('resizing..... end');
-        e.target.style.backgroundColor = "transparent";
-        let colWidth = e.target.offsetParent.clientWidth;
+        let resizers = []; // all resizers from refs
+        for (let prop in this.refs) {
+            if (prop.match(/resizer/)){
+                resizers.push(this.refs[prop])
+            }
+        }
+        let currResizer = resizers.find((resizer) => resizer === e.target ); // current resizer
+        currResizer.style.backgroundColor = "transparent";
+        let colWidth = currResizer.offsetParent.clientWidth;
         let offsetX = e.nativeEvent.offsetX;
-        let lastColWidth = (colWidth + offsetX).toString() + 'px';
-        console.dir(colWidth);
-        console.log(offsetX);
-        console.log(lastColWidth);
-        e.target.parentElement.style.width = lastColWidth; // TODO : resize?
-    };
-
-    dragOverResizer = (e) => {
-        e.preventDefault();
-        console.log('dragover....');
-    };
-
-    dropResizer = (e) => {
-        console.log('dropped....');
+        currResizer.parentElement.style.width = (colWidth + offsetX).toString() + 'px';
     };
 
     createPaginator = () => {
@@ -176,10 +169,9 @@ class DeviceList extends React.PureComponent {
                     return (
                         <th key={title}>
                             <span className='resizer'
+                                  ref={`resizer-${index}`}
                                   onDragStart={this.dragStartResizer}
                                   onDragEnd={this.dragEndResizer}
-                                  onDragOver={this.dragOverResizer}
-                                  onDrop={this.dropResizer}
                                   draggable/>
                             <span>{title}</span>
                             <input onKeyUp={this.filterHandler} id={`filterInput${index}`}/>
