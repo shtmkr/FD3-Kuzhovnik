@@ -118,6 +118,8 @@ class DeviceList extends React.PureComponent {
 
     dragStartResizer = (e) => {
         console.log('resizing.....');
+        e.target.style.opacity = '0.3';
+        e.target.style.backgroundColor = 'darkred';
     };
 
     dragEndResizer = (e) => {
@@ -172,7 +174,8 @@ class DeviceList extends React.PureComponent {
                                   ref={`resizer-${index}`}
                                   onDragStart={this.dragStartResizer}
                                   onDragEnd={this.dragEndResizer}
-                                  draggable/>
+                                  draggable
+                            />
                             <span>{title}</span>
                             <input onKeyUp={this.filterHandler} id={`filterInput${index}`}/>
                         </th>

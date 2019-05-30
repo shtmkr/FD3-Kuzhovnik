@@ -26,6 +26,7 @@
     width: 160px;
     text-align: left;
     list-style: none;
+    z-index: 13;
 }
 .Toolbar .nested-list-active li:hover{
     background-color: #eaeaea

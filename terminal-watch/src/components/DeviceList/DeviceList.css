@@ -21,7 +21,7 @@
     user-select: none;
 }
 .DeviceList tbody > tr > td {
-    padding: 0.571em 0.857em;
+    padding: 0.4em;
     border: 1px solid #c8c8c8;
     text-align: center;
 }
@@ -91,5 +91,5 @@
     height: 100%;
     padding: 0;
     cursor: col-resize;
-    border: 1px solid transparent;
+    border: 0.5px solid transparent;
 }
