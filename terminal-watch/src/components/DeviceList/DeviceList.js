@@ -23,6 +23,7 @@ class DeviceList extends React.PureComponent {
         selectedItemIdx: '',
         filter: '',
         filterIdx: null,
+        isItemCardActive: false,
     };
 
     componentDidMount = () => {
@@ -49,6 +50,12 @@ class DeviceList extends React.PureComponent {
                     this.props.evt.emit('info', {type: 'success', message: `Устройство ${id} удалено`});
                     this.setState({devices: f, });
                 }
+                listUnitsEvents.emit('hideContext');
+                break;
+            }
+            case 'viewElement': {
+                console.log('need a element card');
+                this.setState({isItemCardActive: true});
                 listUnitsEvents.emit('hideContext');
             }
         }
@@ -219,6 +226,7 @@ class DeviceList extends React.PureComponent {
                 </table>
                 {this.createPaginator()}
                 <ContextMenu forElement={this.state.selectedItemIdx}/>
+                {this.state.isItemCardActive && <div className='ItemCard'></div>}
             </Fragment>
 
         );

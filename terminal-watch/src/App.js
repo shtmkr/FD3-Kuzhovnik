@@ -9,8 +9,6 @@ import {EventEmitter} from "events";
 
 export const appEvents = new EventEmitter(); /// Main stream of events
 
-//import {clientEvents} from './events';
-
 class App extends React.PureComponent {
 
     static propTypes = {

@@ -1,6 +1,6 @@
 import React, {Fragment} from "react";
 import PropTypes from 'prop-types';
-import Toolbar from '../UI/Menu/Toolbar'
+import Toolbar from '../UI/Toolbar/Toolbar'
 import Message from "../UI/Message/Message";
 import DeviceList from "../DeviceList/DeviceList";
 
