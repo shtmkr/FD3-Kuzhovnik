@@ -33,6 +33,7 @@ class Admin extends React.PureComponent {
     };
 
     render () {
+        console.log('Admin render');
         return (
             <Fragment>
                 <Toolbar menu={menu} evt={this.props.evt}/>

@@ -26,6 +26,7 @@ class Card extends React.PureComponent {
     };
 
     render () {
+        console.log('Card render');
         return (
             <Fragment>
                 {
@@ -34,7 +35,7 @@ class Card extends React.PureComponent {
                     <div className='screen'>
                         <div className='Card'>
                             <div className='card-header'>
-                                <TabMenu tabMenuItems={tabMenu} activeItem={0}/>
+                                <TabMenu tabMenuItems={tabMenu}/>
                             </div>
                             <div className='card-body'>
                                 <span>text</span>

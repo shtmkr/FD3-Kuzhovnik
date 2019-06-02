@@ -7,11 +7,10 @@ class TabMenu extends React.PureComponent {
 
     static propTypes = {
         tabMenuItems: PropTypes.array.isRequired,
-        activeItem: PropTypes.number.isRequired,
     };
 
     state = {
-        activeItem: this.props.activeItem,
+        activeItem: 0,
     };
 
     componentDidMount = () => {
@@ -20,7 +19,14 @@ class TabMenu extends React.PureComponent {
     componentWillUnmount = () => {
     };
 
+    handleTabMenuItemClick = (e) => {
+        e.preventDefault(); // prevent <a> click
+        let activeItem = parseInt(e.target.parentElement.id.match(/\d+/)[0]);
+        this.setState({activeItem: activeItem});
+    };
+
     render () {
+        console.log('TabMenu render');
         return (
             <Fragment>
                 <div className='TabMenu'>
@@ -28,9 +34,10 @@ class TabMenu extends React.PureComponent {
                         {this.props.tabMenuItems.map((item, index) => {
                             return (
                                 <li className='tabmenu-item' key={index}
-                                    onClick={(e) => this.menuItemClick(e, index)}
+                                    onClick={this.handleTabMenuItemClick}
+                                    id={`tab-item-${index}`}
                                 >
-                                    <a className={this.state.activeItem === index ? 'tabmenu-item-link-active' : 'tabmenu-item-link'} href="#">
+                                    <a className={this.state.activeItem === index ? 'tabmenu-item-link-active' : 'tabmenu-item-link'} href="#" id={`tab-item-a-${index}`}>
                                         <span className='tabmenu-item-icon material-icons md-18'>{item.icon}</span>
                                         <span className='tabmenu-item-text'>{item.label}</span>
                                     </a>
