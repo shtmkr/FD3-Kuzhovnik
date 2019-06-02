@@ -1,0 +1,43 @@
+.Card {
+    background-color: #ffffff;
+    color: #333333;
+    display: block;
+    padding: 30px;
+    width: 60%;
+    position: absolute;
+    left: 20%;
+    top: 15%;
+    -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12);
+    -moz-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12);
+}
+.Card .card-header {
+    text-align: center;
+    width: 100%;
+}
+.Card .card-body {
+    padding: 4em;
+    width: 100%;
+}
+.Card .card-footer  {
+    text-align: center;
+    width: 100%;
+}
+.Card .card-footer button {
+    margin-left: 5px;
+    background-color: darkred;
+    border-radius: 20px;
+}
+.screen {
+    display: block;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}

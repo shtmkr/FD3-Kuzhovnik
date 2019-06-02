@@ -4,6 +4,7 @@ import './DeviceList.css'
 import Device from "./Device";
 import ContextMenu from '../UI/ContextMenu/ContextMenu'
 import {listUnitsEvents} from "../../events/events";
+import Card from "../UI/Card/Card";
 
 const titles = ['Номер устройства','Модель устройства', 'Адрес установки', 'Статус'];
 
@@ -29,11 +30,13 @@ class DeviceList extends React.PureComponent {
     componentDidMount = () => {
         listUnitsEvents.addListener('highlightItem',this.highlightItem);
         listUnitsEvents.addListener('performFn', this.contextMenuHandler);
+        listUnitsEvents.addListener('hideCard', this.hideCard);
     };
 
     componentWillUnmount = () => {
         listUnitsEvents.removeListener('highlightItem', this.highlightItem);
-        listUnitsEvents.removeListener('performFn', this.contextMenuHandler)
+        listUnitsEvents.removeListener('performFn', this.contextMenuHandler);
+        listUnitsEvents.removeListener('hideCard', this.hideCard);
     };
 
     highlightItem = (id) => {
@@ -59,6 +62,10 @@ class DeviceList extends React.PureComponent {
                 listUnitsEvents.emit('hideContext');
             }
         }
+    };
+
+    hideCard = () => {
+        this.setState({isItemCardActive: false});
     };
 
     paginatorHandler = (e) => {
@@ -226,7 +233,7 @@ class DeviceList extends React.PureComponent {
                 </table>
                 {this.createPaginator()}
                 <ContextMenu forElement={this.state.selectedItemIdx}/>
-                {this.state.isItemCardActive && <div className='ItemCard'></div>}
+                <Card isActive={this.state.isItemCardActive}/>
             </Fragment>
 
         );

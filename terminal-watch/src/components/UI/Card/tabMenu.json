@@ -1,0 +1,6 @@
+[
+  {"label": "Инфо", "icon": "short_text"},
+  {"label": "События", "icon": "notification_important"},
+  {"label": "Ремонты", "icon": "build"},
+  {"label": "Статистика", "icon": "show_chart"}
+]
