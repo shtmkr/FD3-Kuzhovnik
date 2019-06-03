@@ -6,6 +6,8 @@ import ContextMenu from '../UI/ContextMenu/ContextMenu'
 import {listUnitsEvents} from "../../events/events";
 import Card from "../UI/Card/Card";
 
+const fullDetails = require('./fullDetails.json');
+
 const titles = ['Номер устройства','Модель устройства', 'Адрес установки', 'Статус'];
 
 class DeviceList extends React.PureComponent {
@@ -222,6 +224,7 @@ class DeviceList extends React.PureComponent {
 
     render () {
         console.log('DeviceList render');
+        let devForCard = fullDetails.filter( device => (this.state.selectedItemIdx === device.Info.Id) ? device : false);
 
         return (
             <Fragment>
@@ -233,7 +236,7 @@ class DeviceList extends React.PureComponent {
                 </table>
                 {this.createPaginator()}
                 <ContextMenu forElement={this.state.selectedItemIdx}/>
-                <Card isActive={this.state.isItemCardActive}/>
+                <Card isActive={this.state.isItemCardActive} device={devForCard[0]}/>
             </Fragment>
 
         );

@@ -16,7 +16,7 @@
     width: 100%;
 }
 .Card .card-body {
-    padding: 4em;
+    padding: 1em;
     width: 100%;
 }
 .Card .card-footer  {
@@ -40,4 +40,15 @@
     overflow: auto;
     background-color: rgb(0,0,0);
     background-color: rgba(0,0,0,0.4);
+}
+.Card .card-body .info-table {
+    width: 100%;
+    text-align: center;
+}
+.Card .card-body .info-table-label {
+    display: block;
+    font-weight: bold;
+}
+.Card .info-table-header {
+    background-color: #f4f4f4;
 }

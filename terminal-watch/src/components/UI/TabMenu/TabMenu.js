@@ -7,6 +7,7 @@ class TabMenu extends React.PureComponent {
 
     static propTypes = {
         tabMenuItems: PropTypes.array.isRequired,
+        cdTabSelected: PropTypes.func.isRequired,
     };
 
     state = {
@@ -22,6 +23,7 @@ class TabMenu extends React.PureComponent {
     handleTabMenuItemClick = (e) => {
         e.preventDefault(); // prevent <a> click
         let activeItem = parseInt(e.target.parentElement.id.match(/\d+/)[0]);
+        this.props.cdTabSelected(activeItem);
         this.setState({activeItem: activeItem});
     };
 
