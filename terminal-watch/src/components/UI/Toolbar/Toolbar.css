@@ -48,6 +48,7 @@
     -o-transition: background-color 0.2s, box-shadow 0.2s;
     -webkit-transition: background-color 0.2s, box-shadow 0.2s;
     transition: background-color 0.2s, box-shadow 0.2s;
+    cursor: pointer;
 }
 .Toolbar .toolbar-item-icon {
     vertical-align: middle;

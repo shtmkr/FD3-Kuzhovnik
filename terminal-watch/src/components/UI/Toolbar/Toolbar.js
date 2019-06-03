@@ -32,7 +32,7 @@ class Toolbar extends React.PureComponent {
     };
 
     subMenuClick = (e) => {
-        this.props.evt.emit('subMenuSelected', e.target)
+        this.props.evt.emit('subMenuSelected', e.target);
     };
 
     menuItemHover = (e, index) => {
@@ -62,7 +62,7 @@ class Toolbar extends React.PureComponent {
                                 onMouseEnter={(e) => this.menuItemHover(e, index)}
                                 onMouseLeave={this.hideSubMenu}
                             >
-                                <a className='toolbar-item-link' href="#">
+                                <a className='toolbar-item-link'>
                                     <span className='toolbar-item-icon material-icons md-18'>{item.icon}</span>
                                     <span className='toolbar-item-text'>{item.label}</span>
                                     {item.nested && <span className='toolbar-item-arrow material-icons md-18'>arrow_drop_down</span>}
@@ -74,7 +74,7 @@ class Toolbar extends React.PureComponent {
                                                 return (
                                                     <li key={nestedIndex}
                                                         onClick={this.subMenuClick}>
-                                                        <a className='toolbar-item-link' href="#">
+                                                        <a className='toolbar-item-link'>
                                                             <span className='toolbar-item-icon material-icons md-18'>{nestedItem.icon}</span>
                                                             <span className='toolbar-item-text'>{nestedItem.label}</span>
                                                         </a>

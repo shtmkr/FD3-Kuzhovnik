@@ -1,5 +1,7 @@
 import React, {Fragment} from "react";
 import PropTypes from 'prop-types';
+import {BrowserRouter, Route, Link, Redirect, withRouter, Switch} from "react-router-dom";
+
 import Toolbar from '../UI/Toolbar/Toolbar'
 import Message from "../UI/Message/Message";
 import DeviceList from "../DeviceList/DeviceList";
@@ -28,6 +30,7 @@ class Admin extends React.PureComponent {
 
     startSubMenuProcess = (submenu) => {
         if (submenu.textContent === 'Банкоматы'){
+            this.props.history.push(`${this.props.history.location.pathname}/devices_atm`);
             this.setState({list: submenu.textContent})
         }
     };
@@ -38,12 +41,13 @@ class Admin extends React.PureComponent {
             <Fragment>
                 <Toolbar menu={menu} evt={this.props.evt}/>
                 <Message/>
-                {this.state.list === 'Банкоматы'
-                && <DeviceList evt={this.props.evt} devices={atm} devicesPerPage={10} resizable={true}/>
-                }
+                <Switch>
+                    <Route path="/admin/devices_atm"
+                           render={ props => <DeviceList evt={this.props.evt} devices={atm} devicesPerPage={10} resizable={true}/> } />
+                </Switch>
             </Fragment>
         );
     }
 }
 
-export default Admin
+export default withRouter(Admin)
