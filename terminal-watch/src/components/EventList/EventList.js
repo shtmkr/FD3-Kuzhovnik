@@ -15,6 +15,7 @@ class EventList extends React.PureComponent {
     static propTypes = {
         evt: PropTypes.object.isRequired,
         events: PropTypes.array.isRequired,
+        eType: PropTypes.string.isRequired,
         devicesPerPage: PropTypes.number.isRequired,
         resizable: PropTypes.bool,
     };
@@ -220,7 +221,7 @@ class EventList extends React.PureComponent {
     };
 
     createPage = (currentPage) => {
-        const { events } = this.state;
+        const events  = this.state.events.filter(ev => ev.eType === this.props.eType);
         const indexOfLast = currentPage * this.props.devicesPerPage;
         const indexOfFirst = indexOfLast - this.props.devicesPerPage;
         const currentEvents = events.slice(indexOfFirst, indexOfLast);

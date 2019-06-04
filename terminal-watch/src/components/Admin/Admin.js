@@ -69,9 +69,9 @@ class Admin extends React.PureComponent {
                     <Route path="/admin/devices_kiosk"
                            render={ props => <DeviceList evt={this.props.evt} devices={kiosk} devicesPerPage={10} resizable={true}/> } />
                     <Route path="/admin/events_error"
-                           render={ props => <EventList evt={this.props.evt} events={deviceEvents} devicesPerPage={10} resizable={true}/> } />
+                           render={ props => <EventList evt={this.props.evt} events={deviceEvents} devicesPerPage={10} resizable={true} eType={'error'}/> } />
                     <Route path="/admin/events_warn"
-                           render={ props => <EventList evt={this.props.evt} events={deviceEvents} devicesPerPage={10} resizable={true}/> } />
+                           render={ props => <EventList evt={this.props.evt} events={deviceEvents} devicesPerPage={10} resizable={true} eType={'warn'}/> } />
                 </Switch>
             </Fragment>
         );
