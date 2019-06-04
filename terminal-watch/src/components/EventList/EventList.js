@@ -16,14 +16,11 @@ class EventList extends React.PureComponent {
         evt: PropTypes.object.isRequired,
         events: PropTypes.array.isRequired,
         eType: PropTypes.string.isRequired,
-        devicesPerPage: PropTypes.number.isRequired,
         resizable: PropTypes.bool,
     };
 
     state = {
         events: this.props.events,
-        pagesCount: Math.ceil(this.props.events.length/this.props.devicesPerPage),
-        currentPage: 1,
         selectedItemIdx: '',
         filter: '',
         filterIdx: null,
@@ -79,40 +76,6 @@ class EventList extends React.PureComponent {
         this.setState({isItemCardActive: false});
     };
 
-    paginatorHandler = (e) => {
-        const {first, prev, next, last} = this.refs;
-        console.log(e.target.textContent);
-        switch (e.target) {
-            case first: {
-                console.log('to first');
-                this.setState({currentPage: 1}); //first page
-                break;
-            }
-            case prev: {
-                console.log('to prev');
-                if (this.state.currentPage > 1) {
-                    this.setState({currentPage: this.state.currentPage - 1});
-                }
-                break;
-            }
-            case next: {
-                console.log('to next');
-                if (this.state.currentPage < this.state.pagesCount) {
-                    this.setState({currentPage: this.state.currentPage + 1});
-                }
-                break;
-            }
-            case last: {
-                console.log('to last');
-                this.setState({currentPage: this.state.pagesCount}); // last page
-                break;
-            }
-            default: {
-                this.setState({currentPage: parseInt(e.target.textContent)}); // numeric pages
-            }
-        }
-    };
-
     filter = () => {
         let list;
         let colName;
@@ -159,35 +122,7 @@ class EventList extends React.PureComponent {
         currResizer.style.backgroundColor = "transparent";
         let colWidth = currResizer.offsetParent.clientWidth;
         let offsetX = e.nativeEvent.offsetX;
-        currResizer.parentElement.style.width = (colWidth + offsetX).toString() + 'px';
-    };
-
-    createPaginator = () => {
-        let pages = [];
-        let count = Math.ceil(this.state.events.length/this.props.devicesPerPage);
-        for (let i = 1; i <= count; i++ ) {
-            pages.push(
-                <button className={this.state.currentPage === i ? 'paginator-page-index active' : 'paginator-page-index'}
-                        key={`paginator-page-index-${i}`}
-                        onClick={this.paginatorHandler}
-                >{i}</button>)
-        }
-        return (
-            <div className='paginator-bottom'>
-                <button className='paginator-first material-icons' key={'paginator-first'} ref='first'
-                        onClick={this.paginatorHandler}>first_page
-                </button>
-                <button className='paginator-prev material-icons' key={'paginator-prev'} ref='prev'
-                        onClick={this.paginatorHandler}>chevron_left
-                </button>
-                {pages}
-                <button className='paginator-next material-icons' key={'paginator-next'} ref='next'
-                        onClick={this.paginatorHandler}>chevron_right
-                </button>
-                <button className='paginator-last material-icons' key={'paginator-last'} ref='last'
-                        onClick={this.paginatorHandler}>last_page
-                </button>
-            </div>)
+        currResizer.parentElement.parentElement.style.width = (colWidth + offsetX).toString() + 'px';
     };
 
     createHead = () => {
@@ -220,13 +155,9 @@ class EventList extends React.PureComponent {
 
     };
 
-    createPage = (currentPage) => {
+    createBody = () => {
         const events  = this.state.events.filter(ev => ev.eType === this.props.eType);
-        const indexOfLast = currentPage * this.props.devicesPerPage;
-        const indexOfFirst = indexOfLast - this.props.devicesPerPage;
-        const currentEvents = events.slice(indexOfFirst, indexOfLast);
-
-        return currentEvents.map(ev => (this.state.selectedItemIdx === ev.eId)
+        return events.map(ev => (this.state.selectedItemIdx === ev.eId)
             ? <Event event={ev} key={ev.eId} selected={this.state.selectedItemIdx}/>
             : <Event event={ev} key={ev.eId}/>)
     };
@@ -237,15 +168,22 @@ class EventList extends React.PureComponent {
 
         return (
             <Fragment>
-                <table className='EventList'>
-                    <thead>
-                    <tr>{this.createHead()}</tr>
-                    </thead>
-                    <tbody>{this.createPage(this.state.currentPage)}</tbody>
-                </table>
-                {this.createPaginator()}
-                <ContextMenu forElement={this.state.selectedItemIdx}/>
-               {/* <Card isActive={this.state.isItemCardActive} event={devForCard[0]}/>*/}
+                <div className='EventList__scroll_header'>
+                    <div className='EventList__scroll_header_box'>
+                        <table className='EventList__scroll_table'>
+                            <thead>
+                                <tr>{this.createHead()}</tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+                <div className='EventList__scroll_body'>
+                    <table className='EventList__scroll_table'>
+                        <tbody>{this.createBody()}</tbody>
+                    </table>
+                    <ContextMenu forElement={this.state.selectedItemIdx}/>
+                </div>
+
             </Fragment>
 
         );
