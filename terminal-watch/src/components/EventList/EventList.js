@@ -1,27 +1,27 @@
 import React, {Fragment} from "react";
 import PropTypes from 'prop-types';
-import './DeviceList.css'
-import Device from "./Device";
+import './EventList.css'
+import Event from "./Event";
 import ContextMenu from '../UI/ContextMenu/ContextMenu'
 import {listUnitsEvents} from "../../events/events";
 import Card from "../UI/Card/Card";
 
-const fullDetails = require('./fullDetails.json');
+/*const fullDetails = require('./fullDetails.json');*/
 
-const titles = ['Номер устройства','Модель устройства', 'Адрес установки', 'Статус'];
+const titles = ['ID события','ID устройства', 'Код статуса', 'Описание'];
 
-class DeviceList extends React.PureComponent {
+class EventList extends React.PureComponent {
 
     static propTypes = {
         evt: PropTypes.object.isRequired,
-        devices: PropTypes.array.isRequired,
+        events: PropTypes.array.isRequired,
         devicesPerPage: PropTypes.number.isRequired,
         resizable: PropTypes.bool,
     };
 
     state = {
-        devices: this.props.devices,
-        pagesCount: Math.ceil(this.props.devices.length/this.props.devicesPerPage),
+        events: this.props.events,
+        pagesCount: Math.ceil(this.props.events.length/this.props.devicesPerPage),
         currentPage: 1,
         selectedItemIdx: '',
         filter: '',
@@ -30,9 +30,9 @@ class DeviceList extends React.PureComponent {
     };
 
     componentWillReceiveProps = (newProps) => {
-        if (newProps.devices !== this.props.devices){
+        if (newProps.events !== this.props.events){
             this.setState({
-                devices: newProps.devices,
+                events: newProps.events,
             })
         }
     };
@@ -57,7 +57,7 @@ class DeviceList extends React.PureComponent {
         console.log(fn, id);
         switch (fn) {
             case 'deleteElement': {
-                let f = this.state.devices.filter(device => device.serialNum !== id);
+                let f = this.state.events.filter(ev => ev.eDeviceId !== id);
                 let conf = window.confirm(`Вы действительно хотите удалить ${id}?`); //TODO create modal message component?
                 if (conf){
                     this.props.evt.emit('info', {type: 'success', message: `Устройство ${id} удалено`});
@@ -116,21 +116,21 @@ class DeviceList extends React.PureComponent {
         let list;
         let colName;
         if (this.state.filter !== ''){
-            list = this.props.devices.filter( (device) => {
-                colName = Object.keys(device)[this.state.filterIdx]; // get a specific col name by index for filtering
-                if(~device[colName].indexOf(this.state.filter)) return true
+            list = this.props.events.filter( (ev) => {
+                colName = Object.keys(ev)[this.state.filterIdx]; // get a specific col name by index for filtering
+                if(~ev[colName].indexOf(this.state.filter)) return true
             });
             if (list.length === 0 || list === undefined) { // if filter no results
                 this.props.evt.emit('info', {type: 'error', message: `Нет такого устройства`});
             }
         }
         else {
-            list = [...this.props.devices];
+            list = [...this.props.events];
         }
         /*if (this.state.sorted){ //TODO sort?
             list.sort();
         }*/
-        this.setState({devices: list});
+        this.setState({events: list});
     };
 
     filterHandler = (e) => {
@@ -163,12 +163,12 @@ class DeviceList extends React.PureComponent {
 
     createPaginator = () => {
         let pages = [];
-        let count = Math.ceil(this.state.devices.length/this.props.devicesPerPage);
+        let count = Math.ceil(this.state.events.length/this.props.devicesPerPage);
         for (let i = 1; i <= count; i++ ) {
             pages.push(
                 <button className={this.state.currentPage === i ? 'paginator-page-index active' : 'paginator-page-index'}
-                               key={`paginator-page-index-${i}`}
-                               onClick={this.paginatorHandler}
+                        key={`paginator-page-index-${i}`}
+                        onClick={this.paginatorHandler}
                 >{i}</button>)
         }
         return (
@@ -220,23 +220,23 @@ class DeviceList extends React.PureComponent {
     };
 
     createPage = (currentPage) => {
-        const { devices } = this.state;
+        const { events } = this.state;
         const indexOfLast = currentPage * this.props.devicesPerPage;
         const indexOfFirst = indexOfLast - this.props.devicesPerPage;
-        const currentDevices = devices.slice(indexOfFirst, indexOfLast);
+        const currentEvents = events.slice(indexOfFirst, indexOfLast);
 
-        return currentDevices.map(device => (this.state.selectedItemIdx === device.serialNum)
-            ? <Device device={device} key={device.serialNum} selected={this.state.selectedItemIdx}/>
-            : <Device device={device} key={device.serialNum}/>)
+        return currentEvents.map(ev => (this.state.selectedItemIdx === ev.eId)
+            ? <Event event={ev} key={ev.eId} selected={this.state.selectedItemIdx}/>
+            : <Event event={ev} key={ev.eId}/>)
     };
 
     render () {
-        console.log('DeviceList render');
-        let devForCard = fullDetails.filter( device => (this.state.selectedItemIdx === device.Info.Id) ? device : false);
+        console.log('EventList render');
+      /*  let devForCard = fullDetails.filter( event => (this.state.selectedItemIdx === event.Info.Id) ? event : false);*/
 
         return (
             <Fragment>
-                <table className='DeviceList'>
+                <table className='EventList'>
                     <thead>
                     <tr>{this.createHead()}</tr>
                     </thead>
@@ -244,11 +244,11 @@ class DeviceList extends React.PureComponent {
                 </table>
                 {this.createPaginator()}
                 <ContextMenu forElement={this.state.selectedItemIdx}/>
-                <Card isActive={this.state.isItemCardActive} device={devForCard[0]}/>
+               {/* <Card isActive={this.state.isItemCardActive} event={devForCard[0]}/>*/}
             </Fragment>
 
         );
     }
 }
 
-export default DeviceList
+export default EventList

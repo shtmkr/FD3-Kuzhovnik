@@ -16,6 +16,7 @@ class TabMenu extends React.PureComponent {
     };
 
     componentDidMount = () => {
+        this.props.cdTabSelected(this.state.activeItem);
     };
 
     componentWillUnmount = () => {
@@ -30,7 +31,6 @@ class TabMenu extends React.PureComponent {
 
     render () {
         console.log('TabMenu render');
-        this.props.cdTabSelected(this.state.activeItem);
         return (
             <Fragment>
                 <div className='TabMenu'>

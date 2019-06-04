@@ -20,6 +20,14 @@ class Card extends React.PureComponent {
         tabSelected: 0,
     };
 
+    componentWillReceiveProps = (newProps) => {
+        if (newProps.event !== this.props.device){
+            this.setState({
+                event: newProps.event,
+            })
+        }
+    };
+
     componentDidMount = () => {
     };
 
@@ -35,36 +43,42 @@ class Card extends React.PureComponent {
         this.setState({tabSelected: tabId});
     };
 
-
-    render () {
-        console.log('Card render');
-        console.log(this.state.device);
-        const data = {
+    prepareDataChart = () => {
+        return {
             labels: ['Янв', 'Фев', 'Мар', 'Апр', 'Май', 'Июнь', 'Июль', 'Авг', 'Сен', 'Окт', 'Ноя', 'Дек'],
             datasets: [
                 {
                     label: 'Спорные ситуации',
-                    data: [12, 12, 80, 81, 56, 55, 40, 10, 52, 23, 44, 55],
+                    data: this.state.device.Stats.Sp,
                     fill: false,
-                    backgroundColor: '#42A5F5',
-                    borderColor: '#42A5F5'
+                    backgroundColor: '#f54f2a',
+                    borderColor: '#f54f2a'
                 },
                 {
                     label: 'Ремонты',
-                    data: [1, 2, 5, 5, 1, 2, 10, 2, 3, 4, 10, 2],
+                    data: this.state.device.Stats.Repairs,
                     fill: false,
-                    backgroundColor: '#66BB6A',
-                    borderColor: '#66BB6A'
+                    backgroundColor: '#3292bb',
+                    borderColor: '#3292bb'
                 },
                 {
                     label: 'Инкассации',
-                    data: [12, 12, 15, 15, 11, 12, 10, 12, 13, 14, 10, 12],
+                    data: this.state.device.Stats.Ink,
                     fill: false,
-                    backgroundColor: '#bb7411',
-                    borderColor: '#bb7411'
+                    backgroundColor: '#66BB6A',
+                    borderColor: '#66BB6A'
                 }
             ]
         };
+    };
+
+    render () {
+        console.log('Card render');
+        console.log(this.state.device);
+        let data;
+        if (this.state.device) {
+            data = this.prepareDataChart();
+        }
         let info = <Info device={this.props.device}/>; // TODO: get from state?
         let events = <div><span>events</span></div>;
         let repairs = <div><span>repairs</span></div>;

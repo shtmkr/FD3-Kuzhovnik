@@ -5,9 +5,12 @@ import {BrowserRouter, Route, Link, Redirect, withRouter, Switch} from "react-ro
 import Toolbar from '../UI/Toolbar/Toolbar'
 import Message from "../UI/Message/Message";
 import DeviceList from "../DeviceList/DeviceList";
+import EventList from "../EventList/EventList";
 
 const menu = require('./menu.json');
 const atm = require('./devicesATM.json');
+const kiosk = require('./devicesKIOSK.json');
+const deviceEvents = require('./deviceEvents.json');
 
 class Admin extends React.PureComponent {
 
@@ -29,9 +32,28 @@ class Admin extends React.PureComponent {
     };
 
     startSubMenuProcess = (submenu) => {
-        if (submenu.textContent === 'Банкоматы'){
-            this.props.history.push(`${this.props.history.location.pathname}/devices_atm`);
-            this.setState({list: submenu.textContent})
+        let submenuText = submenu.children[0].children[1].textContent;
+        console.log(submenuText);
+        if (submenuText === 'Банкоматы'){
+            /*this.props.history.push(`${this.props.history.location.pathname}/devices_atm`);*/
+            this.props.history.push(`/`);
+            this.props.history.push(`admin/devices_atm`);
+            this.setState({list: submenuText})
+        }
+        if (submenuText === 'Инфокиоски'){
+            this.props.history.push(`/`);
+            this.props.history.push(`admin/devices_kiosk`);
+            this.setState({list: submenuText})
+        }
+        if (submenuText === 'Ошибки'){
+            this.props.history.push(`/`);
+            this.props.history.push(`admin/events_error`);
+            this.setState({list: submenuText})
+        }
+        if (submenuText === 'Предупреждения'){
+            this.props.history.push(`/`);
+            this.props.history.push(`admin/events_warn`);
+            this.setState({list: submenuText})
         }
     };
 
@@ -44,6 +66,12 @@ class Admin extends React.PureComponent {
                 <Switch>
                     <Route path="/admin/devices_atm"
                            render={ props => <DeviceList evt={this.props.evt} devices={atm} devicesPerPage={10} resizable={true}/> } />
+                    <Route path="/admin/devices_kiosk"
+                           render={ props => <DeviceList evt={this.props.evt} devices={kiosk} devicesPerPage={10} resizable={true}/> } />
+                    <Route path="/admin/events_error"
+                           render={ props => <EventList evt={this.props.evt} events={deviceEvents} devicesPerPage={10} resizable={true}/> } />
+                    <Route path="/admin/events_warn"
+                           render={ props => <EventList evt={this.props.evt} events={deviceEvents} devicesPerPage={10} resizable={true}/> } />
                 </Switch>
             </Fragment>
         );

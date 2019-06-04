@@ -32,7 +32,17 @@ class Toolbar extends React.PureComponent {
     };
 
     subMenuClick = (e) => {
-        this.props.evt.emit('subMenuSelected', e.target);
+        let li;
+        if (e.target.tagName === 'SPAN'){
+            li = e.target.parentElement.parentElement
+        }
+        if (e.target.tagName === 'A') {
+            li = e.target.parentElement
+        }
+        if (e.target.tagName === 'LI') {
+            li = e.target;
+        }
+        this.props.evt.emit('subMenuSelected', li);
     };
 
     menuItemHover = (e, index) => {
