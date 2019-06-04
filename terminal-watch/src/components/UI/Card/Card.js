@@ -2,7 +2,8 @@ import React, {Fragment} from "react";
 import PropTypes from 'prop-types';
 import {listUnitsEvents} from "../../../events/events";
 
-import './Card.css'
+import './Card.css';
+import Chart from "../../Chart/Chart"
 import TabMenu from "../TabMenu/TabMenu";
 import Info from "../TabMenu/tabs/Info";
 
@@ -38,10 +39,36 @@ class Card extends React.PureComponent {
     render () {
         console.log('Card render');
         console.log(this.state.device);
+        const data = {
+            labels: ['Янв', 'Фев', 'Мар', 'Апр', 'Май', 'Июнь', 'Июль', 'Авг', 'Сен', 'Окт', 'Ноя', 'Дек'],
+            datasets: [
+                {
+                    label: 'Спорные ситуации',
+                    data: [12, 12, 80, 81, 56, 55, 40, 10, 52, 23, 44, 55],
+                    fill: false,
+                    backgroundColor: '#42A5F5',
+                    borderColor: '#42A5F5'
+                },
+                {
+                    label: 'Ремонты',
+                    data: [1, 2, 5, 5, 1, 2, 10, 2, 3, 4, 10, 2],
+                    fill: false,
+                    backgroundColor: '#66BB6A',
+                    borderColor: '#66BB6A'
+                },
+                {
+                    label: 'Инкассации',
+                    data: [12, 12, 15, 15, 11, 12, 10, 12, 13, 14, 10, 12],
+                    fill: false,
+                    backgroundColor: '#bb7411',
+                    borderColor: '#bb7411'
+                }
+            ]
+        };
         let info = <Info device={this.props.device}/>; // TODO: get from state?
         let events = <div><span>events</span></div>;
         let repairs = <div><span>repairs</span></div>;
-        let stats =  <div><span>stats</span></div>;
+        let stats =  <div><Chart type="line" data={data}/></div>;
         let cardBody;
         switch (this.state.tabSelected) {
             case 0 :

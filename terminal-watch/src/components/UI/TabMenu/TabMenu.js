@@ -8,6 +8,7 @@ class TabMenu extends React.PureComponent {
     static propTypes = {
         tabMenuItems: PropTypes.array.isRequired,
         cdTabSelected: PropTypes.func.isRequired,
+        defaultTab: PropTypes.number,
     };
 
     state = {
@@ -29,6 +30,7 @@ class TabMenu extends React.PureComponent {
 
     render () {
         console.log('TabMenu render');
+        this.props.cdTabSelected(this.state.activeItem);
         return (
             <Fragment>
                 <div className='TabMenu'>
