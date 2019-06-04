@@ -1,11 +1,11 @@
-.DeviceList {
+.EventList {
     width: 100%;
     table-layout: fixed;
     border-collapse: collapse;
     cursor: pointer;
     user-select: none;
 }
-.DeviceList thead > tr > th {
+.EventList thead > tr > th {
     padding: 0.571em 0.857em;
     border: 1px solid #c8c8c8;
     font-weight: 700;
@@ -17,15 +17,15 @@
     position: relative;
 
 }
-.DeviceList .user-select-none {
+.EventList .user-select-none {
     user-select: none;
 }
-.DeviceList tbody > tr > td {
+.EventList tbody > tr > td {
     padding: 0.4em;
     border: 1px solid #c8c8c8;
     text-align: center;
 }
-.DeviceList thead > tr > th > input {
+.EventList thead > tr > th > input {
     font-size: 14px;
     color: #333333;
     background: #ffffff;
@@ -41,7 +41,7 @@
     margin-top: 5px;
     box-sizing: border-box;
 }
-.DeviceList thead > tr > th > input:focus {
+.EventList thead > tr > th > input:focus {
     -webkit-box-shadow: 0px 0px 3px 1px rgba(97, 99, 90, 0.84);
     -moz-box-shadow: 0px 0px 3px 1px rgba(97, 99, 90, 0.84);
     box-shadow: 0px 0px 3px 1px rgba(97, 99, 90, 0.84);

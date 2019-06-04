@@ -21,9 +21,9 @@ class Card extends React.PureComponent {
     };
 
     componentWillReceiveProps = (newProps) => {
-        if (newProps.event !== this.props.device){
+        if (newProps.device !== this.props.device){
             this.setState({
-                event: newProps.event,
+                device: newProps.device,
             })
         }
     };
