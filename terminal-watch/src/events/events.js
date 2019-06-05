@@ -9,4 +9,9 @@ performFn       - perform function for selected item
 hideCard        - card hide request
 */
 
-export {listUnitsEvents};
+let msg = new EventEmitter();
+/*
+* log   -       log message to MessageHistory
+* */
+
+export {listUnitsEvents, msg};

@@ -1,0 +1,15 @@
+.MessageHistory {
+    display: block;
+    position: absolute;
+    width: 99%;
+    height: 100px;
+    bottom: 0;
+    border: 1px solid gray;
+    margin-left: 9px;
+    margin-bottom: 10px;
+}
+.MessageHistory .message-list {
+    height: 100px;
+    overflow: auto;
+    overflow-x: hidden;
+}

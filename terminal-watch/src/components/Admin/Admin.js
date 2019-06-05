@@ -6,6 +6,7 @@ import Toolbar from '../UI/Toolbar/Toolbar'
 import Message from "../UI/Message/Message";
 import DeviceList from "../DeviceList/DeviceList";
 import EventList from "../EventList/EventList";
+import MessageHistory from "../MessageHistory/MessageHistory";
 
 const menu = require('./menu.json');
 const atm = require('./devicesATM.json');
@@ -73,6 +74,7 @@ class Admin extends React.PureComponent {
                     <Route path="/admin/events_warn"
                            render={ props => <EventList evt={this.props.evt} events={deviceEvents} resizable={true} eType={'warn'}/> } />
                 </Switch>
+                <MessageHistory/>
             </Fragment>
         );
     }

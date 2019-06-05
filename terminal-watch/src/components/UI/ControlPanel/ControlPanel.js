@@ -1,5 +1,6 @@
 import React, {Fragment} from 'react';
 import PropTypes from 'prop-types';
+import {msg} from "../../../events/events";
 
 import './ControlPanel.css';
 
@@ -43,10 +44,12 @@ class ControlPanel extends React.PureComponent {
 
     downloadClick = () => {
         console.log(`Конфигурация #${this.selectConf.value} загружена на устройство ${this.state.selectedDeviceId}`);
+        msg.emit('log', `Конфигурация #${this.selectConf.value} загружена на устройство ${this.state.selectedDeviceId}`);
     };
 
     stateClick = () => {
-        console.log(`Устройство ${this.state.selectedDeviceId} переведено в ${this.selectState.value}`)
+        console.log(`Устройство ${this.state.selectedDeviceId} переведено в ${this.selectState.value}`);
+        msg.emit('log', `Устройство ${this.state.selectedDeviceId} переведено в ${this.selectState.value}`);
     };
 
     reboot = () => {
@@ -54,6 +57,7 @@ class ControlPanel extends React.PureComponent {
         setTimeout(() => {
             this.rebootResult.textContent = 'Успешно';
             console.log(`Устройство ${this.state.selectedDeviceId} отправлено на перезагрузку`);
+            msg.emit('log', `Устройство ${this.state.selectedDeviceId} отправлено на перезагрузку`);
         }, 5000);
     };
 
@@ -62,6 +66,7 @@ class ControlPanel extends React.PureComponent {
         setTimeout(() => {
             console.log(`С устройства ${this.state.selectedDeviceId} скачаны логи`);
             this.saveLogsResult.textContent = 'Успешно';
+            msg.emit('log', `С устройства ${this.state.selectedDeviceId} скачаны логи`)
         }, 5000);
     };
 
