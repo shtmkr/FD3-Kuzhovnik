@@ -5,6 +5,7 @@ import Device from "./Device";
 import ContextMenu from '../UI/ContextMenu/ContextMenu'
 import {listUnitsEvents} from "../../events/events";
 import Card from "../UI/Card/Card";
+import ControlPanel from "../UI/ControlPanel/ControlPanel";
 
 const fullDetails = require('./fullDetails.json');
 
@@ -27,6 +28,7 @@ class DeviceList extends React.PureComponent {
         filter: '',
         filterIdx: null,
         isItemCardActive: false,
+        isControlPanelActive: false,
     };
 
     componentWillReceiveProps = (newProps) => {
@@ -50,7 +52,7 @@ class DeviceList extends React.PureComponent {
     };
 
     highlightItem = (id) => {
-        this.setState({selectedItemIdx: id})
+        this.setState({selectedItemIdx: id, isControlPanelActive: true})
     };
 
     contextMenuHandler = (fn, id) => {
@@ -245,6 +247,7 @@ class DeviceList extends React.PureComponent {
                 {this.createPaginator()}
                 <ContextMenu forElement={this.state.selectedItemIdx}/>
                 <Card isActive={this.state.isItemCardActive} device={devForCard[0]}/>
+                <ControlPanel isControlPanelActive={this.state.isControlPanelActive} selectedDeviceId={this.state.selectedItemIdx}/>
             </Fragment>
 
         );
