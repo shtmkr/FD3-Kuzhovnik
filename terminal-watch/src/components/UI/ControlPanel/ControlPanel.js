@@ -1,6 +1,6 @@
 import React, {Fragment} from 'react';
 import PropTypes from 'prop-types';
-import {msg} from "../../../events/events";
+import {listUnitsEvents, msg} from "../../../events/events";
 
 import './ControlPanel.css';
 
@@ -8,14 +8,14 @@ class ControlPanel extends React.PureComponent {
 
     static propTypes = {
         isControlPanelActive: PropTypes.bool.isRequired,
-        selectedDeviceId: PropTypes.string.isRequired,
     };
 
     componentDidMount = () => {
+        listUnitsEvents.addListener('highlightItem',this.highlightItem);
     };
 
     componentWillUnmount = () => {
-
+        listUnitsEvents.removeListener('highlightItem',this.highlightItem);
     };
 
     componentWillReceiveProps = (newProps) => {
@@ -25,6 +25,10 @@ class ControlPanel extends React.PureComponent {
                 isControlPanelActive: newProps.isControlPanelActive,
             })
         }
+    };
+
+    highlightItem = (id) => {
+        this.setState({selectedDeviceId: id});
     };
 
     state = {
@@ -53,19 +57,19 @@ class ControlPanel extends React.PureComponent {
     };
 
     reboot = () => {
-        this.rebootResult.textContent = 'В процессе...';
+        /*this.rebootResult.textContent = 'В процессе...';*/
         setTimeout(() => {
-            this.rebootResult.textContent = 'Успешно';
+            /*this.rebootResult.textContent = 'Успешно';*/
             console.log(`Устройство ${this.state.selectedDeviceId} отправлено на перезагрузку`);
             msg.emit('log', `Устройство ${this.state.selectedDeviceId} отправлено на перезагрузку`);
         }, 5000);
     };
 
     saveLogs = () => {
-        this.saveLogsResult.textContent = 'В процессе...';
+        /*this.saveLogsResult.textContent = 'В процессе...';*/
         setTimeout(() => {
             console.log(`С устройства ${this.state.selectedDeviceId} скачаны логи`);
-            this.saveLogsResult.textContent = 'Успешно';
+            /*this.saveLogsResult.textContent = 'Успешно';*/
             msg.emit('log', `С устройства ${this.state.selectedDeviceId} скачаны логи`)
         }, 5000);
     };
@@ -88,7 +92,7 @@ class ControlPanel extends React.PureComponent {
                         <button className="mdc-button mdc-button--raised control-panel-button "
                                 onClick={this.downloadClick}
                         >
-                            <i className="material-icons">get_app</i>Загрузить
+                            <i className="material-icons">get_app</i>
                         </button>
                     </div>
                     <div className='controls-wrapper'>
@@ -100,23 +104,20 @@ class ControlPanel extends React.PureComponent {
                         <button className="mdc-button mdc-button--raised control-panel-button "
                                 onClick={this.stateClick}
                         >
-                            <i className="material-icons">arrow_right_alt</i>Отправить</button>
+                            <i className="material-icons">arrow_right_alt</i></button>
                     </div>
                     <div className='controls-wrapper'>
                         <button className="mdc-button mdc-button--raised control-panel-button "
                                 onClick={this.reboot}
                         >
-                            <i className="material-icons">autorenew</i>Перезагрузить</button>
-                        <span className='result' ref={(el) => {this.rebootResult = el}}> </span>
-                    </div>
-                    <div className='controls-wrapper'>
+                            <i className="material-icons">autorenew</i></button>
                         <button className="mdc-button mdc-button--raised control-panel-button "
                                 onClick={this.saveLogs}
                         >
-                            <i className="material-icons">archive</i>Скачать логи</button>
-                        <span className='result' ref={(el) => {this.saveLogsResult = el}}> </span>
+                            <i className="material-icons">archive</i></button>
+                        {/*<span className='result' ref={(el) => {this.saveLogsResult = el}}> </span>*/}
                     </div>
-                    <span className='hider' onClick={this.hider}><i className="material-icons">compare_arrows</i></span>
+
                 </div>
                 }
             </Fragment>

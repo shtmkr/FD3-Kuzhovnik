@@ -52,7 +52,7 @@ class DeviceList extends React.PureComponent {
     };
 
     highlightItem = (id) => {
-        this.setState({selectedItemIdx: id, isControlPanelActive: true})
+        this.setState({selectedItemIdx: id, isControlPanelActive: true});
     };
 
     contextMenuHandler = (fn, id) => {
@@ -247,9 +247,7 @@ class DeviceList extends React.PureComponent {
                 {this.createPaginator()}
                 <ContextMenu forElement={this.state.selectedItemIdx}/>
                 <Card isActive={this.state.isItemCardActive} device={devForCard[0]}/>
-                <ControlPanel isControlPanelActive={this.state.isControlPanelActive} selectedDeviceId={this.state.selectedItemIdx}/>
             </Fragment>
-
         );
     }
 }

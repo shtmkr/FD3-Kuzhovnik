@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import {withRouter} from "react-router-dom";
 
 import './Toolbar.css';
+import ControlPanel from "../ControlPanel/ControlPanel";
 
 class Toolbar extends React.PureComponent {
 
@@ -99,6 +100,7 @@ class Toolbar extends React.PureComponent {
                         )
                     })}
                 </ul>
+                <ControlPanel isControlPanelActive={true}/>
                 <div className='toolbar-additional'>
                     <input className='toolbar-input-search' type='text' placeholder='Поиск...'/>
                     <button className="mdc-button mdc-button--raised toolbar-logout " onClick={this.logout}><i className="material-icons">exit_to_app</i>Выйти</button>

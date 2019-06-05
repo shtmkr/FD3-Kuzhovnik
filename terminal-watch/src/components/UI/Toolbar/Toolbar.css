@@ -1,7 +1,9 @@
 .Toolbar {
     padding: 0 5px;
     background-color: white;
-    border: 1px solid #c8c8c8;;
+    border: 1px solid #c8c8c8;
+    display: flex;
+    justify-content: space-between;
 }
 .Toolbar .toolbar-list {
     display: inline-block;
@@ -65,6 +67,9 @@
 .Toolbar .toolbar-additional {
     float: right;
     padding: .25em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .Toolbar .toolbar-input-search {
     font-size: 14px;
