@@ -4,7 +4,7 @@ import './DetailsContainer.css';
 import Chart from "../Chart/Chart";
 import Repair from "../TabMenu/tabs/Repair";
 const style = {
-    width: '50%',
+    width: '45%',
     animation: 'fadein 0.5s',
 };
 const DetailsContainer = props =>

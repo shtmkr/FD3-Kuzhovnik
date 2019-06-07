@@ -1,6 +1,7 @@
 .DetailsContainer {
     display: flex;
     width: 100%;
-    justify-content: space-between;
+    justify-content: space-evenly;
     padding: 5px;
+    height: 400px;
 }

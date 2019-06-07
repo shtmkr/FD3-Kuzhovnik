@@ -79,7 +79,7 @@
     border: 1px solid #c8c8c8;
     text-align: center;
 }
-.Card .no-results {
+.no-results {
     margin: auto;
-    width: 30%;
+    height: auto;
 }

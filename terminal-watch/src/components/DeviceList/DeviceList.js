@@ -63,7 +63,7 @@ class DeviceList extends React.PureComponent {
                 let conf = window.confirm(`Вы действительно хотите удалить ${id}?`); //TODO create modal message component?
                 if (conf){
                     this.props.evt.emit('info', {type: 'success', message: `Устройство ${id} удалено`});
-                    this.setState({events: f, });
+                    this.setState({devices: f, });
                 }
                 listUnitsEvents.emit('hideContext');
                 break;

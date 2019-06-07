@@ -5,7 +5,7 @@
 }
 .EventList__scroll_header_box {
     margin-right: 17px;
-    margin-left: 0px;
+    margin-left: 0;
 }
 .EventList__scroll_table {
     border-collapse: collapse;
@@ -21,7 +21,7 @@
     text-align: center;
 }
 .EventList__scroll_body {
-    max-height: 200px;
+    max-height: 380px;
     overflow: auto;
     position: relative;
 }
