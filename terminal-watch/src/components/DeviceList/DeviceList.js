@@ -5,7 +5,7 @@ import Device from "./Device";
 import ContextMenu from '../ContextMenu/ContextMenu'
 import {listUnitsEvents} from "../../events/events";
 import Card from "../Card/Card";
-import ControlPanel from "../ControlPanel/ControlPanel";
+import DetailsContainer from "../DetailsContainer/DetailsContainer";
 
 const fullDetails = require('./fullDetails.json');
 
@@ -282,6 +282,7 @@ class DeviceList extends React.PureComponent {
                           device={this.devForCard[0]}
                           chartData={this.prepareChartDataForCard()}
                 />
+                {this.state.selectedItemIdx && <DetailsContainer chartData={this.prepareChartDataForCard()} repairs={this.devForCard[0].Repairs} />}
             </Fragment>
         );
     }
