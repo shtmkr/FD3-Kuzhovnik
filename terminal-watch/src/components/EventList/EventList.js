@@ -2,9 +2,9 @@ import React, {Fragment} from "react";
 import PropTypes from 'prop-types';
 import './EventList.css'
 import Event from "./Event";
-import ContextMenu from '../UI/ContextMenu/ContextMenu'
+import ContextMenu from '../ContextMenu/ContextMenu'
 import {listUnitsEvents} from "../../events/events";
-import Card from "../UI/Card/Card";
+import Card from "../Card/Card";
 
 /*const fullDetails = require('./fullDetails.json');*/
 

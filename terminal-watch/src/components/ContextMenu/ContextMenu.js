@@ -1,6 +1,6 @@
 import React, {Fragment} from "react";
 import PropTypes from 'prop-types';
-import {listUnitsEvents} from "../../../events/events";
+import {listUnitsEvents} from "../../events/events";
 
 import './ContextMenu.css'
 const contextMenu = require('./contextMenu.json');

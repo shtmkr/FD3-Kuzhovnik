@@ -1,6 +1,6 @@
 import React, {Fragment} from 'react';
 import PropTypes from 'prop-types';
-import {listUnitsEvents, msg} from "../../../events/events";
+import {listUnitsEvents, msg} from "../../events/events";
 
 import './ControlPanel.css';
 

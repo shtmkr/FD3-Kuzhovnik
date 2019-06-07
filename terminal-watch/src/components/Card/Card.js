@@ -1,11 +1,12 @@
 import React, {Fragment} from "react";
 import PropTypes from 'prop-types';
-import {listUnitsEvents} from "../../../events/events";
+import {listUnitsEvents} from "../../events/events";
 
 import './Card.css';
-import Chart from "../../Chart/Chart"
+import Chart from "../Chart/Chart"
 import TabMenu from "../TabMenu/TabMenu";
 import Info from "../TabMenu/tabs/Info";
+import Repair from "../TabMenu/tabs/Repair";
 
 let tabMenu = require('./tabMenu');
 class Card extends React.PureComponent {
@@ -13,6 +14,7 @@ class Card extends React.PureComponent {
     static propTypes = {
         isActive: PropTypes.bool.isRequired,
         device: PropTypes.object,
+        chartData: PropTypes.object,
     };
 
     state = {
@@ -43,47 +45,24 @@ class Card extends React.PureComponent {
         this.setState({tabSelected: tabId});
     };
 
-    prepareDataChart = () => {
-        return {
-            labels: ['Янв', 'Фев', 'Мар', 'Апр', 'Май', 'Июнь', 'Июль', 'Авг', 'Сен', 'Окт', 'Ноя', 'Дек'],
-            datasets: [
-                {
-                    label: 'Спорные ситуации',
-                    data: this.state.device.Stats.Sp,
-                    fill: false,
-                    backgroundColor: '#f54f2a',
-                    borderColor: '#f54f2a'
-                },
-                {
-                    label: 'Ремонты',
-                    data: this.state.device.Stats.Repairs,
-                    fill: false,
-                    backgroundColor: '#3292bb',
-                    borderColor: '#3292bb'
-                },
-                {
-                    label: 'Инкассации',
-                    data: this.state.device.Stats.Ink,
-                    fill: false,
-                    backgroundColor: '#66BB6A',
-                    borderColor: '#66BB6A'
-                }
-            ]
-        };
-    };
-
     render () {
         console.log('Card render');
         console.log(this.state.device);
         let data;
-        if (this.state.device) {
-            data = this.prepareDataChart();
+        let repairs;
+        if (this.props.chartData) {
+            data = this.props.chartData;
+        }
+        if (this.props.device !== undefined) {
+            console.log(this.props.device.Repairs);
+            repairs = <Repair repairs={this.props.device.Repairs}/>
         }
         let info = <Info device={this.props.device}/>; // TODO: get from state?
         let events = <div><span>events</span></div>;
-        let repairs = <div><span>repairs</span></div>;
+
         let stats =  <div><Chart type="line" data={data}/></div>;
         let cardBody;
+
         switch (this.state.tabSelected) {
             case 0 :
                 cardBody = info;

@@ -44,6 +44,8 @@
 .Card .card-body .info-table {
     width: 100%;
     text-align: center;
+    border-collapse: collapse;
+    animation: fadein 0.5s;
 }
 .Card .card-body .info-table-label {
     display: block;
@@ -51,4 +53,33 @@
 }
 .Card .info-table-header {
     background-color: #f4f4f4;
+}
+.Card .repair-table {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+    cursor: default;
+    user-select: none;
+    animation: fadein 0.5s;
+}
+.Card thead > tr > th {
+    padding: 0.571em 0.857em;
+    border: 1px solid #c8c8c8;
+    font-weight: 700;
+    color: #333333;
+    background-color: #f4f4f4;
+    text-align: center;
+    cursor: default;
+    background-clip: padding-box;
+    position: relative;
+
+}
+.Card tbody > tr > td {
+    padding: 0.4em;
+    border: 1px solid #c8c8c8;
+    text-align: center;
+}
+.Card .no-results {
+    margin: auto;
+    width: 30%;
 }

@@ -2,8 +2,8 @@ import React, {Fragment} from "react";
 import PropTypes from 'prop-types';
 import {BrowserRouter, Route, Link, Redirect, withRouter, Switch} from "react-router-dom";
 
-import Toolbar from '../UI/Toolbar/Toolbar'
-import Message from "../UI/Message/Message";
+import Toolbar from '../Toolbar/Toolbar'
+import Message from "../Message/Message";
 import DeviceList from "../DeviceList/DeviceList";
 import EventList from "../EventList/EventList";
 import MessageHistory from "../MessageHistory/MessageHistory";

@@ -2,10 +2,10 @@ import React, {Fragment} from "react";
 import PropTypes from 'prop-types';
 import './DeviceList.css'
 import Device from "./Device";
-import ContextMenu from '../UI/ContextMenu/ContextMenu'
+import ContextMenu from '../ContextMenu/ContextMenu'
 import {listUnitsEvents} from "../../events/events";
-import Card from "../UI/Card/Card";
-import ControlPanel from "../UI/ControlPanel/ControlPanel";
+import Card from "../Card/Card";
+import ControlPanel from "../ControlPanel/ControlPanel";
 
 const fullDetails = require('./fullDetails.json');
 
@@ -232,10 +232,42 @@ class DeviceList extends React.PureComponent {
             : <Device device={device} key={device.serialNum}/>)
     };
 
+    devForCard = []; //// extended terminal data initial is empty
+
+    prepareChartDataForCard = () => {
+        if (this.devForCard[0] !== undefined) {
+            return {
+                labels: ['Янв', 'Фев', 'Мар', 'Апр', 'Май', 'Июнь', 'Июль', 'Авг', 'Сен', 'Окт', 'Ноя', 'Дек'],
+                datasets: [
+                    {
+                        label: 'Спорные ситуации',
+                        data: this.devForCard[0].Stats.Sp,
+                        fill: false,
+                        backgroundColor: '#f54f2a',
+                        borderColor: '#f54f2a'
+                    },
+                    {
+                        label: 'Ремонты',
+                        data: this.devForCard[0].Stats.Repairs,
+                        fill: false,
+                        backgroundColor: '#3292bb',
+                        borderColor: '#3292bb'
+                    },
+                    {
+                        label: 'Инкассации',
+                        data: this.devForCard[0].Stats.Ink,
+                        fill: false,
+                        backgroundColor: '#66BB6A',
+                        borderColor: '#66BB6A'
+                    }
+                ]
+            };
+        }
+    };
+
     render () {
         console.log('DeviceList render');
-        let devForCard = fullDetails.filter( device => (this.state.selectedItemIdx === device.Info.Id) ? device : false);
-
+        this.devForCard = fullDetails.filter( device => (this.state.selectedItemIdx === device.Info.Id) ? device : false); // extended terminal data
         return (
             <Fragment>
                 <table className='DeviceList'>
@@ -246,7 +278,10 @@ class DeviceList extends React.PureComponent {
                 </table>
                 {this.createPaginator()}
                 <ContextMenu forElement={this.state.selectedItemIdx}/>
-                <Card isActive={this.state.isItemCardActive} device={devForCard[0]}/>
+                <Card isActive={this.state.isItemCardActive}
+                          device={this.devForCard[0]}
+                          chartData={this.prepareChartDataForCard()}
+                />
             </Fragment>
         );
     }

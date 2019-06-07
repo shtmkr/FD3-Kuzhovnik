@@ -2,7 +2,7 @@ import React, {Fragment} from 'react';
 import PropTypes from 'prop-types';
 
 import './Message.css';
-import {appEvents} from '../../../App'
+import {appEvents} from '../../App'
 
 class Message extends React.PureComponent {
 
