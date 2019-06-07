@@ -34,6 +34,8 @@ class ControlPanel extends React.PureComponent {
     state = {
         isControlPanelActive: this.props.isControlPanelActive,
         selectedDeviceId: this.props.selectedDeviceId,
+        rebootClicked: false,
+
     };
 
     hider = () => {
@@ -58,10 +60,12 @@ class ControlPanel extends React.PureComponent {
 
     reboot = () => {
         /*this.rebootResult.textContent = 'В процессе...';*/
+        this.setState({rebootClicked: true});
         setTimeout(() => {
             /*this.rebootResult.textContent = 'Успешно';*/
             console.log(`Устройство ${this.state.selectedDeviceId} отправлено на перезагрузку`);
             msg.emit('log', `Устройство ${this.state.selectedDeviceId} отправлено на перезагрузку`);
+            this.setState({rebootClicked: false});
         }, 5000);
     };
 
@@ -110,7 +114,7 @@ class ControlPanel extends React.PureComponent {
                         <button className="mdc-button mdc-button--raised control-panel-button "
                                 onClick={this.reboot}
                         >
-                            <i className="material-icons">autorenew</i></button>
+                            <i className={this.state.rebootClicked ? 'material-icons spin' : 'material-icons'}>autorenew</i></button>
                         <button className="mdc-button mdc-button--raised control-panel-button "
                                 onClick={this.saveLogs}
                         >
