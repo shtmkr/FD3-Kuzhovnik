@@ -46,6 +46,9 @@
 .DeviceList .user-select-none {
     user-select: none;
 }
+.DeviceList tbody > tr {
+    transition: 0.5s ease-out;
+}
 .DeviceList tbody > tr > td {
     padding: 0.4em;
     border: 1px solid #c8c8c8;

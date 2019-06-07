@@ -55,15 +55,21 @@ class DeviceList extends React.PureComponent {
         this.setState({selectedItemIdx: id, isControlPanelActive: true});
     };
 
-    contextMenuHandler = (fn, id) => {
+    contextMenuHandler = (fn, id, ref) => {
         console.log(fn, id);
         switch (fn) {
             case 'deleteElement': {
-                let f = this.state.devices.filter(device => device.serialNum !== id);
                 let conf = window.confirm(`Вы действительно хотите удалить ${id}?`); //TODO create modal message component?
                 if (conf){
-                    this.props.evt.emit('info', {type: 'success', message: `Устройство ${id} удалено`});
-                    this.setState({devices: f, });
+                    let selectedRow = ref[id];
+                    selectedRow.style.fontSize = 0;
+                    selectedRow.style.height = 0;
+                    setTimeout( () => {
+                        let f = this.state.devices.filter(device => device.serialNum !== id);
+                        this.props.evt.emit('info', {type: 'success', message: `Устройство ${id} удалено`});
+                        this.setState({devices: f, });
+                    }, 500);
+
                 }
                 listUnitsEvents.emit('hideContext');
                 break;

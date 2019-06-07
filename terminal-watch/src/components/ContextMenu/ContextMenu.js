@@ -16,7 +16,8 @@ class ContextMenu extends React.PureComponent {
         style: {
             top: '',
             left: ''
-        }
+        },
+        ref: null,
     };
 
     componentDidMount = () => {
@@ -29,12 +30,13 @@ class ContextMenu extends React.PureComponent {
         listUnitsEvents.removeListener('hideContext', this.hide);
     };
 
-    show = (e) => {
+    show = (e, ref) => {
         console.log('contextMenu show');
         let location = this.calculateLocation(e);
         this.setState({
             enabled: true,
-            style: location
+            style: location,
+            ref: ref, // save to state selected row
         })
     };
 
@@ -54,7 +56,7 @@ class ContextMenu extends React.PureComponent {
         let id = parseInt(li.id.match(/\d+/)[0]);
         let selectedContextMenu = contextMenu.find( (contextMenuItem, index) => (index === id) ? contextMenuItem : false);
 
-        listUnitsEvents.emit('performFn', selectedContextMenu.fn, this.props.forElement); // emit event to DeviceList
+        listUnitsEvents.emit('performFn', selectedContextMenu.fn, this.props.forElement, this.state.ref); // emit event to DeviceList
     };
 
     render () {

@@ -65,7 +65,7 @@ class Device extends React.PureComponent {
 
     itemRightClick = (e) => {
         e.preventDefault();
-        listUnitsEvents.emit('showContext', e);
+        listUnitsEvents.emit('showContext', e, {...this.refs});
         listUnitsEvents.emit('highlightItem', this.state.device.serialNum);
     };
 
@@ -82,6 +82,7 @@ class Device extends React.PureComponent {
         return (
             <Fragment>
                 <tr key={this.state.device.serialNum}
+                    ref={this.state.device.serialNum}
                     className='Device'
                     onContextMenu={this.itemRightClick}
                     onClick={this.itemLeftClick}
