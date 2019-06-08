@@ -35,12 +35,12 @@ class Admin extends React.PureComponent {
     startSubMenuProcess = (submenu) => {
         let submenuText = submenu.children[0].children[1].textContent;
         console.log(submenuText);
-        let reg = /admin\/\w+/;
+        let reg = /admin\/\w+/; // TODO: проверка
         if (submenuText === 'Банкоматы'){
             if (this.props.history.location.pathname === '/admin'){
-                this.props.history.push(`admin/devices_atm`);
+                this.props.history.push(`admin/devices_atm/page/1`);
             } else {
-               this.props.history.push( this.props.history.location.pathname.replace(reg, 'admin/devices_atm') );
+               this.props.history.push( this.props.history.location.pathname.replace(reg, 'admin/devices_atm/page/1') );
             }
             this.setState({list: submenuText})
         }
@@ -72,13 +72,18 @@ class Admin extends React.PureComponent {
 
     render () {
         console.log('Admin render');
+        let currPage;
+        if (this.props.history.location.pathname.match(/\d/)){
+            currPage = this.props.history.location.pathname.match(/\d/);
+        }
+
         return (
             <Fragment>
                 <Toolbar menu={menu} evt={this.props.evt}/>
                 <Message/>
                 <Switch>
-                    <Route path="/admin/devices_atm"
-                           render={ props => <DeviceList evt={this.props.evt} devices={atm} devicesPerPage={10} resizable={true} history={this.props.history}/> } />
+                    <Route path="/admin/devices_atm/page/:page"
+                           render={ props => <DeviceList evt={this.props.evt} devices={atm} devicesPerPage={10} resizable={true} history={this.props.history} currentPage={parseInt(currPage[0])}/> } />
                     <Route path="/admin/devices_kiosk"
                            render={ props => <DeviceList evt={this.props.evt} devices={kiosk} devicesPerPage={10} resizable={true}/> } />
                     <Route path="/admin/events_error"

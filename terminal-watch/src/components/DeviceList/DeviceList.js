@@ -32,11 +32,23 @@ class DeviceList extends React.PureComponent {
         isControlPanelActive: false,
     };
 
+    constructor(props) {
+        super(props);
+
+        /*if (this.props.history.location.pathname === '/admin/devices_atm'){
+            let reg = /admin\/devices_atm/;
+            this.props.history.push( this.props.history.location.pathname.replace(reg, `admin/devices_atm/page-${this.state.currentPage}`) );
+        }*/
+    }
+
     componentWillReceiveProps = (newProps) => {
         if (newProps.devices !== this.props.devices){
             this.setState({
                 devices: newProps.devices,
             })
+        }
+        if (newProps.currentPage !== this.props.currentPage){
+            this.setState({currentPage: newProps.currentPage})
         }
     };
 
@@ -44,6 +56,12 @@ class DeviceList extends React.PureComponent {
         listUnitsEvents.addListener('highlightItem',this.highlightItem);
         listUnitsEvents.addListener('performFn', this.contextMenuHandler);
         listUnitsEvents.addListener('hideCard', this.hideCard);
+
+        let currentUrl = this.props.history.location.pathname;
+        let pageNum = currentUrl.match(/\d/);
+        if (pageNum) {
+            this.setState({currentPage: parseInt(pageNum[0])});// selected page number from URL
+        }
     };
 
     componentWillUnmount = () => {
@@ -92,9 +110,9 @@ class DeviceList extends React.PureComponent {
     };
 
     updateHistory = () => {
-        console.log(this.props.history.location)
-        /*this.props.history.push(`/`);
-        this.props.history.push(`admin/devices_atm/page-${this.state.currentPage}`);*/
+        let page = /admin\/devices_atm\/page\/\d/;
+        let nextPage = `admin/devices_atm/page/${this.state.currentPage}`;
+        this.props.history.push( this.props.history.location.pathname.replace(page, nextPage) );
     };
 
     filter = () => {
