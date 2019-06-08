@@ -6,6 +6,7 @@ import ContextMenu from '../ContextMenu/ContextMenu'
 import {listUnitsEvents} from "../../events/events";
 import Card from "../Card/Card";
 import DetailsContainer from "../DetailsContainer/DetailsContainer";
+import Paginator from "../Paginator/Paginator";
 
 const fullDetails = require('./fullDetails.json');
 
@@ -86,38 +87,8 @@ class DeviceList extends React.PureComponent {
         this.setState({isItemCardActive: false});
     };
 
-    paginatorHandler = (e) => {
-        const {first, prev, next, last} = this.refs;
-        console.log(e.target.textContent);
-        switch (e.target) {
-            case first: {
-                console.log('to first');
-                this.setState({currentPage: 1}); //first page
-                break;
-            }
-            case prev: {
-                console.log('to prev');
-                if (this.state.currentPage > 1) {
-                    this.setState({currentPage: this.state.currentPage - 1});
-                }
-                break;
-            }
-            case next: {
-                console.log('to next');
-                if (this.state.currentPage < this.state.pagesCount) {
-                    this.setState({currentPage: this.state.currentPage + 1});
-                }
-                break;
-            }
-            case last: {
-                console.log('to last');
-                this.setState({currentPage: this.state.pagesCount}); // last page
-                break;
-            }
-            default: {
-                this.setState({currentPage: parseInt(e.target.textContent)}); // numeric pages
-            }
-        }
+    currentPageChanged = (pageNum) => {
+        this.setState({currentPage: pageNum});
     };
 
     filter = () => {
@@ -167,43 +138,6 @@ class DeviceList extends React.PureComponent {
         let colWidth = currResizer.offsetParent.clientWidth;
         let offsetX = e.nativeEvent.offsetX;
         currResizer.parentElement.style.width = (colWidth + offsetX).toString() + 'px';
-    };
-
-    createPaginator = () => {
-        let pages = [];
-        let count = Math.ceil(this.state.devices.length/this.props.devicesPerPage);
-        for (let i = 1; i <= count; i++ ) {
-            pages.push(
-                <button className={this.state.currentPage === i ? 'paginator-page-index active' : 'paginator-page-index'}
-                               key={`paginator-page-index-${i}`}
-                               onClick={this.paginatorHandler}
-                >{i}</button>)
-        }
-        return (
-            <div className='Paginator'>
-                <div className='paginator-summary'>
-                    <span>{`Всего устройств: ${this.state.devices.length}`}</span>
-                </div>
-                <div className='paginator-bottom'>
-                    <button className='paginator-first material-icons' key={'paginator-first'} ref='first'
-                            onClick={this.paginatorHandler}>first_page
-                    </button>
-                    <button className='paginator-prev material-icons' key={'paginator-prev'} ref='prev'
-                            onClick={this.paginatorHandler}>chevron_left
-                    </button>
-                    {pages}
-                    <button className='paginator-next material-icons' key={'paginator-next'} ref='next'
-                            onClick={this.paginatorHandler}>chevron_right
-                    </button>
-                    <button className='paginator-last material-icons' key={'paginator-last'} ref='last'
-                            onClick={this.paginatorHandler}>last_page
-                    </button>
-                </div>
-                <div style={{width: '150px'}}>
-                    <span></span>
-                </div>
-            </div>
-        )
     };
 
     createHead = () => {
@@ -291,7 +225,12 @@ class DeviceList extends React.PureComponent {
                     </thead>
                     <tbody>{this.createPage(this.state.currentPage)}</tbody>
                 </table>
-                {this.createPaginator()}
+                <Paginator
+                    currentPage={this.state.currentPage}
+                    itemsCount={this.state.devices.length}
+                    pagesCount={Math.ceil(this.state.devices.length/this.props.devicesPerPage)}
+                    cbCurrentPageChanged={this.currentPageChanged}
+                />
                 <ContextMenu forElement={this.state.selectedItemIdx}/>
                 <Card isActive={this.state.isItemCardActive}
                           device={this.devForCard[0]}
