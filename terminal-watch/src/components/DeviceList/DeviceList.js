@@ -88,7 +88,13 @@ class DeviceList extends React.PureComponent {
     };
 
     currentPageChanged = (pageNum) => {
-        this.setState({currentPage: pageNum});
+        this.setState({currentPage: pageNum}, this.updateHistory);
+    };
+
+    updateHistory = () => {
+        console.log(this.props.history.location)
+        /*this.props.history.push(`/`);
+        this.props.history.push(`admin/devices_atm/page-${this.state.currentPage}`);*/
     };
 
     filter = () => {

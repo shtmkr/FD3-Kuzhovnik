@@ -35,25 +35,37 @@ class Admin extends React.PureComponent {
     startSubMenuProcess = (submenu) => {
         let submenuText = submenu.children[0].children[1].textContent;
         console.log(submenuText);
+        let reg = /admin\/\w+/;
         if (submenuText === 'Банкоматы'){
-            /*this.props.history.push(`${this.props.history.location.pathname}/devices_atm`);*/
-            this.props.history.push(`/`);
-            this.props.history.push(`admin/devices_atm`);
+            if (this.props.history.location.pathname === '/admin'){
+                this.props.history.push(`admin/devices_atm`);
+            } else {
+               this.props.history.push( this.props.history.location.pathname.replace(reg, 'admin/devices_atm') );
+            }
             this.setState({list: submenuText})
         }
         if (submenuText === 'Инфокиоски'){
-            this.props.history.push(`/`);
-            this.props.history.push(`admin/devices_kiosk`);
+            if (this.props.history.location.pathname === '/admin'){
+                this.props.history.push(`admin/devices_kiosk`);
+            } else {
+                this.props.history.push( this.props.history.location.pathname.replace(reg, 'admin/devices_kiosk') );
+            }
             this.setState({list: submenuText})
         }
         if (submenuText === 'Ошибки'){
-            this.props.history.push(`/`);
-            this.props.history.push(`admin/events_error`);
+            if (this.props.history.location.pathname === '/admin'){
+                this.props.history.push(`admin/events_error`);
+            } else {
+                this.props.history.push( this.props.history.location.pathname.replace(reg, 'admin/events_error') );
+            }
             this.setState({list: submenuText})
         }
         if (submenuText === 'Предупреждения'){
-            this.props.history.push(`/`);
-            this.props.history.push(`admin/events_warn`);
+            if (this.props.history.location.pathname === '/admin'){
+                this.props.history.push(`admin/events_warn`);
+            } else {
+                this.props.history.push( this.props.history.location.pathname.replace(reg, 'admin/events_warn') );
+            }
             this.setState({list: submenuText})
         }
     };
@@ -66,7 +78,7 @@ class Admin extends React.PureComponent {
                 <Message/>
                 <Switch>
                     <Route path="/admin/devices_atm"
-                           render={ props => <DeviceList evt={this.props.evt} devices={atm} devicesPerPage={10} resizable={true}/> } />
+                           render={ props => <DeviceList evt={this.props.evt} devices={atm} devicesPerPage={10} resizable={true} history={this.props.history}/> } />
                     <Route path="/admin/devices_kiosk"
                            render={ props => <DeviceList evt={this.props.evt} devices={kiosk} devicesPerPage={10} resizable={true}/> } />
                     <Route path="/admin/events_error"
