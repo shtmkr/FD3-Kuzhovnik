@@ -180,21 +180,30 @@ class DeviceList extends React.PureComponent {
                 >{i}</button>)
         }
         return (
-            <div className='paginator-bottom'>
-                <button className='paginator-first material-icons' key={'paginator-first'} ref='first'
-                        onClick={this.paginatorHandler}>first_page
-                </button>
-                <button className='paginator-prev material-icons' key={'paginator-prev'} ref='prev'
-                        onClick={this.paginatorHandler}>chevron_left
-                </button>
-                {pages}
-                <button className='paginator-next material-icons' key={'paginator-next'} ref='next'
-                        onClick={this.paginatorHandler}>chevron_right
-                </button>
-                <button className='paginator-last material-icons' key={'paginator-last'} ref='last'
-                        onClick={this.paginatorHandler}>last_page
-                </button>
-            </div>)
+            <div className='Paginator'>
+                <div className='paginator-summary'>
+                    <span>{`Всего устройств: ${this.state.devices.length}`}</span>
+                </div>
+                <div className='paginator-bottom'>
+                    <button className='paginator-first material-icons' key={'paginator-first'} ref='first'
+                            onClick={this.paginatorHandler}>first_page
+                    </button>
+                    <button className='paginator-prev material-icons' key={'paginator-prev'} ref='prev'
+                            onClick={this.paginatorHandler}>chevron_left
+                    </button>
+                    {pages}
+                    <button className='paginator-next material-icons' key={'paginator-next'} ref='next'
+                            onClick={this.paginatorHandler}>chevron_right
+                    </button>
+                    <button className='paginator-last material-icons' key={'paginator-last'} ref='last'
+                            onClick={this.paginatorHandler}>last_page
+                    </button>
+                </div>
+                <div style={{width: '150px'}}>
+                    <span></span>
+                </div>
+            </div>
+        )
     };
 
     createHead = () => {
