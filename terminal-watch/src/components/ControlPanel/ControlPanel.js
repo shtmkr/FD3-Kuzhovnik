@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import {listUnitsEvents, msg} from "../../events/events";
 
 import './ControlPanel.css';
+import Button from "../Button/Button";
 
 class ControlPanel extends React.PureComponent {
 
@@ -93,11 +94,7 @@ class ControlPanel extends React.PureComponent {
                             <option value="7000">7000</option>
                             <option value="7001">7001</option>
                         </select>
-                        <button className="mdc-button mdc-button--raised control-panel-button "
-                                onClick={this.downloadClick}
-                        >
-                            <i className="material-icons">get_app</i>
-                        </button>
+                        <Button classname='mdc-button mdc-button--raised control-panel-button ' iClass='material-icons' cb={this.downloadClick} label='get_app'/>
                     </div>
                     <div className='controls-wrapper'>
                         <select className='controls-select'
@@ -105,21 +102,11 @@ class ControlPanel extends React.PureComponent {
                             <option value="In Service">IS</option>
                             <option value="Out Of Service">OOS</option>
                         </select>
-                        <button className="mdc-button mdc-button--raised control-panel-button "
-                                onClick={this.stateClick}
-                        >
-                            <i className="material-icons">arrow_right_alt</i></button>
+                        <Button classname='mdc-button mdc-button--raised control-panel-button' iClass='material-icons' cb={this.stateClick} label='arrow_right_alt'/>
                     </div>
                     <div className='controls-wrapper'>
-                        <button className="mdc-button mdc-button--raised control-panel-button "
-                                onClick={this.reboot}
-                        >
-                            <i className={this.state.rebootClicked ? 'material-icons spin' : 'material-icons'}>autorenew</i></button>
-                        <button className="mdc-button mdc-button--raised control-panel-button "
-                                onClick={this.saveLogs}
-                        >
-                            <i className="material-icons">archive</i></button>
-                        {/*<span className='result' ref={(el) => {this.saveLogsResult = el}}> </span>*/}
+                        <Button classname='mdc-button mdc-button--raised control-panel-button' iClass={this.state.rebootClicked ? 'material-icons spin' : 'material-icons'} cb={this.reboot} label='autorenew'/>
+                        <Button classname='mdc-button mdc-button--raised control-panel-button' iClass='material-icons' cb={this.saveLogs} label='archive'/>
                     </div>
 
                 </div>

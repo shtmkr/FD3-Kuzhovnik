@@ -4,6 +4,7 @@ import {withRouter} from "react-router-dom";
 
 import './Toolbar.css';
 import ControlPanel from "../ControlPanel/ControlPanel";
+import Button from "../Button/Button";
 
 class Toolbar extends React.PureComponent {
 
@@ -103,7 +104,7 @@ class Toolbar extends React.PureComponent {
                 <ControlPanel isControlPanelActive={true}/>
                 <div className='toolbar-additional'>
                     <input className='toolbar-input-search' type='text' placeholder='Поиск...'/>
-                    <button className="mdc-button mdc-button--raised toolbar-logout " onClick={this.logout}><i className="material-icons">exit_to_app</i>Выйти</button>
+                    <Button classname='mdc-button mdc-button--raised toolbar-logout' iClass='material-icons' cb={this.logout} label='exit_to_app' text='Выйти'/>
                 </div>
             </div>
         );
