@@ -1,0 +1,17 @@
+.Tooltip .tooltip {
+    border-radius: 5px;
+    padding: 3px;
+    background-color: white;
+    border: 1px solid #a6a6a6;
+    position: absolute;
+    z-index: 555;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: fadein 0.5s;
+}
+.tooltip-text {
+    width: 100%;
+    height: auto;
+    display: inline;
+}

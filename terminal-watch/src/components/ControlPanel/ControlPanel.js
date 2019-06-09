@@ -4,6 +4,7 @@ import {listUnitsEvents, msg} from "../../events/events";
 
 import './ControlPanel.css';
 import Button from "../Button/Button";
+import Tooltip from "../Tooltip/Tooltip"
 
 class ControlPanel extends React.PureComponent {
 
@@ -94,7 +95,9 @@ class ControlPanel extends React.PureComponent {
                             <option value="7000">7000</option>
                             <option value="7001">7001</option>
                         </select>
-                        <Button classname='mdc-button mdc-button--raised control-panel-button ' iClass='material-icons' cb={this.downloadClick} label='get_app'/>
+                        <Tooltip tooltipText='Конфига'>
+                            <Button classname='mdc-button mdc-button--raised control-panel-button ' iClass='material-icons' cb={this.downloadClick} label='get_app'/>
+                        </Tooltip>
                     </div>
                     <div className='controls-wrapper'>
                         <select className='controls-select'
@@ -102,13 +105,18 @@ class ControlPanel extends React.PureComponent {
                             <option value="In Service">IS</option>
                             <option value="Out Of Service">OOS</option>
                         </select>
-                        <Button classname='mdc-button mdc-button--raised control-panel-button' iClass='material-icons' cb={this.stateClick} label='arrow_right_alt'/>
+                        <Tooltip tooltipText='Толкнуть'>
+                            <Button classname='mdc-button mdc-button--raised control-panel-button' iClass='material-icons' cb={this.stateClick} label='arrow_right_alt'/>
+                        </Tooltip>
                     </div>
                     <div className='controls-wrapper'>
-                        <Button classname='mdc-button mdc-button--raised control-panel-button' iClass={this.state.rebootClicked ? 'material-icons spin' : 'material-icons'} cb={this.reboot} label='autorenew'/>
-                        <Button classname='mdc-button mdc-button--raised control-panel-button' iClass='material-icons' cb={this.saveLogs} label='archive'/>
+                        <Tooltip tooltipText='Перезагрузка'>
+                            <Button classname='mdc-button mdc-button--raised control-panel-button' iClass={this.state.rebootClicked ? 'material-icons spin' : 'material-icons'} cb={this.reboot} label='autorenew'/>
+                        </Tooltip>
+                        <Tooltip tooltipText='Скачать логи'>
+                            <Button classname='mdc-button mdc-button--raised control-panel-button' iClass='material-icons' cb={this.saveLogs} label='archive'/>
+                        </Tooltip>
                     </div>
-
                 </div>
                 }
             </Fragment>
