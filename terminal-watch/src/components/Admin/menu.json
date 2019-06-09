@@ -10,10 +10,6 @@
       {
         "label": "Инфокиоски",
         "icon": "device_hub"
-      },
-      {
-        "label": "Терминалы",
-        "icon": "device_hub"
       }
     ]
   },

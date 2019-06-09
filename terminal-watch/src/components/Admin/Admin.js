@@ -34,37 +34,48 @@ class Admin extends React.PureComponent {
 
     startSubMenuProcess = (submenu) => {
         let submenuText = submenu.children[0].children[1].textContent;
-        console.log(submenuText);
-        let reg = /admin\/\w+/; // TODO: проверка
+        let currentUrl = this.props.history.location.pathname;
+        let reg = /(admin\/\w+\/\w+\/\d)|(admin\/\w+)/; // exmpl /admin/devices_kiosk/page/1 or /admin/devices_kiosk
+        let nextPage;
         if (submenuText === 'Банкоматы'){
-            if (this.props.history.location.pathname === '/admin'){
-                this.props.history.push(`admin/devices_atm/page/1`);
+            nextPage = `admin/devices_atm/page/1`;
+            if (currentUrl === '/admin'){
+                this.props.history.push(nextPage);
             } else {
-               this.props.history.push( this.props.history.location.pathname.replace(reg, 'admin/devices_atm/page/1') );
+                if (currentUrl === "/" + nextPage) {
+                    console.log('thre no changes')
+                } else {
+                    this.props.history.push( currentUrl.replace(reg, nextPage) );
+                }
             }
             this.setState({list: submenuText})
         }
         if (submenuText === 'Инфокиоски'){
-            if (this.props.history.location.pathname === '/admin'){
-                this.props.history.push(`admin/devices_kiosk`);
+            nextPage = `admin/devices_kiosk/page/1`;
+            if (currentUrl === '/admin'){
+                this.props.history.push(nextPage);
             } else {
-                this.props.history.push( this.props.history.location.pathname.replace(reg, 'admin/devices_kiosk') );
+                if (currentUrl === "/" + nextPage) {
+                    console.log('thre no changes')
+                } else {
+                    this.props.history.push( currentUrl.replace(reg, nextPage) );
+                }
             }
             this.setState({list: submenuText})
         }
         if (submenuText === 'Ошибки'){
-            if (this.props.history.location.pathname === '/admin'){
+            if (currentUrl === '/admin'){
                 this.props.history.push(`admin/events_error`);
             } else {
-                this.props.history.push( this.props.history.location.pathname.replace(reg, 'admin/events_error') );
+                this.props.history.push( currentUrl.replace(reg, 'admin/events_error') );
             }
             this.setState({list: submenuText})
         }
         if (submenuText === 'Предупреждения'){
-            if (this.props.history.location.pathname === '/admin'){
+            if (currentUrl === '/admin'){
                 this.props.history.push(`admin/events_warn`);
             } else {
-                this.props.history.push( this.props.history.location.pathname.replace(reg, 'admin/events_warn') );
+                this.props.history.push( currentUrl.replace(reg, 'admin/events_warn') );
             }
             this.setState({list: submenuText})
         }
@@ -84,8 +95,8 @@ class Admin extends React.PureComponent {
                 <Switch>
                     <Route path="/admin/devices_atm/page/:page"
                            render={ props => <DeviceList evt={this.props.evt} devices={atm} devicesPerPage={10} resizable={true} history={this.props.history} currentPage={parseInt(currPage[0])}/> } />
-                    <Route path="/admin/devices_kiosk"
-                           render={ props => <DeviceList evt={this.props.evt} devices={kiosk} devicesPerPage={10} resizable={true}/> } />
+                    <Route path="/admin/devices_kiosk/page/:page"
+                           render={ props => <DeviceList evt={this.props.evt} devices={kiosk} devicesPerPage={10} resizable={true} history={this.props.history} currentPage={parseInt(currPage[0])}/> } />
                     <Route path="/admin/events_error"
                            render={ props => <EventList evt={this.props.evt} events={deviceEvents} resizable={true} eType={'error'}/> } />
                     <Route path="/admin/events_warn"

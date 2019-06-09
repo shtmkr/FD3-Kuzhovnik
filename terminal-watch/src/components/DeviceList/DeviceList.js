@@ -110,8 +110,11 @@ class DeviceList extends React.PureComponent {
     };
 
     updateHistory = () => {
-        let page = /admin\/devices_atm\/page\/\d/;
-        let nextPage = `admin/devices_atm/page/${this.state.currentPage}`;
+        console.log('update URL...');
+        let page = /(admin\/\w+\/\w+\/\d)/;
+        let currentUrl = this.props.history.location.pathname;
+        let nextPage = currentUrl.match(page);
+        nextPage = `${nextPage[0].replace(/\d/, this.state.currentPage)}`;
         this.props.history.push( this.props.history.location.pathname.replace(page, nextPage) );
     };
 
