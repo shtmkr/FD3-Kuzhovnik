@@ -1,0 +1,1122 @@
+[
+  {
+    "Info": {
+      "Bank": "Belinvestbank",
+      "Id":"M000000",
+      "Address": "г.Минск, ул.Пушкина,8",
+      "Serial": "XXX0000DBLD0001",
+      "Model":"Diebold Opteva 328"
+    },
+    "Network": {
+      "IP": "10.11.00.1",
+      "Port": "666",
+      "Config": "7070",
+      "Config_type": "REC",
+      "Last_reboot": "01.04.2019"
+    },
+    "Software": {
+      "Agi": " 2.4",
+      "Sub_1": "Some ver",
+      "Sub_2": "Some ver",
+      "Sub_3": "Some ver",
+      "Sub_4": "Some ver"
+    },
+    "Stats": {
+      "Repairs": [1, 2, 5, 5, 1, 2, 10, 2, 3, 4, 10, 2],
+      "Sp": [22, 55, 15, 23, 11, 59, 11, 12, 43, 2, 2, 5],
+      "Ink": [12, 12, 15, 15, 11, 12, 10, 12, 13, 14, 10, 12]
+    },
+    "Repairs": [
+      {"Date" : "01.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"},
+      {"Date" : "02.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Не выдал деньги, помогите пожалуйста", "ResultDesc":  "Продул диспенсер"},
+      {"Date" : "03.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"},
+      {"Date" : "04.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"},
+      {"Date" : "05.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Не выдал деньги, помогите пожалуйста", "ResultDesc":  "Продул диспенсер"},
+      {"Date" : "06.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"},
+      {"Date" : "01.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"},
+      {"Date" : "02.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Не выдал деньги, помогите пожалуйста", "ResultDesc":  "Продул диспенсер"},
+      {"Date" : "03.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"},
+      {"Date" : "04.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"},
+      {"Date" : "05.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Не выдал деньги, помогите пожалуйста", "ResultDesc":  "Продул диспенсер"},
+      {"Date" : "06.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"}
+    ]
+  },
+  {
+    "Info": {
+      "Bank": "Belinvestbank",
+      "Id":"M000001",
+      "Address": "г.Минск, ул.Пушкина,18",
+      "Serial": "XXX0000DBLD0002",
+      "Model":"Diebold Opteva 522"
+    },
+    "Network": {
+      "IP": "10.11.00.2",
+      "Port": "666",
+      "Config": "7070",
+      "Config_type": "AFD",
+      "Last_reboot": "01.04.2019"
+    },
+    "Software": {
+      "Agi": " 2.4",
+      "Sub_1": "Some ver",
+      "Sub_2": "Some ver",
+      "Sub_3": "Some ver",
+      "Sub_4": "Some ver"
+    },
+    "Stats": {
+      "Repairs": [1, 0, 0, 0, 1, 2, 0, 2, 3, 4, 0, 2],
+      "Sp": [1, 5, 1, 2, 1, 5, 1, 2, 3, 2, 2, 5],
+      "Ink": [12, 12, 15, 15, 11, 12, 10, 12, 13, 14, 10, 12]
+    },
+    "Repairs": [
+      {"Date" : "01.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"},
+      {"Date" : "02.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Не выдал деньги, помогите пожалуйста", "ResultDesc":  "Продул диспенсер"},
+      {"Date" : "03.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"},
+      {"Date" : "04.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"},
+      {"Date" : "05.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Не выдал деньги, помогите пожалуйста", "ResultDesc":  "Продул диспенсер"},
+      {"Date" : "06.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"}
+    ]
+  },
+  {
+    "Info": {
+      "Bank": "Belinvestbank",
+      "Id":"M000002",
+      "Address": "г.Минск, ул.Пушкина,28",
+      "Serial": "XXX0000DBLD0003",
+      "Model":"Diebold Opteva 720"
+    },
+    "Network": {
+      "IP": "10.11.00.3",
+      "Port": "666",
+      "Config": "7070",
+      "Config_type": "BNA",
+      "Last_reboot": "01.04.2019"
+    },
+    "Software": {
+      "Agi": " 2.4",
+      "Sub_1": "Some ver",
+      "Sub_2": "Some ver",
+      "Sub_3": "Some ver",
+      "Sub_4": "Some ver"
+    },
+    "Stats": {
+      "Repairs": [1, 0, 0, 0, 1, 2, 0, 2, 3, 4, 0, 2],
+      "Sp": [1, 5, 1, 2, 1, 5, 1, 2, 3, 2, 2, 5],
+      "Ink": [12, 12, 15, 15, 11, 12, 10, 12, 13, 14, 10, 12]
+    },
+    "Repairs": [
+      {"Date" : "01.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"},
+      {"Date" : "02.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Не выдал деньги, помогите пожалуйста", "ResultDesc":  "Продул диспенсер"},
+      {"Date" : "03.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"},
+      {"Date" : "04.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"},
+      {"Date" : "05.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Не выдал деньги, помогите пожалуйста", "ResultDesc":  "Продул диспенсер"},
+      {"Date" : "06.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"}
+    ]
+  },
+  {
+    "Info": {
+      "Bank": "Belinvestbank",
+      "Id":"M000003",
+      "Address": "г.Минск, ул.Пупкина,18",
+      "Serial": "XXX0000DBLD0003",
+      "Model":"Diebold Opteva 328"
+    },
+    "Network": {
+      "IP": "10.11.00.4",
+      "Port": "666",
+      "Config": "7070",
+      "Config_type": "REC",
+      "Last_reboot": "01.04.2019"
+    },
+    "Software": {
+      "Agi": " 2.4",
+      "Sub_1": "Some ver",
+      "Sub_2": "Some ver",
+      "Sub_3": "Some ver",
+      "Sub_4": "Some ver"
+    },
+    "Stats": {
+      "Repairs": [1, 0, 0, 0, 1, 2, 0, 2, 3, 4, 0, 2],
+      "Sp": [1, 5, 1, 2, 1, 5, 1, 2, 3, 2, 2, 5],
+      "Ink": [12, 12, 15, 15, 11, 12, 10, 12, 13, 14, 10, 12]
+    },
+    "Repairs": [
+      {"Date" : "01.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"},
+      {"Date" : "02.04.2019", "Performer": "Pan Kowalski", "ProblemDesc":  "Не выдал деньги, помогите пожалуйста", "ResultDesc":  "Продул диспенсер"},
+      {"Date" : "03.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"},
+      {"Date" : "04.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"},
+      {"Date" : "05.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Не выдал деньги, помогите пожалуйста", "ResultDesc":  "Продул диспенсер"},
+      {"Date" : "06.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"}
+    ]
+  },
+  {
+    "Info": {
+      "Bank": "Belinvestbank",
+      "Id":"M000004",
+      "Address": "г.Минск, ул.Пулихова,11",
+      "Serial": "XXX0000DBLD0002",
+      "Model":"Diebold Opteva 328"
+    },
+    "Network": {
+      "IP": "10.11.00.5",
+      "Port": "666",
+      "Config": "7070",
+      "Config_type": "REC",
+      "Last_reboot": "01.04.2019"
+    },
+    "Software": {
+      "Agi": " 3.0",
+      "Sub_1": "Some ver",
+      "Sub_2": "Some ver",
+      "Sub_3": "Some ver",
+      "Sub_4": "Some ver"
+    },
+    "Stats": {
+      "Repairs": [1, 0, 0, 0, 1, 2, 0, 2, 3, 4, 0, 2],
+      "Sp": [1, 5, 1, 2, 1, 5, 1, 2, 3, 2, 2, 5],
+      "Ink": [12, 12, 15, 15, 11, 12, 10, 12, 13, 14, 10, 12]
+    }
+  },
+  {
+    "Info": {
+      "Bank": "Belinvestbank",
+      "Id":"M000005",
+      "Address": "г.Минск, ул.Пулихова,21",
+      "Serial": "XXX0000DBLD00053",
+      "Model":"Diebold Opteva 328"
+    },
+    "Network": {
+      "IP": "10.11.00.6",
+      "Port": "666",
+      "Config": "7070",
+      "Config_type": "REC",
+      "Last_reboot": "01.04.2019"
+    },
+    "Software": {
+      "Agi": " 3.0",
+      "Sub_1": "Some ver",
+      "Sub_2": "Some ver",
+      "Sub_3": "Some ver",
+      "Sub_4": "Some ver"
+    },
+    "Stats": {
+      "Repairs": [1, 0, 0, 0, 1, 2, 0, 2, 3, 4, 0, 2],
+      "Sp": [1, 5, 1, 2, 1, 5, 1, 2, 3, 2, 2, 5],
+      "Ink": [12, 12, 15, 15, 11, 12, 10, 12, 13, 14, 10, 12]
+    }
+  },
+  {
+    "Info": {
+      "Bank": "Belinvestbank",
+      "Id":"M000055",
+      "Address": "г.Минск, ул.Сурганова,11",
+      "Serial": "XXX0000DBLD0002",
+      "Model":"Diebold Opteva 720"
+    },
+    "Network": {
+      "IP": "10.11.00.77",
+      "Port": "666",
+      "Config": "7070",
+      "Config_type": "REC",
+      "Last_reboot": "11.04.2019"
+    },
+    "Software": {
+      "Agi": " 2.4",
+      "Sub_1": "Some ver",
+      "Sub_2": "Some ver",
+      "Sub_3": "Some ver",
+      "Sub_4": "Some ver"
+    },
+    "Stats": {
+      "Repairs": [1, 0, 0, 0, 1, 2, 0, 2, 3, 4, 0, 2],
+      "Sp": [1, 5, 1, 2, 1, 5, 1, 2, 3, 2, 2, 5],
+      "Ink": [12, 12, 15, 15, 11, 12, 10, 12, 13, 14, 10, 12]
+    }
+  },
+  {
+    "Info": {
+      "Bank": "Belinvestbank",
+      "Id":"M000006",
+      "Address": "г.Минск, ул.Пулихова,11",
+      "Serial": "XXX0000DBLD0002",
+      "Model":"Diebold Opteva 328"
+    },
+    "Network": {
+      "IP": "10.11.00.77",
+      "Port": "666",
+      "Config": "7070",
+      "Config_type": "REC",
+      "Last_reboot": "01.04.2019"
+    },
+    "Software": {
+      "Agi": " 3.0",
+      "Sub_1": "Some ver",
+      "Sub_2": "Some ver",
+      "Sub_3": "Some ver",
+      "Sub_4": "Some ver"
+    },
+    "Stats": {
+      "Repairs": [1, 0, 0, 0, 1, 2, 0, 2, 3, 4, 0, 2],
+      "Sp": [1, 5, 1, 2, 1, 5, 1, 2, 3, 2, 2, 5],
+      "Ink": [12, 12, 15, 15, 11, 12, 10, 12, 13, 14, 10, 12]
+    }
+  },
+  {
+    "Info": {
+      "Bank": "Belinvestbank",
+      "Id":"M000007",
+      "Address": "г.Минск, ул.Пулихова,11",
+      "Serial": "XXX0000DBLD0002",
+      "Model":"Diebold Opteva 328"
+    },
+    "Network": {
+      "IP": "10.11.00.77",
+      "Port": "666",
+      "Config": "7070",
+      "Config_type": "REC",
+      "Last_reboot": "01.04.2019"
+    },
+    "Software": {
+      "Agi": " 3.0",
+      "Sub_1": "Some ver",
+      "Sub_2": "Some ver",
+      "Sub_3": "Some ver",
+      "Sub_4": "Some ver"
+    },
+    "Stats": {
+      "Repairs": [1, 0, 0, 0, 1, 2, 0, 2, 3, 4, 0, 2],
+      "Sp": [1, 5, 1, 2, 1, 5, 1, 2, 3, 2, 2, 5],
+      "Ink": [12, 12, 15, 15, 11, 12, 10, 12, 13, 14, 10, 12]
+    }
+  },
+  {
+    "Info": {
+      "Bank": "Belinvestbank",
+      "Id":"M000008",
+      "Address": "г.Минск, ул.Пулихова,11",
+      "Serial": "XXX0000DBLD0002",
+      "Model":"Diebold Opteva 328"
+    },
+    "Network": {
+      "IP": "10.11.00.77",
+      "Port": "666",
+      "Config": "7070",
+      "Config_type": "REC",
+      "Last_reboot": "01.04.2019"
+    },
+    "Software": {
+      "Agi": " 3.0",
+      "Sub_1": "Some ver",
+      "Sub_2": "Some ver",
+      "Sub_3": "Some ver",
+      "Sub_4": "Some ver"
+    },
+    "Stats": {
+      "Repairs": [1, 0, 0, 0, 1, 2, 0, 2, 3, 4, 0, 2],
+      "Sp": [12, 50, 11, 21, 11, 51, 11, 21, 33, 22, 23, 53],
+      "Ink": [13, 12, 15, 15, 11, 12, 10, 12, 14, 14, 12, 13]
+    }
+  },
+  {
+    "Info": {
+      "Bank": "Belinvestbank",
+      "Id":"M000009",
+      "Address": "г.Минск, ул.Пулихова,11",
+      "Serial": "XXX0000DBLD0002",
+      "Model":"Diebold Opteva 328"
+    },
+    "Network": {
+      "IP": "10.11.00.77",
+      "Port": "666",
+      "Config": "7070",
+      "Config_type": "REC",
+      "Last_reboot": "01.04.2019"
+    },
+    "Software": {
+      "Agi": " 3.0",
+      "Sub_1": "Some ver",
+      "Sub_2": "Some ver",
+      "Sub_3": "Some ver",
+      "Sub_4": "Some ver"
+    }
+  },
+  {
+    "Info": {
+      "Bank": "Belinvestbank",
+      "Id":"M0000010",
+      "Address": "г.Минск, ул.Пулихова,11",
+      "Serial": "XXX0000DBLD0002",
+      "Model":"Diebold Opteva 328"
+    },
+    "Network": {
+      "IP": "10.11.00.77",
+      "Port": "666",
+      "Config": "7070",
+      "Config_type": "REC",
+      "Last_reboot": "01.04.2019"
+    },
+    "Software": {
+      "Agi": " 3.0",
+      "Sub_1": "Some ver",
+      "Sub_2": "Some ver",
+      "Sub_3": "Some ver",
+      "Sub_4": "Some ver"
+    },
+    "Stats": {
+      "Repairs": [1, 0, 0, 0, 1, 2, 0, 2, 3, 4, 0, 2],
+      "Sp": [1, 5, 1, 2, 1, 5, 1, 2, 3, 2, 2, 5],
+      "Ink": [12, 12, 15, 15, 11, 12, 10, 12, 13, 14, 10, 12]
+    }
+  },
+  {
+    "Info": {
+      "Bank": "Belinvestbank",
+      "Id":"M0000011",
+      "Address": "г.Минск, ул.Пулихова,11",
+      "Serial": "XXX0000DBLD0002",
+      "Model":"Diebold Opteva 328"
+    },
+    "Network": {
+      "IP": "10.11.00.77",
+      "Port": "666",
+      "Config": "7070",
+      "Config_type": "REC",
+      "Last_reboot": "01.04.2019"
+    },
+    "Software": {
+      "Agi": " 3.0",
+      "Sub_1": "Some ver",
+      "Sub_2": "Some ver",
+      "Sub_3": "Some ver",
+      "Sub_4": "Some ver"
+    }
+  },
+  {
+    "Info": {
+      "Bank": "Belinvestbank",
+      "Id":"M0000012",
+      "Address": "г.Минск, ул.Пулихова,11",
+      "Serial": "XXX0000DBLD0002",
+      "Model":"Diebold Opteva 328"
+    },
+    "Network": {
+      "IP": "10.11.00.77",
+      "Port": "666",
+      "Config": "7070",
+      "Config_type": "REC",
+      "Last_reboot": "01.04.2019"
+    },
+    "Software": {
+      "Agi": " 3.0",
+      "Sub_1": "Some ver",
+      "Sub_2": "Some ver",
+      "Sub_3": "Some ver",
+      "Sub_4": "Some ver"
+    },
+    "Stats": {
+      "Repairs": [1, 0, 0, 0, 1, 2, 0, 2, 3, 4, 0, 2],
+      "Sp": [1, 5, 1, 2, 1, 5, 1, 2, 3, 2, 2, 5],
+      "Ink": [12, 12, 15, 15, 11, 12, 10, 12, 13, 14, 10, 12]
+    }
+  },
+  {
+    "Info": {
+      "Bank": "Belinvestbank",
+      "Id":"M000013",
+      "Address": "г.Минск, ул.Пулихова,11",
+      "Serial": "XXX0000DBLD0002",
+      "Model":"Diebold Opteva 328"
+    },
+    "Network": {
+      "IP": "10.11.00.77",
+      "Port": "666",
+      "Config": "7070",
+      "Config_type": "REC",
+      "Last_reboot": "01.04.2019"
+    },
+    "Software": {
+      "Agi": " 3.0",
+      "Sub_1": "Some ver",
+      "Sub_2": "Some ver",
+      "Sub_3": "Some ver",
+      "Sub_4": "Some ver"
+    },
+    "Stats": {
+      "Repairs": [1, 0, 0, 0, 1, 2, 0, 2, 3, 4, 0, 2],
+      "Sp": [1, 5, 1, 2, 1, 5, 1, 2, 3, 2, 2, 5],
+      "Ink": [12, 12, 15, 15, 11, 12, 10, 12, 13, 14, 10, 12]
+    }
+  },
+  {
+    "Info": {
+      "Bank": "Belinvestbank",
+      "Id":"M000014",
+      "Address": "г.Минск, ул.Пулихова,11",
+      "Serial": "XXX0000DBLD0002",
+      "Model":"Diebold Opteva 328"
+    },
+    "Network": {
+      "IP": "10.11.00.77",
+      "Port": "666",
+      "Config": "7070",
+      "Config_type": "REC",
+      "Last_reboot": "01.04.2019"
+    },
+    "Software": {
+      "Agi": " 3.0",
+      "Sub_1": "Some ver",
+      "Sub_2": "Some ver",
+      "Sub_3": "Some ver",
+      "Sub_4": "Some ver"
+    },
+    "Stats": {
+      "Repairs": [1, 0, 0, 0, 1, 2, 0, 2, 3, 4, 0, 2],
+      "Sp": [1, 5, 1, 2, 1, 5, 1, 2, 3, 2, 2, 5],
+      "Ink": [12, 12, 15, 15, 11, 12, 10, 12, 13, 14, 10, 12]
+    }
+  },
+  {
+    "Info": {
+      "Bank": "Belinvestbank",
+      "Id":"M000015",
+      "Address": "г.Минск, ул.Пулихова,11",
+      "Serial": "XXX0000DBLD0002",
+      "Model":"Diebold Opteva 328"
+    },
+    "Network": {
+      "IP": "10.11.00.77",
+      "Port": "666",
+      "Config": "7070",
+      "Config_type": "REC",
+      "Last_reboot": "01.04.2019"
+    },
+    "Software": {
+      "Agi": " 3.0",
+      "Sub_1": "Some ver",
+      "Sub_2": "Some ver",
+      "Sub_3": "Some ver",
+      "Sub_4": "Some ver"
+    },
+    "Stats": {
+      "Repairs": [1, 0, 0, 0, 1, 2, 0, 2, 3, 4, 0, 2],
+      "Sp": [1, 5, 1, 2, 1, 5, 1, 2, 3, 2, 2, 5],
+      "Ink": [12, 12, 15, 15, 11, 12, 10, 12, 13, 14, 10, 12]
+    }
+  },
+  {
+    "Info": {
+      "Bank": "Belinvestbank",
+      "Id":"M000016",
+      "Address": "г.Минск, ул.Пулихова,11",
+      "Serial": "XXX0000DBLD0002",
+      "Model":"Diebold Opteva 328"
+    },
+    "Network": {
+      "IP": "10.11.00.77",
+      "Port": "666",
+      "Config": "7070",
+      "Config_type": "REC",
+      "Last_reboot": "01.04.2019"
+    },
+    "Software": {
+      "Agi": " 3.0",
+      "Sub_1": "Some ver",
+      "Sub_2": "Some ver",
+      "Sub_3": "Some ver",
+      "Sub_4": "Some ver"
+    },
+    "Stats": {
+      "Repairs": [1, 0, 0, 0, 1, 2, 0, 2, 3, 4, 0, 2],
+      "Sp": [1, 5, 1, 2, 1, 5, 1, 2, 3, 2, 2, 5],
+      "Ink": [12, 12, 15, 15, 11, 12, 10, 12, 13, 14, 10, 12]
+    }
+  },
+  {
+    "Info": {
+      "Bank": "Belinvestbank",
+      "Id":"M000017",
+      "Address": "г.Минск, ул.Пулихова,11",
+      "Serial": "XXX0000DBLD0002",
+      "Model":"Diebold Opteva 328"
+    },
+    "Network": {
+      "IP": "10.11.00.77",
+      "Port": "666",
+      "Config": "7070",
+      "Config_type": "REC",
+      "Last_reboot": "01.04.2019"
+    },
+    "Software": {
+      "Agi": " 3.0",
+      "Sub_1": "Some ver",
+      "Sub_2": "Some ver",
+      "Sub_3": "Some ver",
+      "Sub_4": "Some ver"
+    },
+    "Stats": {
+      "Repairs": [1, 0, 0, 0, 1, 2, 0, 2, 3, 4, 0, 2],
+      "Sp": [1, 5, 1, 2, 1, 5, 1, 2, 3, 2, 2, 5],
+      "Ink": [12, 12, 15, 15, 11, 12, 10, 12, 13, 14, 10, 12]
+    }
+  },
+  {
+    "Info": {
+      "Bank": "Belinvestbank",
+      "Id":"M000018",
+      "Address": "г.Минск, ул.Пулихова,11",
+      "Serial": "XXX0000DBLD0002",
+      "Model":"Diebold Opteva 328"
+    },
+    "Network": {
+      "IP": "10.11.00.77",
+      "Port": "666",
+      "Config": "7070",
+      "Config_type": "REC",
+      "Last_reboot": "01.04.2019"
+    },
+    "Software": {
+      "Agi": " 3.0",
+      "Sub_1": "Some ver",
+      "Sub_2": "Some ver",
+      "Sub_3": "Some ver",
+      "Sub_4": "Some ver"
+    },
+    "Stats": {
+      "Repairs": [1, 0, 0, 0, 1, 2, 0, 2, 3, 4, 0, 2],
+      "Sp": [1, 5, 1, 2, 1, 5, 1, 2, 3, 2, 2, 5],
+      "Ink": [12, 12, 15, 15, 11, 12, 10, 12, 13, 14, 10, 12]
+    }
+  },
+  {
+    "Info": {
+      "Bank": "Belinvestbank",
+      "Id":"M000019",
+      "Address": "г.Минск, ул.Пулихова,11",
+      "Serial": "XXX0000DBLD0002",
+      "Model":"Diebold Opteva 328"
+    },
+    "Network": {
+      "IP": "10.11.00.77",
+      "Port": "666",
+      "Config": "7070",
+      "Config_type": "REC",
+      "Last_reboot": "01.04.2019"
+    },
+    "Software": {
+      "Agi": " 3.0",
+      "Sub_1": "Some ver",
+      "Sub_2": "Some ver",
+      "Sub_3": "Some ver",
+      "Sub_4": "Some ver"
+    },
+    "Stats": {
+      "Repairs": [1, 0, 0, 0, 1, 2, 0, 2, 3, 4, 0, 2],
+      "Sp": [1, 5, 1, 2, 1, 5, 1, 2, 3, 2, 2, 5],
+      "Ink": [12, 12, 15, 15, 11, 12, 10, 12, 13, 14, 10, 12]
+    }
+  },
+  {
+    "Info": {
+      "Bank": "Belinvestbank",
+      "Id":"M000020",
+      "Address": "г.Минск, ул.Пулихова,11",
+      "Serial": "XXX0000DBLD0002",
+      "Model":"Diebold Opteva 328"
+    },
+    "Network": {
+      "IP": "10.11.00.77",
+      "Port": "666",
+      "Config": "7070",
+      "Config_type": "REC",
+      "Last_reboot": "01.04.2019"
+    },
+    "Software": {
+      "Agi": " 3.0",
+      "Sub_1": "Some ver",
+      "Sub_2": "Some ver",
+      "Sub_3": "Some ver",
+      "Sub_4": "Some ver"
+    },
+    "Stats": {
+      "Repairs": [1, 0, 0, 0, 1, 2, 0, 2, 3, 4, 0, 2],
+      "Sp": [1, 5, 1, 2, 1, 5, 1, 2, 3, 2, 2, 5],
+      "Ink": [12, 12, 15, 15, 11, 12, 10, 12, 13, 14, 10, 12]
+    }
+  },
+  {
+    "Info": {
+      "Bank": "Belinvestbank",
+      "Id":"M000021",
+      "Address": "г.Минск, ул.Пулихова,11",
+      "Serial": "XXX0000DBLD0002",
+      "Model":"Diebold Opteva 328"
+    },
+    "Network": {
+      "IP": "10.11.00.77",
+      "Port": "666",
+      "Config": "7070",
+      "Config_type": "REC",
+      "Last_reboot": "01.04.2019"
+    },
+    "Software": {
+      "Agi": " 3.0",
+      "Sub_1": "Some ver",
+      "Sub_2": "Some ver",
+      "Sub_3": "Some ver",
+      "Sub_4": "Some ver"
+    },
+    "Stats": {
+      "Repairs": [1, 0, 0, 0, 1, 2, 0, 2, 3, 4, 0, 2],
+      "Sp": [1, 5, 1, 2, 1, 5, 1, 2, 3, 2, 2, 5],
+      "Ink": [12, 12, 15, 15, 11, 12, 10, 12, 13, 14, 10, 12]
+    }
+  },
+  {
+    "Info": {
+      "Bank": "Belinvestbank",
+      "Id":"M000022",
+      "Address": "г.Минск, ул.Пулихова,11",
+      "Serial": "XXX0000DBLD0002",
+      "Model":"Diebold Opteva 328"
+    },
+    "Network": {
+      "IP": "10.11.00.77",
+      "Port": "666",
+      "Config": "7070",
+      "Config_type": "REC",
+      "Last_reboot": "01.04.2019"
+    },
+    "Software": {
+      "Agi": " 3.0",
+      "Sub_1": "Some ver",
+      "Sub_2": "Some ver",
+      "Sub_3": "Some ver",
+      "Sub_4": "Some ver"
+    },
+    "Stats": {
+      "Repairs": [1, 0, 0, 0, 1, 2, 0, 2, 3, 4, 0, 2],
+      "Sp": [1, 5, 1, 2, 1, 5, 1, 2, 3, 2, 2, 5],
+      "Ink": [12, 12, 15, 15, 11, 12, 10, 12, 13, 14, 10, 12]
+    }
+  },
+  {
+    "Info": {
+      "Bank": "Belinvestbank",
+      "Id":"M000023",
+      "Address": "г.Минск, ул.Пулихова,11",
+      "Serial": "XXX0000DBLD0002",
+      "Model":"Diebold Opteva 328"
+    },
+    "Network": {
+      "IP": "10.11.00.77",
+      "Port": "666",
+      "Config": "7070",
+      "Config_type": "REC",
+      "Last_reboot": "01.04.2019"
+    },
+    "Software": {
+      "Agi": " 3.0",
+      "Sub_1": "Some ver",
+      "Sub_2": "Some ver",
+      "Sub_3": "Some ver",
+      "Sub_4": "Some ver"
+    },
+    "Stats": {
+      "Repairs": [1, 0, 0, 0, 1, 2, 0, 2, 3, 4, 0, 2],
+      "Sp": [1, 5, 1, 2, 1, 5, 1, 2, 3, 2, 2, 5],
+      "Ink": [12, 12, 15, 15, 11, 12, 10, 12, 13, 14, 10, 12]
+    }
+  },
+  {
+    "Info": {
+      "Bank": "Belinvestbank",
+      "Id":"M000024",
+      "Address": "г.Минск, ул.Пулихова,11",
+      "Serial": "XXX0000DBLD0002",
+      "Model":"Diebold Opteva 328"
+    },
+    "Network": {
+      "IP": "10.11.00.77",
+      "Port": "666",
+      "Config": "7070",
+      "Config_type": "REC",
+      "Last_reboot": "01.04.2019"
+    },
+    "Software": {
+      "Agi": " 3.0",
+      "Sub_1": "Some ver",
+      "Sub_2": "Some ver",
+      "Sub_3": "Some ver",
+      "Sub_4": "Some ver"
+    },
+    "Stats": {
+      "Repairs": [1, 0, 0, 0, 1, 2, 0, 2, 3, 4, 0, 2],
+      "Sp": [1, 5, 1, 2, 1, 5, 1, 2, 3, 2, 2, 5],
+      "Ink": [12, 12, 15, 15, 11, 12, 10, 12, 13, 14, 10, 12]
+    }
+  },
+  {
+    "Info": {
+      "Bank": "Belinvestbank",
+      "Id":"M000025",
+      "Address": "г.Минск, ул.Пулихова,11",
+      "Serial": "XXX0000DBLD0002",
+      "Model":"Diebold Opteva 328"
+    },
+    "Network": {
+      "IP": "10.11.00.77",
+      "Port": "666",
+      "Config": "7070",
+      "Config_type": "REC",
+      "Last_reboot": "01.04.2019"
+    },
+    "Software": {
+      "Agi": " 3.0",
+      "Sub_1": "Some ver",
+      "Sub_2": "Some ver",
+      "Sub_3": "Some ver",
+      "Sub_4": "Some ver"
+    },
+    "Stats": {
+      "Repairs": [1, 0, 0, 0, 1, 2, 0, 2, 3, 4, 0, 2],
+      "Sp": [1, 5, 1, 2, 1, 5, 1, 2, 3, 2, 2, 5],
+      "Ink": [12, 12, 15, 15, 11, 12, 10, 12, 13, 14, 10, 12]
+    }
+  },
+  {
+    "Info": {
+      "Bank": "Belinvestbank",
+      "Id":"M000026",
+      "Address": "г.Минск, ул.Пулихова,11",
+      "Serial": "XXX0000DBLD0002",
+      "Model":"Diebold Opteva 328"
+    },
+    "Network": {
+      "IP": "10.11.00.77",
+      "Port": "666",
+      "Config": "7070",
+      "Config_type": "REC",
+      "Last_reboot": "01.04.2019"
+    },
+    "Software": {
+      "Agi": " 3.0",
+      "Sub_1": "Some ver",
+      "Sub_2": "Some ver",
+      "Sub_3": "Some ver",
+      "Sub_4": "Some ver"
+    },
+    "Stats": {
+      "Repairs": [1, 0, 0, 0, 1, 2, 0, 2, 3, 4, 0, 2],
+      "Sp": [1, 5, 1, 2, 1, 5, 1, 2, 3, 2, 2, 5],
+      "Ink": [12, 12, 15, 15, 11, 12, 10, 12, 13, 14, 10, 12]
+    }
+  },
+  {
+    "Info": {
+      "Bank": "Belinvestbank",
+      "Id":"M000027",
+      "Address": "г.Минск, ул.Пулихова,11",
+      "Serial": "XXX0000DBLD0002",
+      "Model":"Diebold Opteva 328"
+    },
+    "Network": {
+      "IP": "10.11.00.77",
+      "Port": "666",
+      "Config": "7070",
+      "Config_type": "REC",
+      "Last_reboot": "01.04.2019"
+    },
+    "Software": {
+      "Agi": " 3.0",
+      "Sub_1": "Some ver",
+      "Sub_2": "Some ver",
+      "Sub_3": "Some ver",
+      "Sub_4": "Some ver"
+    },
+    "Stats": {
+      "Repairs": [1, 0, 0, 0, 1, 2, 0, 2, 3, 4, 0, 2],
+      "Sp": [1, 5, 1, 2, 1, 5, 1, 2, 3, 2, 2, 5],
+      "Ink": [12, 12, 15, 15, 11, 12, 10, 12, 13, 14, 10, 12]
+    }
+  },
+  {
+    "Info": {
+      "Bank": "Belinvestbank",
+      "Id":"M000028",
+      "Address": "г.Минск, ул.Пулихова,11",
+      "Serial": "XXX0000DBLD0002",
+      "Model":"Diebold Opteva 328"
+    },
+    "Network": {
+      "IP": "10.11.00.77",
+      "Port": "666",
+      "Config": "7070",
+      "Config_type": "REC",
+      "Last_reboot": "01.04.2019"
+    },
+    "Software": {
+      "Agi": " 3.0",
+      "Sub_1": "Some ver",
+      "Sub_2": "Some ver",
+      "Sub_3": "Some ver",
+      "Sub_4": "Some ver"
+    },
+    "Stats": {
+      "Repairs": [1, 0, 0, 0, 1, 2, 0, 2, 3, 4, 0, 2],
+      "Sp": [1, 5, 1, 2, 1, 5, 1, 2, 3, 2, 2, 5],
+      "Ink": [12, 12, 15, 15, 11, 12, 10, 12, 13, 14, 10, 12]
+    }
+  },
+  {
+    "Info": {
+      "Bank": "Belinvestbank",
+      "Id":"M000029",
+      "Address": "г.Минск, ул.Пулихова,11",
+      "Serial": "XXX0000DBLD0002",
+      "Model":"Diebold Opteva 328"
+    },
+    "Network": {
+      "IP": "10.11.00.77",
+      "Port": "666",
+      "Config": "7070",
+      "Config_type": "REC",
+      "Last_reboot": "01.04.2019"
+    },
+    "Software": {
+      "Agi": " 3.0",
+      "Sub_1": "Some ver",
+      "Sub_2": "Some ver",
+      "Sub_3": "Some ver",
+      "Sub_4": "Some ver"
+    },
+    "Stats": {
+      "Repairs": [1, 0, 0, 0, 1, 2, 0, 2, 3, 4, 0, 2],
+      "Sp": [1, 5, 1, 2, 1, 5, 1, 2, 3, 2, 2, 5],
+      "Ink": [12, 12, 15, 15, 11, 12, 10, 12, 13, 14, 10, 12]
+    }
+  },
+  {
+    "Info": {
+      "Bank": "Belinvestbank",
+      "Id":"M000030",
+      "Address": "г.Минск, ул.Пулихова,11",
+      "Serial": "XXX0000DBLD0002",
+      "Model":"Diebold Opteva 328"
+    },
+    "Network": {
+      "IP": "10.11.00.77",
+      "Port": "666",
+      "Config": "7070",
+      "Config_type": "REC",
+      "Last_reboot": "01.04.2019"
+    },
+    "Software": {
+      "Agi": " 3.0",
+      "Sub_1": "Some ver",
+      "Sub_2": "Some ver",
+      "Sub_3": "Some ver",
+      "Sub_4": "Some ver"
+    },
+    "Stats": {
+      "Repairs": [1, 0, 0, 0, 1, 2, 0, 2, 3, 4, 0, 2],
+      "Sp": [1, 5, 1, 2, 1, 5, 1, 2, 3, 2, 2, 5],
+      "Ink": [12, 12, 15, 15, 11, 12, 10, 12, 13, 14, 10, 12]
+    }
+  },
+  {
+    "Info": {
+      "Bank": "Belinvestbank",
+      "Id":"M000031",
+      "Address": "г.Минск, ул.Пулихова,11",
+      "Serial": "XXX0000DBLD0002",
+      "Model":"Diebold Opteva 328"
+    },
+    "Network": {
+      "IP": "10.11.00.77",
+      "Port": "666",
+      "Config": "7070",
+      "Config_type": "REC",
+      "Last_reboot": "01.04.2019"
+    },
+    "Software": {
+      "Agi": " 3.0",
+      "Sub_1": "Some ver",
+      "Sub_2": "Some ver",
+      "Sub_3": "Some ver",
+      "Sub_4": "Some ver"
+    },
+    "Stats": {
+      "Repairs": [1, 0, 0, 0, 1, 2, 0, 2, 3, 4, 0, 2],
+      "Sp": [1, 5, 1, 2, 1, 5, 1, 2, 3, 2, 2, 5],
+      "Ink": [12, 12, 15, 15, 11, 12, 10, 12, 13, 14, 10, 12]
+    }
+  },
+  {
+    "Info": {
+      "Bank": "Belinvestbank",
+      "Id":"M000032",
+      "Address": "г.Минск, ул.Пулихова,11",
+      "Serial": "XXX0000DBLD0002",
+      "Model":"Diebold Opteva 328"
+    },
+    "Network": {
+      "IP": "10.11.00.77",
+      "Port": "666",
+      "Config": "7070",
+      "Config_type": "REC",
+      "Last_reboot": "01.04.2019"
+    },
+    "Software": {
+      "Agi": " 3.0",
+      "Sub_1": "Some ver",
+      "Sub_2": "Some ver",
+      "Sub_3": "Some ver",
+      "Sub_4": "Some ver"
+    },
+    "Stats": {
+      "Repairs": [1, 0, 0, 0, 1, 2, 0, 2, 3, 4, 0, 2],
+      "Sp": [1, 5, 1, 2, 1, 5, 1, 2, 3, 2, 2, 5],
+      "Ink": [12, 12, 15, 15, 11, 12, 10, 12, 13, 14, 10, 12]
+    }
+  },
+  {
+    "Info": {
+      "Bank": "Belinvestbank",
+      "Id":"M000033",
+      "Address": "г.Минск, ул.Пулихова,11",
+      "Serial": "XXX0000DBLD0002",
+      "Model":"Diebold Opteva 328"
+    },
+    "Network": {
+      "IP": "10.11.00.77",
+      "Port": "666",
+      "Config": "7070",
+      "Config_type": "REC",
+      "Last_reboot": "01.04.2019"
+    },
+    "Software": {
+      "Agi": " 3.0",
+      "Sub_1": "Some ver",
+      "Sub_2": "Some ver",
+      "Sub_3": "Some ver",
+      "Sub_4": "Some ver"
+    },
+    "Stats": {
+      "Repairs": [1, 0, 0, 0, 1, 2, 0, 2, 3, 4, 0, 2],
+      "Sp": [1, 5, 1, 2, 1, 5, 1, 2, 3, 2, 2, 5],
+      "Ink": [12, 12, 15, 15, 11, 12, 10, 12, 13, 14, 10, 12]
+    }
+  },
+  {
+    "Info": {
+      "Bank": "Belinvestbank",
+      "Id":"M000034",
+      "Address": "г.Минск, ул.Пулихова,11",
+      "Serial": "XXX0000DBLD0002",
+      "Model":"Diebold Opteva 328"
+    },
+    "Network": {
+      "IP": "10.11.00.77",
+      "Port": "666",
+      "Config": "7070",
+      "Config_type": "REC",
+      "Last_reboot": "01.04.2019"
+    },
+    "Software": {
+      "Agi": " 3.0",
+      "Sub_1": "Some ver",
+      "Sub_2": "Some ver",
+      "Sub_3": "Some ver",
+      "Sub_4": "Some ver"
+    },
+    "Stats": {
+      "Repairs": [1, 0, 0, 0, 1, 2, 0, 2, 3, 4, 0, 2],
+      "Sp": [1, 5, 31, 21, 12, 5, 13, 2, 32, 2, 2, 5],
+      "Ink": [12, 22, 15, 15, 11, 12, 10, 12, 13, 14, 10, 12]
+    }
+  },
+  {
+    "Info": {
+      "Bank": "Belinvestbank",
+      "Id":"M000035",
+      "Address": "г.Минск, ул.Пулихова,11",
+      "Serial": "XXX0000DBLD0002",
+      "Model":"Diebold Opteva 328"
+    },
+    "Network": {
+      "IP": "10.11.00.77",
+      "Port": "666",
+      "Config": "7070",
+      "Config_type": "REC",
+      "Last_reboot": "01.04.2019"
+    },
+    "Software": {
+      "Agi": " 3.0",
+      "Sub_1": "Some ver",
+      "Sub_2": "Some ver",
+      "Sub_3": "Some ver",
+      "Sub_4": "Some ver"
+    },
+    "Stats": {
+      "Repairs": [1, 0, 0, 0, 1, 2, 0, 2, 3, 4, 0, 2],
+      "Sp": [1, 5, 1, 2, 1, 5, 1, 2, 3, 2, 2, 5],
+      "Ink": [12, 12, 15, 15, 11, 12, 10, 12, 13, 14, 10, 12]
+    }
+  },
+  {
+    "Info": {
+      "Bank": "Belinvestbank",
+      "Id":"M000036",
+      "Address": "г.Минск, ул.Пулихова,11",
+      "Serial": "XXX0000DBLD0002",
+      "Model":"Diebold Opteva 328"
+    },
+    "Network": {
+      "IP": "10.11.00.77",
+      "Port": "666",
+      "Config": "7070",
+      "Config_type": "REC",
+      "Last_reboot": "01.04.2019"
+    },
+    "Software": {
+      "Agi": " 3.0",
+      "Sub_1": "Some ver",
+      "Sub_2": "Some ver",
+      "Sub_3": "Some ver",
+      "Sub_4": "Some ver"
+    },
+    "Stats": {
+      "Repairs": [1, 0, 0, 0, 1, 2, 0, 2, 3, 4, 0, 2],
+      "Sp": [1, 5, 1, 2, 1, 5, 1, 2, 3, 2, 2, 5],
+      "Ink": [12, 12, 15, 15, 11, 12, 10, 12, 13, 14, 10, 12]
+    }
+  },
+  {
+    "Info": {
+      "Bank": "Belinvestbank",
+      "Id":"M000037",
+      "Address": "г.Минск, ул.Пулихова,11",
+      "Serial": "XXX0000DBLD0002",
+      "Model":"Diebold Opteva 328"
+    },
+    "Network": {
+      "IP": "10.11.00.77",
+      "Port": "666",
+      "Config": "7070",
+      "Config_type": "REC",
+      "Last_reboot": "01.04.2019"
+    },
+    "Software": {
+      "Agi": " 3.0",
+      "Sub_1": "Some ver",
+      "Sub_2": "Some ver",
+      "Sub_3": "Some ver",
+      "Sub_4": "Some ver"
+    },
+    "Stats": {
+      "Repairs": [1, 0, 0, 0, 1, 2, 0, 2, 3, 4, 0, 2],
+      "Sp": [1, 5, 1, 2, 1, 5, 1, 2, 3, 2, 2, 5],
+      "Ink": [12, 12, 15, 15, 11, 12, 10, 12, 13, 14, 10, 12]
+    }
+  }
+]

@@ -1,5 +1,5 @@
 {
-  "name": "servereuroprotocol",
+  "name": "terminal-watch-server",
   "version": "0.0.0",
   "private": true,
   "scripts": {

@@ -1,0 +1,17 @@
+[
+  {"eId": "00000000000001", "eDeviceId":  "M000000", "eType": "error", "eCode":  "DI01", "eDesc":  "Сбой выдачи наличных"},
+  {"eId": "00000000000002", "eDeviceId":  "M000000", "eType": "error", "eCode":  "DI01", "eDesc":  "Сбой выдачи наличных"},
+  {"eId": "00000000000003", "eDeviceId":  "M000000", "eType": "warn", "eCode":  "DI01", "eDesc":  "Сбой выдачи наличных"},
+  {"eId": "00000000000004", "eDeviceId":  "M000000", "eType": "error", "eCode":  "DI01", "eDesc":  "Сбой выдачи наличных"},
+  {"eId": "00000000000005", "eDeviceId":  "M000000", "eType": "error", "eCode":  "DI01", "eDesc":  "Сбой выдачи наличных"},
+  {"eId": "00000000000006", "eDeviceId":  "M000000", "eType": "error", "eCode":  "DI01", "eDesc":  "Сбой выдачи наличных"},
+  {"eId": "00000000000007", "eDeviceId":  "M000000", "eType": "error", "eCode":  "DI01", "eDesc":  "Сбой выдачи наличных"},
+  {"eId": "00000000000008", "eDeviceId":  "M000000", "eType": "warn", "eCode":  "DI01", "eDesc":  "Сбой выдачи наличных"},
+  {"eId": "00000000000009", "eDeviceId":  "M000000", "eType": "error", "eCode":  "DI01", "eDesc":  "Сбой выдачи наличных"},
+  {"eId": "00000000000010", "eDeviceId":  "M000000", "eType": "warn", "eCode":  "DI01", "eDesc":  "Сбой выдачи наличных"},
+  {"eId": "00000000000011", "eDeviceId":  "M000000", "eType": "warn", "eCode":  "DI01", "eDesc":  "Сбой выдачи наличных"},
+  {"eId": "00000000000012", "eDeviceId":  "M000000", "eType": "error", "eCode":  "DI01", "eDesc":  "Сбой выдачи наличных"},
+  {"eId": "00000000000013", "eDeviceId":  "M000000", "eType": "error", "eCode":  "DI01", "eDesc":  "Сбой выдачи наличных"},
+  {"eId": "00000000000014", "eDeviceId":  "M000000", "eType": "error", "eCode":  "DI01", "eDesc":  "Сбой выдачи наличных"},
+  {"eId": "00000000000015", "eDeviceId":  "M000000", "eType": "error", "eCode":  "DI01", "eDesc":  "Сбой выдачи наличных"}
+]
