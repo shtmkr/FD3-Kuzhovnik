@@ -121,10 +121,20 @@ class DeviceList extends React.PureComponent {
     filter = () => {
         let list;
         let colName;
+        let dev;
+        let filters = ['Id', 'Address', 'Model', 'Status'];
         if (this.state.filter !== ''){
             list = this.props.devices.filter( (device) => {
-                colName = Object.keys(device)[this.state.filterIdx]; // get a specific col name by index for filtering
-                if(~device[colName].indexOf(this.state.filter)) return true
+                dev = Object.keys(device.Info)
+                    .filter( key => filters.includes(key))
+                    .reduce((obj, key) => {
+                        return { ...obj, [key]: device.Info[key] }
+                    }, {});
+                console.log('filter dev ------------', dev);
+                colName = Object.keys(dev)[this.state.filterIdx]; // get a specific col name by index for filtering
+                if (colName === 'Id' || colName === 'Address' || colName === 'Model' || colName === 'Status'){
+                    if(~dev[colName].indexOf(this.state.filter)) return true
+                }
             });
             if (list.length === 0 || list === undefined) { // if filter no results
                 this.props.evt.emit('info', {type: 'error', message: `Нет такого устройства`});
