@@ -9,7 +9,7 @@ import EventList from "../EventList/EventList";
 import MessageHistory from "../MessageHistory/MessageHistory";
 
 const menu = require('./menu.json');
-const atm = require('./devicesATM.json');
+const atm = require('./fullDetailsATM.json');
 const kiosk = require('./devicesKIOSK.json');
 const deviceEvents = require('./deviceEvents.json');
 

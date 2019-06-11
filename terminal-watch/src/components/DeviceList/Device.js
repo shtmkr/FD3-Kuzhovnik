@@ -66,23 +66,23 @@ class Device extends React.PureComponent {
     itemRightClick = (e) => {
         e.preventDefault();
         listUnitsEvents.emit('showContext', e, {...this.refs});
-        listUnitsEvents.emit('highlightItem', this.state.device.serialNum);
+        listUnitsEvents.emit('highlightItem', this.state.device.Id);
     };
 
     itemLeftClick = (e) => {
-        listUnitsEvents.emit('highlightItem', this.state.device.serialNum); // request highlight on click
+        listUnitsEvents.emit('highlightItem', this.state.device.Id); // request highlight on click
         listUnitsEvents.emit('hideContext', e); // request hide context menu on click
     };
 
     render() {
 
-        console.log("Device id="+this.state.device.serialNum+" render");
+        console.log("Device id="+this.state.device.Id+" render");
         let style = {...this.state.style};
         (this.props.hasOwnProperty('selected')) ? style.backgroundColor = '#d2d2d2' : style.backgroundColor = '#fff';
         return (
             <Fragment>
-                <tr key={this.state.device.serialNum}
-                    ref={this.state.device.serialNum}
+                <tr key={this.state.device.Id}
+                    ref={this.state.device.Id}
                     className='Device'
                     onContextMenu={this.itemRightClick}
                     onClick={this.itemLeftClick}
@@ -90,7 +90,7 @@ class Device extends React.PureComponent {
                 >
                     {!this.state.editMode &&
                     Object.keys(this.state.device)
-                        .filter(p => p !== 'id')
+                        .filter(p => p !== 'Bank').filter(p => p !== 'Serial')
                         .map((col, index) => {
                             return <td key={index}>{this.state.device[col]}</td> // base td
                         })
