@@ -1,6 +1,5 @@
 import React, {Fragment} from "react";
 import PropTypes from 'prop-types';
-import {listUnitsEvents} from "../../events/events";
 
 import './TabMenu.css'
 class TabMenu extends React.PureComponent {

@@ -1,8 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import LogInForm from './components/AuthComponent/LogInForm';
 import Admin from './components/Admin/Admin';
-import {BrowserRouter, Route, Link, Redirect, withRouter} from "react-router-dom";
+import {BrowserRouter, Route, Redirect} from "react-router-dom";
 
 import './components/AuthComponent/AuthComponent.css';
 import {EventEmitter} from "events";

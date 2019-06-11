@@ -1,7 +1,7 @@
 import React from 'react'
-const Repair = props =>
-    (props.repairs !== undefined)
-        ? <div className='repair-table' style={props.style}>
+const Repair = ({style, repairs}) =>
+    (repairs !== undefined)
+        ? <div className='repair-table' style={style}>
             <div className='EventList__scroll_header'>
                 <div className='EventList__scroll_header_box'>
                     <table className='EventList__scroll_table' >
@@ -20,7 +20,7 @@ const Repair = props =>
                 <table className='EventList__scroll_table'>
                     <tbody>
                     {
-                        [...props.repairs]
+                        repairs
                             .reverse()
                             .map( (repair, index) =>
                                 <tr key={index}>{ Object.keys(repair).map((col, index) => <td key={index}>{repair[col]}</td>) }</tr>

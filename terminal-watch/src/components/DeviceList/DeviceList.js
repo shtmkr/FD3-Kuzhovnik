@@ -32,15 +32,6 @@ class DeviceList extends React.PureComponent {
         isControlPanelActive: false,
     };
 
-    constructor(props) {
-        super(props);
-
-        /*if (this.props.history.location.pathname === '/admin/devices_atm'){
-            let reg = /admin\/devices_atm/;
-            this.props.history.push( this.props.history.location.pathname.replace(reg, `admin/devices_atm/page-${this.state.currentPage}`) );
-        }*/
-    }
-
     componentWillReceiveProps = (newProps) => {
         if (newProps.devices !== this.props.devices){
             this.setState({
@@ -132,9 +123,7 @@ class DeviceList extends React.PureComponent {
                     }, {});
                 console.log('filter dev ------------', dev);
                 colName = Object.keys(dev)[this.state.filterIdx]; // get a specific col name by index for filtering
-                if (colName === 'Id' || colName === 'Address' || colName === 'Model' || colName === 'Status'){
-                    if(~dev[colName].indexOf(this.state.filter)) return true
-                }
+                if(~dev[colName].indexOf(this.state.filter)) return true
             });
             if (list.length === 0 || list === undefined) { // if filter no results
                 this.props.evt.emit('info', {type: 'error', message: `Нет такого устройства`});

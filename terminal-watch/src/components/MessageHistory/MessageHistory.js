@@ -1,5 +1,4 @@
 import React, {Fragment} from 'react';
-import PropTypes from 'prop-types';
 import {msg} from "../../events/events";
 
 import './MessageHistory.css';
@@ -44,7 +43,15 @@ class MessageHistory extends React.PureComponent {
                     <ul className='message-list'>
                         {this.state.messages.map( (message, index) => {
                             return (
-                                <li key={index}>{message}</li>
+                                <li key={index}>{
+                                    `${new Date().toLocaleDateString('ru-RU',
+                                    {
+                                        hour: 'numeric',
+                                        minute: 'numeric',
+                                        second: 'numeric'
+                                    }
+                                    )} ${message}`
+                                }</li>
                             )
                         })}
                     </ul>
