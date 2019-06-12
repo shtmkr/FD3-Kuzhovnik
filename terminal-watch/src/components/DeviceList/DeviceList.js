@@ -1,5 +1,7 @@
 import React, {Fragment} from "react";
 import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
+import isoFetch from 'isomorphic-fetch';
 import './DeviceList.css'
 import Device from "./Device";
 import ContextMenu from '../ContextMenu/ContextMenu'
@@ -7,6 +9,7 @@ import {listUnitsEvents} from "../../events/events";
 import Card from "../Card/Card";
 import DetailsContainer from "../DetailsContainer/DetailsContainer";
 import Paginator from "../Paginator/Paginator";
+import { loadDevicesAC } from "../../redux/reducers/devicesAC";
 
 const fullDetails = require('./fullDetails.json');
 
@@ -15,15 +18,13 @@ const titles = ['Номер устройства','Модель устройст
 class DeviceList extends React.PureComponent {
 
     static propTypes = {
+        devices: PropTypes.object.isRequired,
         evt: PropTypes.object.isRequired,
-        devices: PropTypes.array.isRequired,
         devicesPerPage: PropTypes.number.isRequired,
         resizable: PropTypes.bool,
     };
 
     state = {
-        devices: this.props.devices,
-        pagesCount: Math.ceil(this.props.devices.length/this.props.devicesPerPage),
         currentPage: 1,
         selectedItemIdx: '',
         filter: '',
@@ -53,6 +54,29 @@ class DeviceList extends React.PureComponent {
         if (pageNum) {
             this.setState({currentPage: parseInt(pageNum[0])});// selected page number from URL
         }
+        this.props.dispatch( loadDevicesAC(fullDetails) );
+       /* isoFetch('http://smcoil.com/SMTest/fullDetailsATM.json', )
+            .then( (response) => { // response - HTTP-ответ
+                console.log(response);
+                if (!response.ok) {
+                    console.log('1');
+                    let Err = new Error("fetch error " + response.status);
+                    Err.userMessage="Ошибка связи";
+                    throw Err;
+                }
+                else
+                    console.log('2');
+                    return response.json();
+            })
+            .then( (data) => {
+                console.log('3');
+                this.props.dispatch( loadDevicesAC(data.rows) );
+                console.log(data.rows)
+            })
+            .catch( (error) => {
+                console.log('4');
+                console.error(error);
+            })*/
     };
 
     componentWillUnmount = () => {
@@ -197,7 +221,7 @@ class DeviceList extends React.PureComponent {
     };
 
     createPage = (currentPage) => {
-        const { devices } = this.state;
+        const { devices } = this.state.devices;
         const indexOfLast = currentPage * this.props.devicesPerPage;
         const indexOfFirst = indexOfLast - this.props.devicesPerPage;
         const currentDevices = devices.slice(indexOfFirst, indexOfLast);
@@ -244,6 +268,7 @@ class DeviceList extends React.PureComponent {
         console.log('DeviceList render');
         this.devForCard = fullDetails.filter( device => (this.state.selectedItemIdx === device.Info.Id) ? device : false); // extended terminal data
         return (
+            this.props.devices.status === 3 &&
             <Fragment>
                 <table className='DeviceList'>
                     <thead>
@@ -253,8 +278,8 @@ class DeviceList extends React.PureComponent {
                 </table>
                 <Paginator
                     currentPage={this.state.currentPage}
-                    itemsCount={this.state.devices.length}
-                    pagesCount={Math.ceil(this.state.devices.length/this.props.devicesPerPage)}
+                    /*itemsCount={this.state.devices.devices.length}*/
+                    pagesCount={Math.ceil(this.state.devices.devices.length/this.props.devicesPerPage)}
                     cbCurrentPageChanged={this.currentPageChanged}
                 />
                 <ContextMenu forElement={this.state.selectedItemIdx}/>
@@ -268,4 +293,10 @@ class DeviceList extends React.PureComponent {
     }
 }
 
-export default DeviceList
+const mapStateToProps = ( {devices} ) => {
+    return {
+        devices,
+    };
+};
+
+export default connect(mapStateToProps)(DeviceList)

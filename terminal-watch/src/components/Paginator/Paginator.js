@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
 
 import './Paginator.css';
 class Paginator extends React.PureComponent {
@@ -97,4 +98,10 @@ class Paginator extends React.PureComponent {
     }
 }
 
-export default Paginator
+const mapStateToProps = ( {devices} ) => {
+    return {
+        itemsCount: devices.devices.length,
+    }
+};
+
+export default connect(mapStateToProps)(Paginator)

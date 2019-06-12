@@ -1,17 +1,27 @@
 import React, {Fragment} from "react";
 import PropTypes from 'prop-types';
 import { Route, withRouter, Switch} from "react-router-dom";
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
 
 import Toolbar from '../Toolbar/Toolbar'
 import Message from "../Message/Message";
 import DeviceList from "../DeviceList/DeviceList";
 import EventList from "../EventList/EventList";
 import MessageHistory from "../MessageHistory/MessageHistory";
+import combinedReducer from "../../redux/reducers/reducers";
 
 const menu = require('./menu.json');
-const atm = require('./fullDetailsATM.json');
 const kiosk = require('./devicesKIOSK.json');
 const deviceEvents = require('./deviceEvents.json');
+
+const store = createStore(combinedReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+/*
+    store state:
+        devices :
+            devices: Array - array of devices
+            status: Number - is loaded
+*/
 
 class Admin extends React.PureComponent {
 
@@ -89,21 +99,23 @@ class Admin extends React.PureComponent {
         }
 
         return (
-            <Fragment>
-                <Toolbar menu={menu} evt={this.props.evt}/>
-                <Message/>
-                <Switch>
-                    <Route path="/admin/devices_atm/page/:page"
-                           render={ props => <DeviceList evt={this.props.evt} devices={atm} devicesPerPage={10} resizable={true} history={this.props.history} currentPage={parseInt(currPage[0])}/> } />
-                    <Route path="/admin/devices_kiosk/page/:page"
-                           render={ props => <DeviceList evt={this.props.evt} devices={kiosk} devicesPerPage={10} resizable={true} history={this.props.history} currentPage={parseInt(currPage[0])}/> } />
-                    <Route path="/admin/events_error"
-                           render={ props => <EventList evt={this.props.evt} events={deviceEvents} resizable={true} eType={'error'}/> } />
-                    <Route path="/admin/events_warn"
-                           render={ props => <EventList evt={this.props.evt} events={deviceEvents} resizable={true} eType={'warn'}/> } />
-                </Switch>
-                <MessageHistory/>
-            </Fragment>
+            <Provider store={store}>
+                <Fragment>
+                    <Toolbar menu={menu} evt={this.props.evt}/>
+                    <Message/>
+                    <Switch>
+                        <Route path="/admin/devices_atm/page/:page"
+                               render={ props => <DeviceList evt={this.props.evt} devicesPerPage={10} resizable={true} history={this.props.history} currentPage={parseInt(currPage[0])}/> } />
+                        <Route path="/admin/devices_kiosk/page/:page"
+                               render={ props => <DeviceList evt={this.props.evt} devicesPerPage={10} resizable={true} history={this.props.history} currentPage={parseInt(currPage[0])}/> } />
+                        <Route path="/admin/events_error"
+                               render={ props => <EventList evt={this.props.evt} events={deviceEvents} resizable={true} eType={'error'}/> } />
+                        <Route path="/admin/events_warn"
+                               render={ props => <EventList evt={this.props.evt} events={deviceEvents} resizable={true} eType={'warn'}/> } />
+                    </Switch>
+                    <MessageHistory/>
+                </Fragment>
+            </Provider>
         );
     }
 }
