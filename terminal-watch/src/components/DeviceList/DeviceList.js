@@ -9,9 +9,7 @@ import {listUnitsEvents} from "../../events/events";
 import Card from "../Card/Card";
 import DetailsContainer from "../DetailsContainer/DetailsContainer";
 import Paginator from "../Paginator/Paginator";
-import { loadDevicesAC } from "../../redux/reducers/devicesAC";
-
-const fullDetails = require('./fullDetails.json');
+import { loadDevicesAC, filterDevicesAC, deleteDevicesAC } from "../../redux/reducers/devicesAC";
 
 const titles = ['Номер устройства','Модель устройства', 'Адрес установки', 'Статус'];
 
@@ -54,8 +52,8 @@ class DeviceList extends React.PureComponent {
         if (pageNum) {
             this.setState({currentPage: parseInt(pageNum[0])});// selected page number from URL
         }
-        this.props.dispatch( loadDevicesAC(fullDetails) );
-       /* isoFetch('http://smcoil.com/SMTest/fullDetailsATM.json', )
+
+        isoFetch('http://localhost:3003/data/devices_atm', )
             .then( (response) => { // response - HTTP-ответ
                 console.log(response);
                 if (!response.ok) {
@@ -70,13 +68,13 @@ class DeviceList extends React.PureComponent {
             })
             .then( (data) => {
                 console.log('3');
-                this.props.dispatch( loadDevicesAC(data.rows) );
-                console.log(data.rows)
+                this.props.dispatch( loadDevicesAC(data) );
+                console.log(data)
             })
             .catch( (error) => {
                 console.log('4');
                 console.error(error);
-            })*/
+            })
     };
 
     componentWillUnmount = () => {
@@ -99,9 +97,11 @@ class DeviceList extends React.PureComponent {
                     selectedRow.style.fontSize = 0;
                     selectedRow.style.height = 0;
                     setTimeout( () => {
-                        let f = this.state.devices.filter(device => device.Info.Id !== id);
+                        let f = this.state.devices.devices.filter(device => device.Info.Id !== id);
                         this.props.evt.emit('info', {type: 'success', message: `Устройство ${id} удалено`});
-                        this.setState({devices: f, });
+                        this.setState({selectedItemIdx: '', });
+                        console.log(f);
+                        this.props.dispatch(deleteDevicesAC(f)); // TODO: send to host new array for update temp
                     }, 500);
 
                 }
@@ -139,7 +139,7 @@ class DeviceList extends React.PureComponent {
         let dev;
         let filters = ['Id', 'Address', 'Model', 'Status'];
         if (this.state.filter !== ''){
-            list = this.props.devices.filter( (device) => {
+            list = this.state.devices.loaded.filter( (device) => {
                 dev = Object.keys(device.Info)
                     .filter( key => filters.includes(key))
                     .reduce((obj, key) => {
@@ -154,12 +154,12 @@ class DeviceList extends React.PureComponent {
             }
         }
         else {
-            list = [...this.props.devices];
+            list = [...this.props.devices.loaded];
         }
         /*if (this.state.sorted){ //TODO sort?
             list.sort();
         }*/
-        this.setState({devices: list});
+        this.props.dispatch(filterDevicesAC(list));
     };
 
     filterHandler = (e) => {
@@ -266,7 +266,13 @@ class DeviceList extends React.PureComponent {
 
     render () {
         console.log('DeviceList render');
-        this.devForCard = fullDetails.filter( device => (this.state.selectedItemIdx === device.Info.Id) ? device : false); // extended terminal data
+        if (this.state.devices){
+            console.log(this.state.devices.devices);
+        }
+        if (this.props.devices.status === 3 ) {// if redux state devices is ready
+            this.devForCard = this.state.devices.devices.filter( device => (this.state.selectedItemIdx === device.Info.Id) ? device : false); // extended terminal data
+        }
+        console.log('devForCard',this.devForCard);
         return (
             this.props.devices.status === 3 &&
             <Fragment>
@@ -293,9 +299,10 @@ class DeviceList extends React.PureComponent {
     }
 }
 
-const mapStateToProps = ( {devices} ) => {
+const mapStateToProps = ( {devices, loaded} ) => {
     return {
         devices,
+        loaded,
     };
 };
 

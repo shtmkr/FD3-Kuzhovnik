@@ -4,7 +4,7 @@ import { Route, withRouter, Switch} from "react-router-dom";
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 
-import Toolbar from '../Toolbar/Toolbar'
+import Toolbar from '../Toolbar/Toolbar';
 import Message from "../Message/Message";
 import DeviceList from "../DeviceList/DeviceList";
 import EventList from "../EventList/EventList";

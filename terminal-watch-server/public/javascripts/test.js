@@ -1,7 +1,7 @@
 window.onload = function(){
     let response,
         xhr = new XMLHttpRequest(),
-        url = '/data/devices_atm'
+        url = '/data/devices_atm';
     xhr.open('GET', url);
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.send();
