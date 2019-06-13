@@ -14,10 +14,12 @@ class ControlPanel extends React.PureComponent {
 
     componentDidMount = () => {
         listUnitsEvents.addListener('highlightItem',this.highlightItem);
+        listUnitsEvents.addListener('itemDeleted', this.itemDeleted);
     };
 
     componentWillUnmount = () => {
         listUnitsEvents.removeListener('highlightItem',this.highlightItem);
+        listUnitsEvents.removeListener('itemDeleted', this.itemDeleted);
     };
 
     componentWillReceiveProps = (newProps) => {
@@ -31,6 +33,10 @@ class ControlPanel extends React.PureComponent {
 
     highlightItem = (id) => {
         this.setState({selectedDeviceId: id});
+    };
+
+    itemDeleted = () => {
+        this.setState({selectedDeviceId: ''});
     };
 
     state = {
@@ -96,7 +102,7 @@ class ControlPanel extends React.PureComponent {
                             <option value="7001">7001</option>
                         </select>
                         <Tooltip tooltipText='Конфига'>
-                            <Button classname='mdc-button mdc-button--raised control-panel-button ' iClass='material-icons' cb={this.downloadClick} label='get_app'/>
+                            <Button disabled={!this.state.selectedDeviceId} classname='mdc-button mdc-button--raised control-panel-button ' iClass='material-icons' cb={this.downloadClick} label='get_app' />
                         </Tooltip>
                     </div>
                     <div className='controls-wrapper'>
@@ -106,15 +112,15 @@ class ControlPanel extends React.PureComponent {
                             <option value="Out Of Service">OOS</option>
                         </select>
                         <Tooltip tooltipText='Толкнуть'>
-                            <Button classname='mdc-button mdc-button--raised control-panel-button' iClass='material-icons' cb={this.stateClick} label='arrow_right_alt'/>
+                            <Button disabled={!this.state.selectedDeviceId} classname='mdc-button mdc-button--raised control-panel-button' iClass='material-icons' cb={this.stateClick} label='arrow_right_alt'/>
                         </Tooltip>
                     </div>
                     <div className='controls-wrapper'>
                         <Tooltip tooltipText='Перезагрузка'>
-                            <Button classname='mdc-button mdc-button--raised control-panel-button' iClass={this.state.rebootClicked ? 'material-icons spin' : 'material-icons'} cb={this.reboot} label='autorenew'/>
+                            <Button disabled={!this.state.selectedDeviceId} classname='mdc-button mdc-button--raised control-panel-button' iClass={this.state.rebootClicked ? 'material-icons spin' : 'material-icons'} cb={this.reboot} label='autorenew'/>
                         </Tooltip>
                         <Tooltip tooltipText='Скачать логи'>
-                            <Button classname='mdc-button mdc-button--raised control-panel-button' iClass='material-icons' cb={this.saveLogs} label='archive'/>
+                            <Button disabled={!this.state.selectedDeviceId} classname='mdc-button mdc-button--raised control-panel-button' iClass='material-icons' cb={this.saveLogs} label='archive'/>
                         </Tooltip>
                     </div>
                 </div>

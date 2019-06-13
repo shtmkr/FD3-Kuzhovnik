@@ -2,13 +2,31 @@ import React from 'react';
 import {withRouter} from "react-router-dom";
 
 import './AuthComponent.css';
+import {sendRequest} from "../../helpers/sendRequest";
 
-class LogInForm extends React.Component {
+class LogInForm extends React.PureComponent {
+
+    state = {
+        result: ''
+    };
 
     login = (e) => {
         e.preventDefault() ; // AJAX PLACE HERE ->>>>>> then
-        this.props.history.push('/admin');
-        this.props.cbLogin();
+        let userData = {login: this.loginInput.value, password: this.passwordInput.value};
+        sendRequest('/auth/signin', response => {
+            console.log(response);
+            if (response.result === 'ok'){
+                this.props.cbLogin();
+                this.props.history.push('/admin');
+            } else {
+                this.setState({result: 'password or user name are WRONG'});
+            }
+        }, {
+            method: 'post',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(userData)});
     };
 
     render() {
@@ -19,13 +37,13 @@ class LogInForm extends React.Component {
                         <span className="login-form-title">Войти</span>
                         <div className="wrap-input validate-input" data-validate="Username is required">
                             <span className="label-input">Логин</span>
-                            <input id="user_sign_in" className="input form_in_input" type="text"
+                            <input id="user_sign_in" className="input form_in_input" type="text" ref={(el) => {this.loginInput = el}}
                                    placeholder="Ввведите логин" />
                             <span className="focus-input"></span>
                         </div>
                         <div className="wrap-input validate-input" data-validate="Password is required">
                             <span className="label-input">Пароль</span>
-                            <input className="input form_in_input" type="password"
+                            <input className="input form_in_input" type="password" ref={(el) => {this.passwordInput = el}}
                                    placeholder="Введите пароль" />
                             <span className="focus-input"></span>
                         </div>
@@ -36,6 +54,9 @@ class LogInForm extends React.Component {
                             </div>
                         </div>
                     </form>
+                    <div className='result'>
+                        {this.state.result}
+                    </div>
                 </div>
             </div>
         )

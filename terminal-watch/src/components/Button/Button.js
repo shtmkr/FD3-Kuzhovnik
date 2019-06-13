@@ -1,5 +1,5 @@
-import React from 'react'
-const Button = props =>
-    <button className={props.classname} onClick={props.cb}><i className={props.iClass}>{props.label}</i>{props.text}</button>;
+import React from 'react';
+const Button = ( {classname, cb, disabled, iClass, label, text} ) =>
+    <button className={classname} onClick={cb} disabled={disabled}><i className={iClass}>{label}</i>{text}</button>;
 export default Button
 

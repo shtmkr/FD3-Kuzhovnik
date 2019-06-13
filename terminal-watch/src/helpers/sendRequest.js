@@ -16,7 +16,9 @@ const sendRequest = (path, cb, options ) => {
         })
         .then( (data) => {
             cb(data);
-            msg.emit('log', `Загружено ${data.length} устройств успешно`);
+            if (Array.isArray(data)) {
+                msg.emit('log', `Загружено ${data.length} устройств успешно`);
+            }
         })
         .catch( (error) => {
             msg.emit('log', `${error}`);

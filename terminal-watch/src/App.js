@@ -3,6 +3,7 @@ import LogInForm from './components/AuthComponent/LogInForm';
 import Admin from './components/Admin/Admin';
 import {BrowserRouter, Route, Redirect} from "react-router-dom";
 
+import './App.css'
 import './components/AuthComponent/AuthComponent.css';
 import {EventEmitter} from "events";
 
@@ -14,12 +15,12 @@ class App extends React.PureComponent {
     };
 
     state = {
-        logged: true
+        logged: false,
     };
 
     login = () => {
         console.log('logged in as admin');
-        this.setState({logged: true})
+        this.setState({logged: !this.state.logged})
     };
 
     render() {

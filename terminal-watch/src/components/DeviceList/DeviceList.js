@@ -84,7 +84,6 @@ class DeviceList extends React.PureComponent {
                     selectedRow.style.height = 0;
                     setTimeout( () => {
                         let f = this.state.devices.devices.filter(device => device.Info.Id !== id);
-                        this.props.evt.emit('info', {type: 'success', message: `Устройство ${id} удалено`});
                         this.setState({selectedItemIdx: '', });
                         this.props.dispatch(deleteDevicesAC(f));
                         sendRequest(
@@ -96,6 +95,8 @@ class DeviceList extends React.PureComponent {
                                     'Content-Type': 'application/json',
                                 },
                                 body: JSON.stringify(f)});
+                        this.props.evt.emit('info', {type: 'success', message: `Устройство ${id} удалено`});
+                        listUnitsEvents.emit('itemDeleted');
                         msg.emit('log', `Устройство ${id} удалено`);
                     }, 500);
 

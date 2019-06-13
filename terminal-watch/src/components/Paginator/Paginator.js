@@ -71,17 +71,17 @@ class Paginator extends React.PureComponent {
                     <span>{`Всего устройств: ${this.props.itemsCount}`}</span>
                 </div>
                 <div className='paginator-bottom'>
-                    <button className='paginator-first material-icons' key={'paginator-first'} ref='first'
+                    <button disabled={this.props.currentPage === 1} className='paginator-first material-icons' key={'paginator-first'} ref='first'
                             onClick={this.paginatorHandler}>first_page
                     </button>
-                    <button className='paginator-prev material-icons' key={'paginator-prev'} ref='prev'
+                    <button disabled={this.props.currentPage === 1} className='paginator-prev material-icons' key={'paginator-prev'} ref='prev'
                             onClick={this.paginatorHandler}>chevron_left
                     </button>
                     {pages}
-                    <button className='paginator-next material-icons' key={'paginator-next'} ref='next'
+                    <button disabled={this.props.currentPage === this.props.pagesCount} className='paginator-next material-icons' key={'paginator-next'} ref='next'
                             onClick={this.paginatorHandler}>chevron_right
                     </button>
-                    <button className='paginator-last material-icons' key={'paginator-last'} ref='last'
+                    <button disabled={this.props.currentPage === this.props.pagesCount} className='paginator-last material-icons' key={'paginator-last'} ref='last'
                             onClick={this.paginatorHandler}>last_page
                     </button>
                 </div>

@@ -7,6 +7,7 @@ hideContext     - context menu hide request
 highlightItem   - highlight list item request
 performFn       - perform function for selected item
 hideCard        - card hide request
+itemDeleted     - item deleted from list
 */
 
 let msg = new EventEmitter();
