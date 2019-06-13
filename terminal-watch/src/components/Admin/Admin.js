@@ -105,7 +105,7 @@ class Admin extends React.PureComponent {
                     <Message/>
                     <Switch>
                         <Route path="/admin/devices_atm/page/:page"
-                               render={ props => <DeviceList evt={this.props.evt} devicesPerPage={10} resizable={true} history={this.props.history} currentPage={parseInt(currPage[0])}/> } />
+                               render={ props => <DeviceList evt={this.props.evt} dataPath='/data/devices_atm' devicesPerPage={10} resizable={true} history={this.props.history} currentPage={parseInt(currPage[0])}/> } />
                         <Route path="/admin/devices_kiosk/page/:page"
                                render={ props => <DeviceList evt={this.props.evt} devicesPerPage={10} resizable={true} history={this.props.history} currentPage={parseInt(currPage[0])}/> } />
                         <Route path="/admin/events_error"

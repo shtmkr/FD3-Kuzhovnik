@@ -2,7 +2,7 @@ import isoFetch from "isomorphic-fetch";
 import {msg} from "../events/events";
 import C from '../constants';
 
-const hostConnector = (path, cb, options ) => {
+const sendRequest = (path, cb, options ) => {
     isoFetch(`${C.HOST_URL}${path}`, options)
         .then( (response) => { // response - HTTP-ответ
             if (!response.ok) {
@@ -19,8 +19,8 @@ const hostConnector = (path, cb, options ) => {
             msg.emit('log', `Загружено ${data.length} устройств успешно`);
         })
         .catch( (error) => {
-            msg.emit('log', `Технический сбой ${error}`);
+            msg.emit('log', `${error}`);
         });
 };
 
-export { hostConnector }
+export { sendRequest }

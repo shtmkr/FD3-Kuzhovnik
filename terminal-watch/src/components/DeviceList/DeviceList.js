@@ -10,7 +10,7 @@ import Card from "../Card/Card";
 import DetailsContainer from "../DetailsContainer/DetailsContainer";
 import Paginator from "../Paginator/Paginator";
 import { loadDevicesAC, filterDevicesAC, deleteDevicesAC } from "../../redux/reducers/devicesAC";
-import {hostConnector} from "../../helpers/hostConnector";
+import {sendRequest} from "../../helpers/sendRequest";
 
 const titles = ['Номер устройства','Модель устройства', 'Адрес установки', 'Статус'];
 
@@ -21,6 +21,7 @@ class DeviceList extends React.PureComponent {
         evt: PropTypes.object.isRequired,
         devicesPerPage: PropTypes.number.isRequired,
         resizable: PropTypes.bool,
+        dataPath: PropTypes.string,
     };
 
     state = {
@@ -53,11 +54,13 @@ class DeviceList extends React.PureComponent {
         if (pageNum) {
             this.setState({currentPage: parseInt(pageNum[0])});// selected page number from URL
         }
-        hostConnector('/data/devices_atm', result => {
-            if (result){
-                this.props.dispatch(loadDevicesAC(result))
-            }
-        });
+        if (this.props.dataPath){
+            sendRequest(this.props.dataPath, result => {
+                if (result){
+                    this.props.dispatch(loadDevicesAC(result))
+                }
+            });
+        }
     };
 
     componentWillUnmount = () => {
