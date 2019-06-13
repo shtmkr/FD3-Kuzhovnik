@@ -1,17 +1,15 @@
 var express = require('express');
 var router = express.Router();
-var devices_atm = require('../json/devicesATM');
-var devices_kiosk = require('../json/devicesKIOSK');
-var devices_events = require('../json/deviceEvents');
+var store = require('../store');
 
 router.get('/devices_atm', function (req, res, next) {
     console.log('GET devices_atm');
-    res.json(devices_atm);
+    res.json(store.tmpATM);
 });
 
 router.get('/devices_kiosk', function (req, res, next) {
     console.log('GET devices_kiosk');
-    res.json(devices_kiosk);
+    res.json(store.tmpKIOSK);
 });
 
 router.get('/devices_events', function (req, res, next) {

@@ -86,8 +86,17 @@ class DeviceList extends React.PureComponent {
                         let f = this.state.devices.devices.filter(device => device.Info.Id !== id);
                         this.props.evt.emit('info', {type: 'success', message: `Устройство ${id} удалено`});
                         this.setState({selectedItemIdx: '', });
-                        console.log(f);
-                        this.props.dispatch(deleteDevicesAC(f)); // TODO: send to host new array for update temp
+                        this.props.dispatch(deleteDevicesAC(f));
+                        sendRequest(
+                            '/cmd/delete_device',
+                                result => console.log(result),
+                            {
+                                method: 'post',
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                },
+                                body: JSON.stringify(f)});
+                        msg.emit('log', `Устройство ${id} удалено`);
                     }, 500);
 
                 }
