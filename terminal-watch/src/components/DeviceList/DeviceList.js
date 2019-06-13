@@ -5,11 +5,12 @@ import isoFetch from 'isomorphic-fetch';
 import './DeviceList.css'
 import Device from "./Device";
 import ContextMenu from '../ContextMenu/ContextMenu'
-import {listUnitsEvents} from "../../events/events";
+import {listUnitsEvents, msg} from "../../events/events";
 import Card from "../Card/Card";
 import DetailsContainer from "../DetailsContainer/DetailsContainer";
 import Paginator from "../Paginator/Paginator";
 import { loadDevicesAC, filterDevicesAC, deleteDevicesAC } from "../../redux/reducers/devicesAC";
+import {hostConnector} from "../../helpers/hostConnector";
 
 const titles = ['Номер устройства','Модель устройства', 'Адрес установки', 'Статус'];
 
@@ -52,29 +53,11 @@ class DeviceList extends React.PureComponent {
         if (pageNum) {
             this.setState({currentPage: parseInt(pageNum[0])});// selected page number from URL
         }
-
-        isoFetch('http://localhost:3003/data/devices_atm', )
-            .then( (response) => { // response - HTTP-ответ
-                console.log(response);
-                if (!response.ok) {
-                    console.log('1');
-                    let Err = new Error("fetch error " + response.status);
-                    Err.userMessage="Ошибка связи";
-                    throw Err;
-                }
-                else
-                    console.log('2');
-                    return response.json();
-            })
-            .then( (data) => {
-                console.log('3');
-                this.props.dispatch( loadDevicesAC(data) );
-                console.log(data)
-            })
-            .catch( (error) => {
-                console.log('4');
-                console.error(error);
-            })
+        hostConnector('/data/devices_atm', result => {
+            if (result){
+                this.props.dispatch(loadDevicesAC(result))
+            }
+        });
     };
 
     componentWillUnmount = () => {
