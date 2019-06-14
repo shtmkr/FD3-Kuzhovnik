@@ -11,7 +11,7 @@ import Paginator from "../Paginator/Paginator";
 import { loadDevicesAC, filterDevicesAC, deleteDevicesAC } from "../../redux/reducers/devicesAC";
 import {sendRequest} from "../../helpers/sendRequest";
 
-const titles = ['Номер устройства','Модель устройства', 'Адрес установки', 'Статус'];
+const titles = ['Номер устройства','Адрес установки', 'Модель устройства', 'Статус'];
 
 class DeviceList extends React.PureComponent {
 
@@ -264,12 +264,12 @@ class DeviceList extends React.PureComponent {
         if (this.state.devices){
             console.log(this.state.devices.devices);
         }
-        if (this.props.devices.status === 3 ) {// if redux state devices is ready
+        if (this.props.devices.status === 3 && this.state.devices !== undefined) {// if redux state devices is ready
             this.devForCard = this.state.devices.devices.filter( device => (this.state.selectedItemIdx === device.Info.Id) ? device : false); // extended terminal data
         }
         console.log('devForCard',this.devForCard);
         return (
-            this.props.devices.status === 3 &&
+            this.props.devices.status === 3 &&  this.state.devices !== undefined &&
             <Fragment>
                 <table className='DeviceList'>
                     <thead>
