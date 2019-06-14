@@ -5,6 +5,7 @@ import {withRouter} from "react-router-dom";
 import './Toolbar.css';
 import ControlPanel from "../ControlPanel/ControlPanel";
 import Button from "../Button/Button";
+import {cmd} from "../../events/events";
 
 class Toolbar extends React.PureComponent {
 
@@ -57,6 +58,7 @@ class Toolbar extends React.PureComponent {
 
     logout = () => {
         console.log('logout event');
+        this.props.evt.emit('logout');
         this.props.history.push('/');
     };
 

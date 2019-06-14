@@ -10,6 +10,7 @@ import DeviceList from "../DeviceList/DeviceList";
 import EventList from "../EventList/EventList";
 import MessageHistory from "../MessageHistory/MessageHistory";
 import combinedReducer from "../../redux/reducers/reducers";
+import {sendRequest} from "../../helpers/sendRequest";
 
 const menu = require('./menu.json');
 const kiosk = require('./devicesKIOSK.json');
@@ -35,7 +36,7 @@ class Admin extends React.PureComponent {
 
     componentDidMount = () => {
         this.props.evt.emit('loaded', {type: 'success', message: 'Welcome to tWatch!'});
-        this.props.evt.addListener('subMenuSelected', this.startSubMenuProcess)
+        this.props.evt.addListener('subMenuSelected', this.startSubMenuProcess);
     };
 
     componentWillUnmount = () => {
@@ -93,6 +94,12 @@ class Admin extends React.PureComponent {
 
     render () {
         console.log('Admin render');
+        sendRequest('/auth/setPath', response => console.log(response), {
+            method: 'post',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({path: this.props.location.pathname})});
         let currPage;
         if (this.props.history.location.pathname.match(/\d/)){
             currPage = this.props.history.location.pathname.match(/\d/);

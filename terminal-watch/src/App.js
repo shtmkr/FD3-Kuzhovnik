@@ -7,6 +7,7 @@ import {BrowserRouter, Route, Redirect} from "react-router-dom";
 import './App.css'
 import './components/AuthComponent/AuthComponent.css';
 import {EventEmitter} from "events";
+import {sendRequest} from "./helpers/sendRequest";
 
 export const appEvents = new EventEmitter(); /// Main stream of events
 
@@ -17,6 +18,23 @@ class App extends React.PureComponent {
 
     state = {
         logged: false,
+    };
+
+    componentDidMount() {
+        appEvents.addListener('logout', this.logout);
+    }
+
+    componentWillUnmount() {
+        appEvents.removeListener('logout', this.logout);
+    }
+
+    logout = () => {
+        sendRequest('/auth/logout', response => {
+            console.log(response);
+            if (response.result !== 'logged'){
+                this.setState({logged: false})
+            }
+        })
     };
 
     login = () => {

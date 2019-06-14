@@ -13,15 +13,26 @@ router.post('/signin', function (req, res, next) {
     }
 });
 
+router.post('/setPath', function (req, res, next) {
+    console.log(req.body);
+    store.login.path = req.body.path;
+});
+
+router.get('/getPath', function (req, res, next) {
+    res.json({path: store.login.path});
+});
+
 router.get('/login', function (req, res, next) {
-    console.log(Date.now());
-    console.log(store.login.lastLogged);
-    console.log(Date.now() - store.login.lastLogged);
    if (Date.now() - store.login.lastLogged < 600000){
        res.json({result: 'logged'});
    } else {
        res.json({result: 'failed'})
    }
+});
+
+router.get('/logout', function (req, res, next) {
+    res.json({result: 'logout'});
+    store.login.lastLogged = undefined;
 });
 
 module.exports = router;

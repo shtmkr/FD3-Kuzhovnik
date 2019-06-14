@@ -15,6 +15,7 @@
     animation: fadein 2s, fadeout 6s;
     padding: 5px;
     text-align: center;
+    cursor: default;
 }
 .Message .message-icon {
     padding-right: 5%;

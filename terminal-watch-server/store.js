@@ -9,6 +9,7 @@ var store = {
     login: {
         name: '',
         lastLogged: null,
+        path: '',
     }
 };
 
