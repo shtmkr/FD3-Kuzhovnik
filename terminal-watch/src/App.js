@@ -1,4 +1,5 @@
-import React from 'react';
+import React, {Fragment} from 'react';
+import PropTypes from 'prop-types';
 import LogInForm from './components/AuthComponent/LogInForm';
 import Admin from './components/Admin/Admin';
 import {BrowserRouter, Route, Redirect} from "react-router-dom";
@@ -26,11 +27,14 @@ class App extends React.PureComponent {
     render() {
         console.log("App render");
         return (
-            <BrowserRouter>
-                <Route path="/admin" render={ props => this.state.logged ? <Admin evt={appEvents}/> : <Redirect to="/signin"/>} />
-                <Route path="/signin"  render={ props => <LogInForm cbLogin={this.login}/>} />
-                <Route path="/" exact render={ props => <Redirect to="/signin"/>} />
-            </BrowserRouter>
+            <Fragment>
+                <BrowserRouter>
+                    <Route path="/admin" render={ props => this.state.logged ? <Admin evt={appEvents}/> : <Redirect to="/signin"/>} />
+                    <Route path="/signin"  render={ props => <LogInForm cbLogin={this.login}/>} />
+                    <Route path="/" exact render={ props => <Redirect to="/signin"/>} />
+                </BrowserRouter>
+            </Fragment>
+
         );
     }
 }

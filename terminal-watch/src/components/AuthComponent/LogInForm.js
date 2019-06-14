@@ -7,8 +7,18 @@ import {sendRequest} from "../../helpers/sendRequest";
 class LogInForm extends React.PureComponent {
 
     state = {
-        result: ''
+        result: '',
     };
+
+    componentDidMount() {
+        sendRequest('/auth/login', response => {
+            console.log(response);
+            if (response.result === 'logged'){
+                this.props.cbLogin();
+                this.props.history.push('/admin');
+            }
+        })
+    }
 
     login = (e) => {
         e.preventDefault() ; // AJAX PLACE HERE ->>>>>> then
