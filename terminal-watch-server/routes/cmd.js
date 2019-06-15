@@ -22,4 +22,9 @@ router.post('/delete_device', function (req, res, next) {
     }
 });
 
+router.get('/download_log', function (req, res, next) {
+    console.log('GET download_log');
+    res.download(`${__dirname}/test.txt`)
+});
+
 module.exports = router;

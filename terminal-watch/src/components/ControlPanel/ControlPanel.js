@@ -5,6 +5,9 @@ import {listUnitsEvents, msg} from "../../events/events";
 import './ControlPanel.css';
 import Button from "../Button/Button";
 import Tooltip from "../Tooltip/Tooltip"
+import isoFetch from "isomorphic-fetch";
+import C from "../../constants";
+import {fetchLog} from "../../helpers/fetchLog";
 
 class ControlPanel extends React.PureComponent {
 
@@ -80,6 +83,7 @@ class ControlPanel extends React.PureComponent {
 
     saveLogs = () => {
         /*this.saveLogsResult.textContent = 'В процессе...';*/
+        fetchLog('/cmd/download_log', response => console.log(response)); // TODO save txt response to redux logs state
         setTimeout(() => {
             console.log(`С устройства ${this.state.selectedDeviceId} скачаны логи`);
             /*this.saveLogsResult.textContent = 'Успешно';*/
