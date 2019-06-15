@@ -8,8 +8,9 @@ import {listUnitsEvents, msg} from "../../events/events";
 import Card from "../Card/Card";
 import DetailsContainer from "../DetailsContainer/DetailsContainer";
 import Paginator from "../Paginator/Paginator";
-import { loadDevicesAC, filterDevicesAC, deleteDevicesAC } from "../../redux/reducers/devicesAC";
+import {loadDevicesAC, filterDevicesAC, deleteDevicesAC, changeDeviceStateAC} from "../../redux/reducers/devicesAC";
 import {sendRequest} from "../../helpers/sendRequest";
+import C from '../../constants';
 
 const titles = ['Номер устройства','Адрес установки', 'Модель устройства', 'Статус'];
 
@@ -30,6 +31,10 @@ class DeviceList extends React.PureComponent {
         filterIdx: null,
         isItemCardActive: false,
         isControlPanelActive: false,
+        lastEdited: {
+            id: '',
+            newFieldVal: '',
+        },
     };
 
     componentWillReceiveProps = (newProps) => {
@@ -47,6 +52,7 @@ class DeviceList extends React.PureComponent {
         listUnitsEvents.addListener('highlightItem',this.highlightItem);
         listUnitsEvents.addListener('performFn', this.contextMenuHandler);
         listUnitsEvents.addListener('hideCard', this.hideCard);
+        listUnitsEvents.addListener('changeState', this.changeDeviceState);
 
         let currentUrl = this.props.history.location.pathname;
         let pageNum = currentUrl.match(/\d/);
@@ -59,6 +65,8 @@ class DeviceList extends React.PureComponent {
                     this.props.dispatch(loadDevicesAC(result))
                 }
             });
+        } else {
+            console.log('no path')
         }
     };
 
@@ -66,6 +74,18 @@ class DeviceList extends React.PureComponent {
         listUnitsEvents.removeListener('highlightItem', this.highlightItem);
         listUnitsEvents.removeListener('performFn', this.contextMenuHandler);
         listUnitsEvents.removeListener('hideCard', this.hideCard);
+    };
+
+    changeDeviceState = (id, state) => {
+        let devices = [...this.props.devices.devices];
+        let selectedDevice = devices.find( device => device.Info.Id === id);
+        let selectedDeviceIndex = devices.findIndex(device => device.Info.Id === id); // editing id at current devices
+        selectedDevice.Info.Status = state;
+        devices[selectedDeviceIndex] = selectedDevice;
+        this.props.dispatch(changeDeviceStateAC(devices));
+        this.setState({lastEdited: {id: id, newFieldVal: state}});
+
+        sendRequest('/cmd/change_state', result => console.log(result), {...C.OPTIONS_POST, body: JSON.stringify(devices)});
     };
 
     highlightItem = (id) => {
@@ -85,15 +105,9 @@ class DeviceList extends React.PureComponent {
                         let f = this.state.devices.devices.filter(device => device.Info.Id !== id);
                         this.setState({selectedItemIdx: '', });
                         this.props.dispatch(deleteDevicesAC(f));
-                        sendRequest(
-                            '/cmd/delete_device',
-                                result => console.log(result),
-                            {
-                                method: 'post',
-                                headers: {
-                                    'Content-Type': 'application/json',
-                                },
-                                body: JSON.stringify(f)});
+
+                        sendRequest('/cmd/delete_device', result => console.log(result), {...C.OPTIONS_POST, body: JSON.stringify(f)});
+
                         this.props.evt.emit('info', {type: 'success', message: `Устройство ${id} удалено`});
                         listUnitsEvents.emit('itemDeleted');
                         msg.emit('log', `Устройство ${id} удалено`);
@@ -222,7 +236,7 @@ class DeviceList extends React.PureComponent {
         const currentDevices = devices.slice(indexOfFirst, indexOfLast);
 
         return currentDevices.map(device => (this.state.selectedItemIdx === device.Info.Id)
-            ? <Device device={device.Info} key={device.Info.Id} selected={this.state.selectedItemIdx}/>
+            ? <Device device={device.Info} key={device.Info.Id} selected={this.state.selectedItemIdx} lastEdited={this.state.lastEdited}/>
             : <Device device={device.Info} key={device.Info.Id}/>)
     };
 

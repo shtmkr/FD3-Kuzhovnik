@@ -11,6 +11,7 @@ import EventList from "../EventList/EventList";
 import MessageHistory from "../MessageHistory/MessageHistory";
 import combinedReducer from "../../redux/reducers/reducers";
 import {sendRequest} from "../../helpers/sendRequest";
+import C from '../../constants';
 
 const menu = require('./menu.json');
 const kiosk = require('./devicesKIOSK.json');
@@ -21,6 +22,7 @@ const store = createStore(combinedReducer, window.__REDUX_DEVTOOLS_EXTENSION__ &
     store state:
         devices :
             devices: Array - array of devices
+            device: String - selected device
             status: Number - is loaded
 */
 
@@ -94,12 +96,8 @@ class Admin extends React.PureComponent {
 
     render () {
         console.log('Admin render');
-        sendRequest('/auth/setPath', response => console.log(response), {
-            method: 'post',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({path: this.props.location.pathname})});
+        sendRequest('/auth/setPath', response => console.log(response),
+            {...C.OPTIONS_POST, body: JSON.stringify({path: this.props.location.pathname})});
         let currPage;
         if (this.props.history.location.pathname.match(/\d/)){
             currPage = this.props.history.location.pathname.match(/\d/);

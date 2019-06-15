@@ -64,6 +64,7 @@ class ControlPanel extends React.PureComponent {
     stateClick = () => {
         console.log(`Устройство ${this.state.selectedDeviceId} переведено в ${this.selectState.value}`);
         msg.emit('log', `Устройство ${this.state.selectedDeviceId} переведено в ${this.selectState.value}`);
+        listUnitsEvents.emit('changeState', this.state.selectedDeviceId, this.selectState.value); // go to OOS / IS
     };
 
     reboot = () => {

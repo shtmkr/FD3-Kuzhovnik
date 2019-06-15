@@ -8,6 +8,7 @@ highlightItem   - highlight list item request
 performFn       - perform function for selected item
 hideCard        - card hide request
 itemDeleted     - item deleted from list
+changeState     - device change state (IS, OOS) request
 */
 
 let msg = new EventEmitter();

@@ -7,6 +7,7 @@ class Device extends React.PureComponent {
     static propTypes = {
         device: PropTypes.object.isRequired,
         selected: PropTypes.string,
+        lastEdited: PropTypes.object,
     };
 
     state = {
@@ -20,10 +21,9 @@ class Device extends React.PureComponent {
     };
 
     componentWillReceiveProps = (newProps) => {
-        /*if (newProps.selected !== this.props.selected) {
-            this.setState({selected: newProps.selected})
+        if (newProps.lastEdited === this.props.lastEdited) {
+            this.setState({lastEdited: newProps.lastEdited})
         }
-        console.log('new props')*/
     };
 
     controlsHandler = (e) => {

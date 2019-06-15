@@ -4,7 +4,14 @@ const constants = {
     DELETE_DEVICE: 'DELETE_DEVICE',
     ADD_DEVICE: 'ADD_DEVICE',
     EDIT_DEVICE: 'EDIT_DEVICE',
+    CHANGE_STATE: 'CHANGE_STATE',
     HOST_URL: 'http://localhost:3003',
+    OPTIONS_POST: {
+        method: 'post',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: ''}
 };
 
 export default constants

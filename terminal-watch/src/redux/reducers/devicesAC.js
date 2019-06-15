@@ -23,4 +23,12 @@ const deleteDevicesAC = (devices) => (
     }
 );
 
-export  { loadDevicesAC, filterDevicesAC, deleteDevicesAC };
+const changeDeviceStateAC = (devices) => (
+    {
+        type: C.CHANGE_STATE,
+        devices,
+        loaded: devices,
+    }
+);
+
+export  { loadDevicesAC, filterDevicesAC, deleteDevicesAC, changeDeviceStateAC };

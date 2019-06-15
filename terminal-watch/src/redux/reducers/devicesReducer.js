@@ -31,6 +31,13 @@ function devicesReducer( state = initState, action ) {
                 loaded: action.devices,
             }
         }
+        case C.CHANGE_STATE: {
+            return {
+                ...state,
+                devices: action.devices,
+                loaded: action.devices,
+            }
+        }
         default:
             return state;
     }
