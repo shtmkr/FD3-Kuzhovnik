@@ -11,6 +11,7 @@ import Paginator from "../Paginator/Paginator";
 import {loadDevicesAC, filterDevicesAC, deleteDevicesAC, changeDeviceStateAC, sortDeviceAC, devicesLoadingAC, devicesErrorAC} from "../../redux/reducers/devicesAC";
 import {sendRequest} from "../../helpers/sendRequest";
 import C from '../../constants';
+import Loader from "../Loader/Loader";
 
 const titles = ['Номер устройства','Адрес установки', 'Модель устройства', 'Статус'];
 
@@ -376,7 +377,7 @@ class DeviceList extends React.PureComponent {
     render () {
 
         if ( this.props.devices.status <= 1 )
-            return "загрузка...";
+            return <Loader/>;
 
         if ( this.props.devices.status === 2 )
             return "ошибка загрузки данных";
@@ -386,7 +387,7 @@ class DeviceList extends React.PureComponent {
             console.log(this.state.devices.devices);
         }
         if (this.props.devices.status === 3 && this.state.devices !== undefined) {// if redux state devices is ready
-            this.devForCard = this.state.devices.devices.filter( device => (this.state.selectedItemIdx === device.Info.Id) ? device : false); // extended terminal data
+            this.devForCard = this.props.devices.devices.filter( device => (this.state.selectedItemIdx === device.Info.Id) ? device : false); // extended terminal data
         }
         console.log('devForCard',this.devForCard);
         return (
@@ -408,7 +409,7 @@ class DeviceList extends React.PureComponent {
                           device={this.devForCard[0]}
                           chartData={this.prepareChartDataForCard()}
                 />
-                {this.state.selectedItemIdx && <DetailsContainer chartData={this.prepareChartDataForCard()} repairs={this.devForCard[0].Repairs} />}
+                {this.state.selectedItemIdx && this.devForCard[0] !== undefined && <DetailsContainer chartData={this.prepareChartDataForCard()} repairs={this.devForCard[0].Repairs} />}
             </Fragment>
         );
     }
