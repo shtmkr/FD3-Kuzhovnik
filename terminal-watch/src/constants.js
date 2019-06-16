@@ -8,6 +8,9 @@ const constants = {
     EDIT_DEVICE: 'EDIT_DEVICE',
     CHANGE_STATE: 'CHANGE_STATE',
     SORT_DEVICES: 'SORT_DEVICES',
+    LOAD_EVENTS: 'LOAD_EVENTS',
+    EVENTS_LOADING: 'EVENTS_LOADING',
+    EVENTS_ERROR: 'EVENTS_ERROR',
     HOST_URL: 'http://localhost:3003',
     OPTIONS_POST: {
         method: 'post',

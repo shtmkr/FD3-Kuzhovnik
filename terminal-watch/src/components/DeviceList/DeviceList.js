@@ -75,10 +75,14 @@ class DeviceList extends React.PureComponent {
         listUnitsEvents.addListener('hideCard', this.hideCard);
         listUnitsEvents.addListener('changeState', this.changeDeviceState);
 
-        let currentUrl = this.props.history.location.pathname;
-        let pageNum = currentUrl.match(/\d/);
-        if (pageNum) {
-            this.setState({currentPage: parseInt(pageNum[0])});// selected page number from URL
+        try {
+            let currentUrl = this.props.history.location.pathname;
+            let pageNum = currentUrl.match(/\d/);
+            if (pageNum) {
+                this.setState({currentPage: parseInt(pageNum[0])});// selected page number from URL
+            }
+        } catch (e) {
+            msg.emit('log', e);
         }
         if (this.props.dataPath){
             this.props.dispatch( devicesLoadingAC() );

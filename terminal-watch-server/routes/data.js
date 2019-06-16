@@ -14,7 +14,7 @@ router.get('/devices_kiosk', function (req, res, next) {
 
 router.get('/devices_events', function (req, res, next) {
     console.log('GET devices_events');
-    res.json(devices_events);
+    res.json(store.tmpEVENTS);
 });
 
 module.exports = router;
