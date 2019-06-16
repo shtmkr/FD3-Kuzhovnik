@@ -7,6 +7,7 @@ import Chart from "../Chart/Chart"
 import TabMenu from "../TabMenu/TabMenu";
 import Info from "../TabMenu/tabs/Info";
 import Repair from "../TabMenu/tabs/Repair";
+import EventList from "../EventList/EventList";
 
 let tabMenu = require('./tabMenu');
 class Card extends React.PureComponent {
@@ -50,16 +51,20 @@ class Card extends React.PureComponent {
         console.log(this.state.device);
         let data;
         let repairs;
+        let info;
+        let events;
         if (this.props.chartData) {
             data = this.props.chartData;
         }
         if (this.props.device !== undefined) {
-            console.log(this.props.device.Repairs);
             repairs = <Repair repairs={this.props.device.Repairs}/>
         }
-        let info = <Info device={this.props.device}/>;
-        let events = <div><span>events</span></div>;
-
+        if (this.props.device !== undefined) {
+            info = <Info device={this.props.device}/>;
+        }
+        if (this.props.device !== undefined) {
+            events = <EventList dataPath='/data/devices_events' eType={this.props.device.Info.Id}/>;
+        }
         let stats =  <div><Chart type="line" data={data}/></div>;
         let cardBody;
 

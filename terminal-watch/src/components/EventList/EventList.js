@@ -12,8 +12,8 @@ const titles = ['ID события','ID устройства', 'Код стат�
 class EventList extends React.PureComponent {
 
     static propTypes = {
-        evt: PropTypes.object.isRequired,
         eType: PropTypes.string.isRequired,
+        dataPath: PropTypes.string.isRequired,
     };
 
     state = {
@@ -35,8 +35,9 @@ class EventList extends React.PureComponent {
     };
 
     componentDidMount = () => {
+        console.log('eventlist', this.props.events)
         listUnitsEvents.addListener('highlightItem',this.highlightItem);
-        if (this.props.events !== undefined){
+        if (this.props.events.events === null){ // first load of events
             if (this.props.dataPath){
                 this.props.dispatch( eventsLoadingAC() );
                 sendRequest(this.props.dataPath, result => {
@@ -71,8 +72,12 @@ class EventList extends React.PureComponent {
 
     createBody = () => {
         if (this.props.events !== undefined){
-            const events  = this.props.events.events.filter(ev => ev.eType === this.props.eType);
-            console.log(events);
+            let events;
+            if (this.props.eType === 'error' || this.props.eType === 'warn'){
+                events  = this.props.events.events.filter(ev => ev.eType === this.props.eType);
+            } else {
+                events = this.props.events.events.filter(ev => ev.eDeviceId === this.props.eType);
+            }
             return events.map(ev => (this.state.selectedItemIdx === ev.eId)
                 ? <Event event={ev} key={ev.eId} selected={this.state.selectedItemIdx}/>
                 : <Event event={ev} key={ev.eId}/>)
