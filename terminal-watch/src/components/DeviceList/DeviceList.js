@@ -25,6 +25,7 @@ class DeviceList extends React.PureComponent {
     };
 
     state = {
+        dataPath: '',
         currentPage: 1,
         selectedItemIdx: '',
         filter: '',
@@ -53,6 +54,16 @@ class DeviceList extends React.PureComponent {
         }
         if (newProps.currentPage !== this.props.currentPage){
             this.setState({currentPage: newProps.currentPage})
+        }
+        if (newProps.dataPath !== this.props.dataPath){
+            if (newProps.dataPath){
+                sendRequest(newProps.dataPath, result => {
+                    if (result){
+                        this.props.dispatch(loadDevicesAC(result));
+                        this.setState({dataPath: newProps.dataPath})
+                    }
+                });
+            }
         }
     };
 
@@ -156,7 +167,7 @@ class DeviceList extends React.PureComponent {
         let dev;
         let filters = ['Id', 'Address', 'Model', 'Status'];
         if (this.state.filter !== ''){
-            list = this.state.devices.loaded.filter( (device) => {
+            list = this.props.devices.loaded.filter( (device) => {
                 dev = Object.keys(device.Info)
                     .filter( key => filters.includes(key))
                     .reduce((obj, key) => {
@@ -186,7 +197,7 @@ class DeviceList extends React.PureComponent {
     sort = () => {
         let {sortBy} = this.state;
         let {sort0, sort1, sort2, sort3} = this.state.sortReverse; // true - REVERSE SORT
-        let devices = [...this.state.devices.devices];
+        let devices = [...this.props.devices.devices];
         let sorted;
 
         if (sortBy === 'Номер устройства'){

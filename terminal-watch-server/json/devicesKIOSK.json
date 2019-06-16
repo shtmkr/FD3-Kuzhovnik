@@ -1,24 +1,561 @@
 [
-  {"serialNum":"S000000", "Model":"TUSSON", "Address": "г.Минск, ул.Пушкина,8", "status": "In Service"},
-  {"serialNum":"S000001", "Model":"TUSSON", "Address": "г.Минск, ул.Пушкина,8", "status": "In Service"},
-  {"serialNum":"S000002", "Model":"TUSSON", "Address": "г.Минск, ул.Пушкина,8", "status": "In Service"},
-  {"serialNum":"S000003", "Model":"TUSSON", "Address": "г.Минск, ул.Пушкина,8", "status": "In Service"},
-  {"serialNum":"S000004", "Model":"TUSSON", "Address": "г.Минск, ул.Пушкина,8", "status": "In Service"},
-  {"serialNum":"S000005", "Model":"TUSSON", "Address": "г.Минск, ул.Пушкина,8", "status": "In Service"},
-  {"serialNum":"S000055", "Model":"TUSSON", "Address": "г.Минск, ул.Пушкина,8", "status": "In Service"},
-  {"serialNum":"S000006", "Model":"TUSSON", "Address": "г.Минск, ул.Пушкина,8", "status": "In Service"},
-  {"serialNum":"S000007", "Model":"TUSSON", "Address": "г.Минск, ул.Пушкина,8", "status": "In Service"},
-  {"serialNum":"S000008", "Model":"TUSSON", "Address": "г.Минск, ул.Пушкина,8", "status": "In Service"},
-  {"serialNum":"S000009", "Model":"TUSSON", "Address": "г.Минск, ул.Пушкина,8", "status": "In Service"},
-  {"serialNum":"S000010", "Model":"TUSSON", "Address": "г.Минск, ул.Пушкина,8", "status": "In Service"},
-  {"serialNum":"S000011", "Model":"TUSSON", "Address": "г.Минск, ул.Пушкина,8", "status": "In Service"},
-  {"serialNum":"S000012", "Model":"TUSSON", "Address": "г.Минск, ул.Пушкина,8", "status": "In Service"},
-  {"serialNum":"S000013", "Model":"TUSSON", "Address": "г.Минск, ул.Пушкина,8", "status": "In Service"},
-  {"serialNum":"S000014", "Model":"TUSSON", "Address": "г.Минск, ул.Пушкина,8", "status": "In Service"},
-  {"serialNum":"S000015", "Model":"TUSSON", "Address": "г.Минск, ул.Пушкина,8", "status": "In Service"},
-  {"serialNum":"S000016", "Model":"TUSSON", "Address": "г.Минск, ул.Пушкина,8", "status": "In Service"},
-  {"serialNum":"S000017", "Model":"TUSSON", "Address": "г.Минск, ул.Пушкина,8", "status": "In Service"},
-  {"serialNum":"S000018", "Model":"TUSSON", "Address": "г.Минск, ул.Пушкина,8", "status": "In Service"},
-  {"serialNum":"S000019", "Model":"TUSSON", "Address": "г.Минск, ул.Пушкина,8", "status": "In Service"},
-  {"serialNum":"S000020", "Model":"TUSSON", "Address": "г.Минск, ул.Пушкина,8", "status": "Out of Service"}
+  {
+    "Info": {
+      "Bank": "Belinvestbank",
+      "Id":"S000000",
+      "Address": "г.Минск, ул.Колотушкина,8",
+      "Serial": "XXX0000IBA0001",
+      "Model":"TUSSON ITS 1000",
+      "Status": "In service"
+    },
+    "Network": {
+      "IP": "10.11.00.11",
+      "Port": "666",
+      "Config": "7001",
+      "Config_type": "IK",
+      "Last_reboot": "01.04.2019"
+    },
+    "Software": {
+      "Agi": " 2.4",
+      "Sub_1": "Some ver",
+      "Sub_2": "Some ver",
+      "Sub_3": "Some ver",
+      "Sub_4": "Some ver"
+    },
+    "Stats": {
+      "Repairs": [1, 2, 5, 5, 1, 2, 10, 2, 3, 4, 10, 2],
+      "Sp": [22, 55, 15, 23, 11, 59, 11, 12, 43, 2, 2, 5],
+      "Ink": [12, 12, 15, 15, 11, 12, 10, 12, 13, 14, 10, 12]
+    },
+    "Repairs": [
+      {"Date" : "01.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"},
+      {"Date" : "02.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Не работает кешин", "ResultDesc":  "Почистил купюроприемник"},
+      {"Date" : "03.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"},
+      {"Date" : "04.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"},
+      {"Date" : "02.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Не работает кешин", "ResultDesc":  "Почистил купюроприемник"},
+      {"Date" : "06.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"},
+      {"Date" : "01.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"},
+      {"Date" : "02.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Не работает кешин", "ResultDesc":  "Почистил купюроприемник"},
+      {"Date" : "03.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"},
+      {"Date" : "04.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"},
+      {"Date" : "02.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Не работает кешин", "ResultDesc":  "Почистил купюроприемник"},
+      {"Date" : "06.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"}
+    ]
+  },
+  {
+    "Info": {
+      "Bank": "Belinvestbank",
+      "Id":"S000001",
+      "Address": "г.Минск, ул.Колотушкина,2",
+      "Serial": "XXX0000IBA0001",
+      "Model":"TUSSON ITS 1000",
+      "Status": "In service"
+    },
+    "Network": {
+      "IP": "10.11.00.12",
+      "Port": "666",
+      "Config": "7001",
+      "Config_type": "IK",
+      "Last_reboot": "01.04.2019"
+    },
+    "Software": {
+      "Agi": " 2.4",
+      "Sub_1": "Some ver",
+      "Sub_2": "Some ver",
+      "Sub_3": "Some ver",
+      "Sub_4": "Some ver"
+    },
+    "Stats": {
+      "Repairs": [1, 2, 5, 5, 1, 2, 10, 2, 3, 4, 10, 2],
+      "Sp": [22, 55, 15, 23, 11, 59, 11, 12, 43, 2, 2, 5],
+      "Ink": [12, 12, 15, 15, 11, 12, 10, 12, 13, 14, 10, 12]
+    },
+    "Repairs": [
+      {"Date" : "01.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"},
+      {"Date" : "02.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Не работает кешин", "ResultDesc":  "Почистил купюроприемник"},
+      {"Date" : "03.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"},
+      {"Date" : "04.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"},
+      {"Date" : "02.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Не работает кешин", "ResultDesc":  "Почистил купюроприемник"},
+      {"Date" : "06.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"},
+      {"Date" : "01.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"},
+      {"Date" : "02.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Не работает кешин", "ResultDesc":  "Почистил купюроприемник"},
+      {"Date" : "03.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"},
+      {"Date" : "04.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"},
+      {"Date" : "02.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Не работает кешин", "ResultDesc":  "Почистил купюроприемник"},
+      {"Date" : "06.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"}
+    ]
+  },
+  {
+    "Info": {
+      "Bank": "Belinvestbank",
+      "Id":"S000002",
+      "Address": "г.Минск, ул.Колотушкина,18",
+      "Serial": "XXX0000IBA0001",
+      "Model":"TUSSON ITS 1000",
+      "Status": "In service"
+    },
+    "Network": {
+      "IP": "10.11.00.112",
+      "Port": "666",
+      "Config": "7001",
+      "Config_type": "IK",
+      "Last_reboot": "01.04.2019"
+    },
+    "Software": {
+      "Agi": " 2.4",
+      "Sub_1": "Some ver",
+      "Sub_2": "Some ver",
+      "Sub_3": "Some ver",
+      "Sub_4": "Some ver"
+    },
+    "Stats": {
+      "Repairs": [1, 2, 5, 5, 1, 2, 10, 2, 3, 4, 10, 2],
+      "Sp": [22, 55, 15, 23, 11, 59, 11, 12, 43, 2, 2, 5],
+      "Ink": [12, 12, 15, 15, 11, 12, 10, 12, 13, 14, 10, 12]
+    },
+    "Repairs": [
+      {"Date" : "01.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"},
+      {"Date" : "02.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Не работает кешин", "ResultDesc":  "Почистил купюроприемник"},
+      {"Date" : "03.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"},
+      {"Date" : "04.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"},
+      {"Date" : "02.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Не работает кешин", "ResultDesc":  "Почистил купюроприемник"},
+      {"Date" : "06.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"},
+      {"Date" : "01.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"},
+      {"Date" : "02.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Не работает кешин", "ResultDesc":  "Почистил купюроприемник"},
+      {"Date" : "03.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"},
+      {"Date" : "04.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"},
+      {"Date" : "02.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Не работает кешин", "ResultDesc":  "Почистил купюроприемник"},
+      {"Date" : "06.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"}
+    ]
+  },
+  {
+    "Info": {
+      "Bank": "Belinvestbank",
+      "Id":"S000003",
+      "Address": "г.Минск, ул.Колотушкина,83",
+      "Serial": "XXX0000IBA0001",
+      "Model":"TUSSON ITS 1000",
+      "Status": "In service"
+    },
+    "Network": {
+      "IP": "10.11.00.231",
+      "Port": "666",
+      "Config": "7001",
+      "Config_type": "IK",
+      "Last_reboot": "01.04.2019"
+    },
+    "Software": {
+      "Agi": " 2.4",
+      "Sub_1": "Some ver",
+      "Sub_2": "Some ver",
+      "Sub_3": "Some ver",
+      "Sub_4": "Some ver"
+    },
+    "Stats": {
+      "Repairs": [1, 2, 5, 5, 1, 2, 10, 2, 3, 4, 10, 2],
+      "Sp": [22, 55, 15, 23, 11, 59, 11, 12, 43, 2, 2, 5],
+      "Ink": [12, 12, 15, 15, 11, 12, 10, 12, 13, 14, 10, 12]
+    },
+    "Repairs": [
+      {"Date" : "01.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"},
+      {"Date" : "02.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Не работает кешин", "ResultDesc":  "Почистил купюроприемник"},
+      {"Date" : "03.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"},
+      {"Date" : "04.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"},
+      {"Date" : "02.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Не работает кешин", "ResultDesc":  "Почистил купюроприемник"},
+      {"Date" : "06.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"},
+      {"Date" : "01.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"},
+      {"Date" : "02.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Не работает кешин", "ResultDesc":  "Почистил купюроприемник"},
+      {"Date" : "03.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"},
+      {"Date" : "04.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"},
+      {"Date" : "02.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Не работает кешин", "ResultDesc":  "Почистил купюроприемник"},
+      {"Date" : "06.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"}
+    ]
+  },
+  {
+    "Info": {
+      "Bank": "Belinvestbank",
+      "Id":"S000004",
+      "Address": "г.Минск, ул.Колотушкина,1",
+      "Serial": "XXX0000IBA0001",
+      "Model":"TUSSON ITS 1000",
+      "Status": "In service"
+    },
+    "Network": {
+      "IP": "10.11.00.31",
+      "Port": "666",
+      "Config": "7001",
+      "Config_type": "IK",
+      "Last_reboot": "01.04.2019"
+    },
+    "Software": {
+      "Agi": " 2.4",
+      "Sub_1": "Some ver",
+      "Sub_2": "Some ver",
+      "Sub_3": "Some ver",
+      "Sub_4": "Some ver"
+    },
+    "Stats": {
+      "Repairs": [1, 2, 5, 5, 1, 2, 10, 2, 3, 4, 10, 2],
+      "Sp": [22, 55, 15, 23, 11, 59, 11, 12, 43, 2, 2, 5],
+      "Ink": [12, 12, 15, 15, 11, 12, 10, 12, 13, 14, 10, 12]
+    },
+    "Repairs": [
+      {"Date" : "01.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"},
+      {"Date" : "02.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Не работает кешин", "ResultDesc":  "Почистил купюроприемник"},
+      {"Date" : "03.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"},
+      {"Date" : "04.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"},
+      {"Date" : "02.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Не работает кешин", "ResultDesc":  "Почистил купюроприемник"},
+      {"Date" : "06.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"},
+      {"Date" : "01.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"},
+      {"Date" : "02.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Не работает кешин", "ResultDesc":  "Почистил купюроприемник"},
+      {"Date" : "03.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"},
+      {"Date" : "04.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"},
+      {"Date" : "02.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Не работает кешин", "ResultDesc":  "Почистил купюроприемник"},
+      {"Date" : "06.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"}
+    ]
+  },
+  {
+    "Info": {
+      "Bank": "Belinvestbank",
+      "Id":"S000005",
+      "Address": "г.Минск, ул.Колотушкина,22",
+      "Serial": "XXX0000IBA0001",
+      "Model":"TUSSON ITS 1000",
+      "Status": "In service"
+    },
+    "Network": {
+      "IP": "10.11.00.112",
+      "Port": "666",
+      "Config": "7001",
+      "Config_type": "IK",
+      "Last_reboot": "01.04.2019"
+    },
+    "Software": {
+      "Agi": " 2.4",
+      "Sub_1": "Some ver",
+      "Sub_2": "Some ver",
+      "Sub_3": "Some ver",
+      "Sub_4": "Some ver"
+    },
+    "Stats": {
+      "Repairs": [1, 2, 5, 5, 1, 2, 10, 2, 3, 4, 10, 2],
+      "Sp": [22, 55, 15, 23, 11, 59, 11, 12, 43, 2, 2, 5],
+      "Ink": [12, 12, 15, 15, 11, 12, 10, 12, 13, 14, 10, 12]
+    },
+    "Repairs": [
+      {"Date" : "01.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"},
+      {"Date" : "02.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Не работает кешин", "ResultDesc":  "Почистил купюроприемник"},
+      {"Date" : "03.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"},
+      {"Date" : "04.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"},
+      {"Date" : "02.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Не работает кешин", "ResultDesc":  "Почистил купюроприемник"},
+      {"Date" : "06.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"},
+      {"Date" : "01.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"},
+      {"Date" : "02.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Не работает кешин", "ResultDesc":  "Почистил купюроприемник"},
+      {"Date" : "03.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"},
+      {"Date" : "04.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"},
+      {"Date" : "02.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Не работает кешин", "ResultDesc":  "Почистил купюроприемник"},
+      {"Date" : "06.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"}
+    ]
+  },
+  {
+    "Info": {
+      "Bank": "Belinvestbank",
+      "Id":"S000006",
+      "Address": "г.Минск, ул.Колотушкина,42",
+      "Serial": "XXX0000IBA0001",
+      "Model":"TUSSON ITS 1000",
+      "Status": "In service"
+    },
+    "Network": {
+      "IP": "10.11.00.1",
+      "Port": "666",
+      "Config": "7001",
+      "Config_type": "IK",
+      "Last_reboot": "01.04.2019"
+    },
+    "Software": {
+      "Agi": " 2.4",
+      "Sub_1": "Some ver",
+      "Sub_2": "Some ver",
+      "Sub_3": "Some ver",
+      "Sub_4": "Some ver"
+    },
+    "Stats": {
+      "Repairs": [1, 2, 5, 5, 1, 2, 10, 2, 3, 4, 10, 2],
+      "Sp": [22, 55, 15, 23, 11, 59, 11, 12, 43, 2, 2, 5],
+      "Ink": [12, 12, 15, 15, 11, 12, 10, 12, 13, 14, 10, 12]
+    },
+    "Repairs": [
+      {"Date" : "01.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"},
+      {"Date" : "02.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Не работает кешин", "ResultDesc":  "Почистил купюроприемник"},
+      {"Date" : "03.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"},
+      {"Date" : "04.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"},
+      {"Date" : "02.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Не работает кешин", "ResultDesc":  "Почистил купюроприемник"},
+      {"Date" : "06.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"},
+      {"Date" : "01.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"},
+      {"Date" : "02.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Не работает кешин", "ResultDesc":  "Почистил купюроприемник"},
+      {"Date" : "03.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"},
+      {"Date" : "04.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"},
+      {"Date" : "02.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Не работает кешин", "ResultDesc":  "Почистил купюроприемник"},
+      {"Date" : "06.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"}
+    ]
+  },
+  {
+    "Info": {
+      "Bank": "Belinvestbank",
+      "Id":"S000007",
+      "Address": "г.Минск, ул.Колотушкина,54",
+      "Serial": "XXX0000IBA0001",
+      "Model":"TUSSON ITS 1000",
+      "Status": "In service"
+    },
+    "Network": {
+      "IP": "10.11.00.1",
+      "Port": "666",
+      "Config": "7001",
+      "Config_type": "IK",
+      "Last_reboot": "01.04.2019"
+    },
+    "Software": {
+      "Agi": " 2.4",
+      "Sub_1": "Some ver",
+      "Sub_2": "Some ver",
+      "Sub_3": "Some ver",
+      "Sub_4": "Some ver"
+    },
+    "Stats": {
+      "Repairs": [1, 2, 5, 5, 1, 2, 10, 2, 3, 4, 10, 2],
+      "Sp": [22, 55, 15, 23, 11, 59, 11, 12, 43, 2, 2, 5],
+      "Ink": [12, 12, 15, 15, 11, 12, 10, 12, 13, 14, 10, 12]
+    },
+    "Repairs": [
+      {"Date" : "01.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"},
+      {"Date" : "02.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Не работает кешин", "ResultDesc":  "Почистил купюроприемник"},
+      {"Date" : "03.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"},
+      {"Date" : "04.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"},
+      {"Date" : "02.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Не работает кешин", "ResultDesc":  "Почистил купюроприемник"},
+      {"Date" : "06.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"},
+      {"Date" : "01.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"},
+      {"Date" : "02.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Не работает кешин", "ResultDesc":  "Почистил купюроприемник"},
+      {"Date" : "03.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"},
+      {"Date" : "04.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"},
+      {"Date" : "02.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Не работает кешин", "ResultDesc":  "Почистил купюроприемник"},
+      {"Date" : "06.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"}
+    ]
+  },
+  {
+    "Info": {
+      "Bank": "Belinvestbank",
+      "Id":"S000008",
+      "Address": "г.Минск, ул.Колотушкина,75",
+      "Serial": "XXX0000IBA0001",
+      "Model":"TUSSON ITS 1000",
+      "Status": "In service"
+    },
+    "Network": {
+      "IP": "10.11.00.1",
+      "Port": "666",
+      "Config": "7001",
+      "Config_type": "IK",
+      "Last_reboot": "01.04.2019"
+    },
+    "Software": {
+      "Agi": " 2.4",
+      "Sub_1": "Some ver",
+      "Sub_2": "Some ver",
+      "Sub_3": "Some ver",
+      "Sub_4": "Some ver"
+    },
+    "Stats": {
+      "Repairs": [1, 2, 5, 5, 1, 2, 10, 2, 3, 4, 10, 2],
+      "Sp": [22, 55, 15, 23, 11, 59, 11, 12, 43, 2, 2, 5],
+      "Ink": [12, 12, 15, 15, 11, 12, 10, 12, 13, 14, 10, 12]
+    },
+    "Repairs": [
+      {"Date" : "01.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"},
+      {"Date" : "02.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Не работает кешин", "ResultDesc":  "Почистил купюроприемник"},
+      {"Date" : "03.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"},
+      {"Date" : "04.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"},
+      {"Date" : "02.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Не работает кешин", "ResultDesc":  "Почистил купюроприемник"},
+      {"Date" : "06.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"},
+      {"Date" : "01.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"},
+      {"Date" : "02.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Не работает кешин", "ResultDesc":  "Почистил купюроприемник"},
+      {"Date" : "03.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"},
+      {"Date" : "04.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"},
+      {"Date" : "02.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Не работает кешин", "ResultDesc":  "Почистил купюроприемник"},
+      {"Date" : "06.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"}
+    ]
+  },
+  {
+    "Info": {
+      "Bank": "Belinvestbank",
+      "Id":"S000009",
+      "Address": "г.Минск, ул.Машерова,8",
+      "Serial": "XXX0000IBA0001",
+      "Model":"TUSSON ITS 1000",
+      "Status": "Out Of Service"
+    },
+    "Network": {
+      "IP": "10.11.00.1",
+      "Port": "666",
+      "Config": "7001",
+      "Config_type": "IK",
+      "Last_reboot": "01.04.2019"
+    },
+    "Software": {
+      "Agi": " 2.4",
+      "Sub_1": "Some ver",
+      "Sub_2": "Some ver",
+      "Sub_3": "Some ver",
+      "Sub_4": "Some ver"
+    },
+    "Stats": {
+      "Repairs": [1, 2, 5, 5, 1, 2, 10, 2, 3, 4, 10, 2],
+      "Sp": [22, 55, 15, 23, 11, 59, 11, 12, 43, 2, 2, 5],
+      "Ink": [12, 12, 15, 15, 11, 12, 10, 12, 13, 14, 10, 12]
+    },
+    "Repairs": [
+      {"Date" : "01.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"},
+      {"Date" : "02.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Не работает кешин", "ResultDesc":  "Почистил купюроприемник"},
+      {"Date" : "03.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"},
+      {"Date" : "04.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"},
+      {"Date" : "02.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Не работает кешин", "ResultDesc":  "Почистил купюроприемник"},
+      {"Date" : "06.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"},
+      {"Date" : "01.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"},
+      {"Date" : "02.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Не работает кешин", "ResultDesc":  "Почистил купюроприемник"},
+      {"Date" : "03.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"},
+      {"Date" : "04.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"},
+      {"Date" : "02.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Не работает кешин", "ResultDesc":  "Почистил купюроприемник"},
+      {"Date" : "06.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"}
+    ]
+  },
+  {
+    "Info": {
+      "Bank": "Belinvestbank",
+      "Id":"S000010",
+      "Address": "г.Минск, ул.Судмалиса,18",
+      "Serial": "XXX0000IBA0001",
+      "Model":"TUSSON ITS 1000",
+      "Status": "In service"
+    },
+    "Network": {
+      "IP": "10.11.00.1",
+      "Port": "666",
+      "Config": "7001",
+      "Config_type": "IK",
+      "Last_reboot": "01.04.2019"
+    },
+    "Software": {
+      "Agi": " 2.4",
+      "Sub_1": "Some ver",
+      "Sub_2": "Some ver",
+      "Sub_3": "Some ver",
+      "Sub_4": "Some ver"
+    },
+    "Stats": {
+      "Repairs": [1, 2, 5, 5, 1, 2, 10, 2, 3, 4, 10, 2],
+      "Sp": [22, 55, 15, 23, 11, 59, 11, 12, 43, 2, 2, 5],
+      "Ink": [12, 12, 15, 15, 11, 12, 10, 12, 13, 14, 10, 12]
+    },
+    "Repairs": [
+      {"Date" : "01.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"},
+      {"Date" : "02.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Не работает кешин", "ResultDesc":  "Почистил купюроприемник"},
+      {"Date" : "03.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"},
+      {"Date" : "04.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"},
+      {"Date" : "02.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Не работает кешин", "ResultDesc":  "Почистил купюроприемник"},
+      {"Date" : "06.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"},
+      {"Date" : "01.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"},
+      {"Date" : "02.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Не работает кешин", "ResultDesc":  "Почистил купюроприемник"},
+      {"Date" : "03.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"},
+      {"Date" : "04.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"},
+      {"Date" : "02.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Не работает кешин", "ResultDesc":  "Почистил купюроприемник"},
+      {"Date" : "06.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"}
+    ]
+  },
+  {
+    "Info": {
+      "Bank": "Belinvestbank",
+      "Id":"S000011",
+      "Address": "г.Минск, ул.Семенова,8",
+      "Serial": "XXX0000IBA0001",
+      "Model":"TUSSON ITS 1000",
+      "Status": "In service"
+    },
+    "Network": {
+      "IP": "10.11.2.343",
+      "Port": "666",
+      "Config": "7001",
+      "Config_type": "IK",
+      "Last_reboot": "01.04.2019"
+    },
+    "Software": {
+      "Agi": " 2.4",
+      "Sub_1": "Some ver",
+      "Sub_2": "Some ver",
+      "Sub_3": "Some ver",
+      "Sub_4": "Some ver"
+    },
+    "Stats": {
+      "Repairs": [1, 2, 5, 5, 1, 2, 10, 2, 3, 4, 10, 2],
+      "Sp": [22, 55, 15, 23, 11, 59, 11, 12, 43, 2, 2, 5],
+      "Ink": [12, 12, 15, 15, 11, 12, 10, 12, 13, 14, 10, 12]
+    },
+    "Repairs": [
+      {"Date" : "01.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"},
+      {"Date" : "02.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Не работает кешин", "ResultDesc":  "Почистил купюроприемник"},
+      {"Date" : "03.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"},
+      {"Date" : "04.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"},
+      {"Date" : "02.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Не работает кешин", "ResultDesc":  "Почистил купюроприемник"},
+      {"Date" : "06.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"},
+      {"Date" : "01.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"},
+      {"Date" : "02.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Не работает кешин", "ResultDesc":  "Почистил купюроприемник"},
+      {"Date" : "03.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"},
+      {"Date" : "04.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"},
+      {"Date" : "02.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Не работает кешин", "ResultDesc":  "Почистил купюроприемник"},
+      {"Date" : "06.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"}
+    ]
+  },
+  {
+    "Info": {
+      "Bank": "Belinvestbank",
+      "Id":"S000012",
+      "Address": "г.Минск, ул.Сурганова,41",
+      "Serial": "XXX0000IBA0001",
+      "Model":"TUSSON ITS 1000",
+      "Status": "Out Of Service"
+    },
+    "Network": {
+      "IP": "10.11.00.1",
+      "Port": "666",
+      "Config": "7001",
+      "Config_type": "IK",
+      "Last_reboot": "01.04.2019"
+    },
+    "Software": {
+      "Agi": " 2.4",
+      "Sub_1": "Some ver",
+      "Sub_2": "Some ver",
+      "Sub_3": "Some ver",
+      "Sub_4": "Some ver"
+    },
+    "Stats": {
+      "Repairs": [1, 2, 5, 5, 1, 2, 10, 2, 3, 4, 10, 2],
+      "Sp": [22, 55, 15, 23, 11, 59, 11, 12, 43, 2, 2, 5],
+      "Ink": [12, 12, 15, 15, 11, 12, 10, 12, 13, 14, 10, 12]
+    },
+    "Repairs": [
+      {"Date" : "01.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"},
+      {"Date" : "02.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Не работает кешин", "ResultDesc":  "Почистил купюроприемник"},
+      {"Date" : "03.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"},
+      {"Date" : "04.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"},
+      {"Date" : "02.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Не работает кешин", "ResultDesc":  "Почистил купюроприемник"},
+      {"Date" : "06.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"},
+      {"Date" : "01.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"},
+      {"Date" : "02.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Не работает кешин", "ResultDesc":  "Почистил купюроприемник"},
+      {"Date" : "03.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"},
+      {"Date" : "04.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"},
+      {"Date" : "02.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Не работает кешин", "ResultDesc":  "Почистил купюроприемник"},
+      {"Date" : "06.04.2018", "Performer": "Pan Kowalski", "ProblemDesc":  "Карточка застряла, помогите пожалуйста", "ResultDesc":  "Карта возвращена владельцу"}
+    ]
+  }
 ]
