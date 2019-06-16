@@ -5,6 +5,7 @@ const constants = {
     ADD_DEVICE: 'ADD_DEVICE',
     EDIT_DEVICE: 'EDIT_DEVICE',
     CHANGE_STATE: 'CHANGE_STATE',
+    SORT_DEVICES: 'SORT_DEVICES',
     HOST_URL: 'http://localhost:3003',
     OPTIONS_POST: {
         method: 'post',

@@ -244,7 +244,7 @@
     "Info": {
       "Bank": "Belinvestbank",
       "Id":"M000006",
-      "Address": "г.Минск, ул.Пулихова,11",
+      "Address": "г.Минск, ул.Пулихова,21",
       "Serial": "XXX0000DBLD0002",
       "Model":"Diebold Opteva 328",
       "Status": "Out of service"
@@ -273,7 +273,7 @@
     "Info": {
       "Bank": "Belinvestbank",
       "Id":"M000007",
-      "Address": "г.Минск, ул.Пулихова,11",
+      "Address": "г.Минск, ул.Пулихова,31",
       "Serial": "XXX0000DBLD0002",
       "Model":"Diebold Opteva 328",
       "Status": "Out of service"
@@ -302,7 +302,7 @@
     "Info": {
       "Bank": "Belinvestbank",
       "Id":"M000008",
-      "Address": "г.Минск, ул.Пулихова,11",
+      "Address": "г.Минск, ул.Пулихова,41",
       "Serial": "XXX0000DBLD0002",
       "Model":"Diebold Opteva 328",
       "Status": "In service"
@@ -331,7 +331,7 @@
     "Info": {
       "Bank": "Belinvestbank",
       "Id":"M000009",
-      "Address": "г.Минск, ул.Пулихова,11",
+      "Address": "г.Минск, ул.Пулихова,51",
       "Serial": "XXX0000DBLD0002",
       "Model":"Diebold Opteva 328",
       "Status": "In service"
@@ -354,8 +354,8 @@
   {
     "Info": {
       "Bank": "Belinvestbank",
-      "Id":"M0000010",
-      "Address": "г.Минск, ул.Пулихова,11",
+      "Id":"M000010",
+      "Address": "г.Минск, ул.Пулихова,61",
       "Serial": "XXX0000DBLD0002",
       "Model":"Diebold Opteva 328",
       "Status": "In service"
@@ -383,8 +383,8 @@
   {
     "Info": {
       "Bank": "Belinvestbank",
-      "Id":"M0000011",
-      "Address": "г.Минск, ул.Пулихова,11",
+      "Id":"M000011",
+      "Address": "г.Минск, ул.Пулихова,71",
       "Serial": "XXX0000DBLD0002",
       "Model":"Diebold Opteva 328",
       "Status": "In service"
@@ -407,8 +407,8 @@
   {
     "Info": {
       "Bank": "Belinvestbank",
-      "Id":"M0000012",
-      "Address": "г.Минск, ул.Пулихова,11",
+      "Id":"M000012",
+      "Address": "г.Минск, ул.Пулихова,81",
       "Serial": "XXX0000DBLD0002",
       "Model":"Diebold Opteva 328",
       "Status": "In service"
@@ -437,7 +437,7 @@
     "Info": {
       "Bank": "Belinvestbank",
       "Id":"M000013",
-      "Address": "г.Минск, ул.Пулихова,11",
+      "Address": "г.Минск, ул.Пулихова,91",
       "Serial": "XXX0000DBLD0002",
       "Model":"Diebold Opteva 328",
       "Status": "In service"
@@ -466,7 +466,7 @@
     "Info": {
       "Bank": "Belinvestbank",
       "Id":"M000014",
-      "Address": "г.Минск, ул.Пулихова,11",
+      "Address": "г.Минск, ул.Пулихова,111",
       "Serial": "XXX0000DBLD0002",
       "Model":"Diebold Opteva 328",
       "Status": "In service"
@@ -495,7 +495,7 @@
     "Info": {
       "Bank": "Belinvestbank",
       "Id":"M000015",
-      "Address": "г.Минск, ул.Пулихова,11",
+      "Address": "г.Минск, ул.Пулихова,112",
       "Serial": "XXX0000DBLD0002",
       "Model":"Diebold Opteva 328",
       "Status": "In service"
@@ -524,7 +524,7 @@
     "Info": {
       "Bank": "Belinvestbank",
       "Id":"M000016",
-      "Address": "г.Минск, ул.Пулихова,11",
+      "Address": "г.Минск, ул.Пулихова,113",
       "Serial": "XXX0000DBLD0002",
       "Model":"Diebold Opteva 328",
       "Status": "In service"
@@ -553,7 +553,7 @@
     "Info": {
       "Bank": "Belinvestbank",
       "Id":"M000017",
-      "Address": "г.Минск, ул.Пулихова,11",
+      "Address": "г.Минск, ул.Пулихова,114",
       "Serial": "XXX0000DBLD0002",
       "Model":"Diebold Opteva 328",
       "Status": "In service"
@@ -582,7 +582,7 @@
     "Info": {
       "Bank": "Belinvestbank",
       "Id":"M000018",
-      "Address": "г.Минск, ул.Пулихова,11",
+      "Address": "г.Минск, ул.Пулихова,115",
       "Serial": "XXX0000DBLD0002",
       "Model":"Diebold Opteva 328",
       "Status": "In service"
@@ -611,7 +611,7 @@
     "Info": {
       "Bank": "Belinvestbank",
       "Id":"M000019",
-      "Address": "г.Минск, ул.Пулихова,11",
+      "Address": "г.Минск, ул.Пулихова,116",
       "Serial": "XXX0000DBLD0002",
       "Model":"Diebold Opteva 328",
       "Status": "In service"
@@ -640,7 +640,7 @@
     "Info": {
       "Bank": "Belinvestbank",
       "Id":"M000020",
-      "Address": "г.Минск, ул.Пулихова,11",
+      "Address": "г.Минск, ул.Пулихова,117",
       "Serial": "XXX0000DBLD0002",
       "Model":"Diebold Opteva 328",
       "Status": "In service"
@@ -669,7 +669,7 @@
     "Info": {
       "Bank": "Belinvestbank",
       "Id":"M000021",
-      "Address": "г.Минск, ул.Пулихова,11",
+      "Address": "г.Минск, ул.Пулихова,118",
       "Serial": "XXX0000DBLD0002",
       "Model":"Diebold Opteva 328",
       "Status": "In service"
@@ -698,7 +698,7 @@
     "Info": {
       "Bank": "Belinvestbank",
       "Id":"M000022",
-      "Address": "г.Минск, ул.Пулихова,11",
+      "Address": "г.Минск, ул.Пулихова,119",
       "Serial": "XXX0000DBLD0002",
       "Model":"Diebold Opteva 328",
       "Status": "In service"
@@ -727,7 +727,7 @@
     "Info": {
       "Bank": "Belinvestbank",
       "Id":"M000023",
-      "Address": "г.Минск, ул.Пулихова,11",
+      "Address": "г.Минск, ул.Пулихова,120",
       "Serial": "XXX0000DBLD0002",
       "Model":"Diebold Opteva 328",
       "Status": "In service"
@@ -756,7 +756,7 @@
     "Info": {
       "Bank": "Belinvestbank",
       "Id":"M000024",
-      "Address": "г.Минск, ул.Пулихова,11",
+      "Address": "г.Минск, ул.Пулихова,121",
       "Serial": "XXX0000DBLD0002",
       "Model":"Diebold Opteva 328",
       "Status": "In service"
@@ -785,7 +785,7 @@
     "Info": {
       "Bank": "Belinvestbank",
       "Id":"M000025",
-      "Address": "г.Минск, ул.Пулихова,11",
+      "Address": "г.Минск, ул.Пулихова,121",
       "Serial": "XXX0000DBLD0002",
       "Model":"Diebold Opteva 328",
       "Status": "In service"
@@ -814,7 +814,7 @@
     "Info": {
       "Bank": "Belinvestbank",
       "Id":"M000026",
-      "Address": "г.Минск, ул.Пулихова,11",
+      "Address": "г.Минск, ул.Пулихова,123",
       "Serial": "XXX0000DBLD0002",
       "Model":"Diebold Opteva 328",
       "Status": "In service"
@@ -843,7 +843,7 @@
     "Info": {
       "Bank": "Belinvestbank",
       "Id":"M000027",
-      "Address": "г.Минск, ул.Пулихова,11",
+      "Address": "г.Минск, ул.Пулихова,125",
       "Serial": "XXX0000DBLD0002",
       "Model":"Diebold Opteva 328",
       "Status": "In service"
@@ -872,7 +872,7 @@
     "Info": {
       "Bank": "Belinvestbank",
       "Id":"M000028",
-      "Address": "г.Минск, ул.Пулихова,11",
+      "Address": "г.Минск, ул.Пулихова,131",
       "Serial": "XXX0000DBLD0002",
       "Model":"Diebold Opteva 328",
       "Status": "In service"
@@ -901,7 +901,7 @@
     "Info": {
       "Bank": "Belinvestbank",
       "Id":"M000029",
-      "Address": "г.Минск, ул.Пулихова,11",
+      "Address": "г.Минск, ул.Пулихова,132",
       "Serial": "XXX0000DBLD0002",
       "Model":"Diebold Opteva 328",
       "Status": "In service"
@@ -930,7 +930,7 @@
     "Info": {
       "Bank": "Belinvestbank",
       "Id":"M000030",
-      "Address": "г.Минск, ул.Пулихова,11",
+      "Address": "г.Минск, ул.Пулихова,133",
       "Serial": "XXX0000DBLD0002",
       "Model":"Diebold Opteva 328",
       "Status": "In service"
@@ -959,7 +959,7 @@
     "Info": {
       "Bank": "Belinvestbank",
       "Id":"M000031",
-      "Address": "г.Минск, ул.Пулихова,11",
+      "Address": "г.Минск, ул.Пулихова,134",
       "Serial": "XXX0000DBLD0002",
       "Model":"Diebold Opteva 328",
       "Status": "In service"
@@ -988,7 +988,7 @@
     "Info": {
       "Bank": "Belinvestbank",
       "Id":"M000032",
-      "Address": "г.Минск, ул.Пулихова,11",
+      "Address": "г.Минск, ул.Пулихова,135",
       "Serial": "XXX0000DBLD0002",
       "Model":"Diebold Opteva 328",
       "Status": "In service"
@@ -1017,7 +1017,7 @@
     "Info": {
       "Bank": "Belinvestbank",
       "Id":"M000033",
-      "Address": "г.Минск, ул.Пулихова,11",
+      "Address": "г.Минск, ул.Пулихова,145",
       "Serial": "XXX0000DBLD0002",
       "Model":"Diebold Opteva 328",
       "Status": "In service"
@@ -1046,7 +1046,7 @@
     "Info": {
       "Bank": "Belinvestbank",
       "Id":"M000034",
-      "Address": "г.Минск, ул.Пулихова,11",
+      "Address": "г.Минск, ул.Пулихова,155",
       "Serial": "XXX0000DBLD0002",
       "Model":"Diebold Opteva 328",
       "Status": "In service"
@@ -1075,7 +1075,7 @@
     "Info": {
       "Bank": "Belinvestbank",
       "Id":"M000035",
-      "Address": "г.Минск, ул.Пулихова,11",
+      "Address": "г.Минск, ул.Пулихова,156",
       "Serial": "XXX0000DBLD0002",
       "Model":"Diebold Opteva 328",
       "Status": "In service"
@@ -1104,7 +1104,7 @@
     "Info": {
       "Bank": "Belinvestbank",
       "Id":"M000036",
-      "Address": "г.Минск, ул.Пулихова,11",
+      "Address": "г.Минск, ул.Пулихова,166",
       "Serial": "XXX0000DBLD0002",
       "Model":"Diebold Opteva 328",
       "Status": "In service"
@@ -1133,7 +1133,7 @@
     "Info": {
       "Bank": "Belinvestbank",
       "Id":"M000037",
-      "Address": "г.Минск, ул.Пулихова,11",
+      "Address": "г.Минск, ул.Пулихова,167",
       "Serial": "XXX0000DBLD0002",
       "Model":"Diebold Opteva 328",
       "Status": "In service"

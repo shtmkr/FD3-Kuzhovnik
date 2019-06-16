@@ -57,7 +57,7 @@ class Card extends React.PureComponent {
             console.log(this.props.device.Repairs);
             repairs = <Repair repairs={this.props.device.Repairs}/>
         }
-        let info = <Info device={this.props.device}/>; // TODO: get from state?
+        let info = <Info device={this.props.device}/>;
         let events = <div><span>events</span></div>;
 
         let stats =  <div><Chart type="line" data={data}/></div>;

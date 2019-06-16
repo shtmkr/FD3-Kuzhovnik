@@ -56,7 +56,7 @@ class EventList extends React.PureComponent {
         switch (fn) {
             case 'deleteElement': {
                 let f = this.state.events.filter(ev => ev.eDeviceId !== id);
-                let conf = window.confirm(`Вы действительно хотите удалить ${id}?`); //TODO create modal message component?
+                let conf = window.confirm(`Вы действительно хотите удалить ${id}?`);
                 if (conf){
                     this.props.evt.emit('info', {type: 'success', message: `Устройство ${id} удалено`});
                     this.setState({events: f, });
@@ -91,7 +91,7 @@ class EventList extends React.PureComponent {
         else {
             list = [...this.props.events];
         }
-        /*if (this.state.sorted){ //TODO sort?
+        /*if (this.state.sorted){
             list.sort();
         }*/
         this.setState({events: list});

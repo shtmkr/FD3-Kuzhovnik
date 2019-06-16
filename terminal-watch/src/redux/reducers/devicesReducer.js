@@ -38,6 +38,13 @@ function devicesReducer( state = initState, action ) {
                 loaded: action.devices,
             }
         }
+        case C.SORT_DEVICES: {
+            return {
+                ...state,
+                devices: action.devices,
+                loaded: action.devices,
+            }
+        }
         default:
             return state;
     }

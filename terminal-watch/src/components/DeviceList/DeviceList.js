@@ -8,7 +8,7 @@ import {listUnitsEvents, msg} from "../../events/events";
 import Card from "../Card/Card";
 import DetailsContainer from "../DetailsContainer/DetailsContainer";
 import Paginator from "../Paginator/Paginator";
-import {loadDevicesAC, filterDevicesAC, deleteDevicesAC, changeDeviceStateAC} from "../../redux/reducers/devicesAC";
+import {loadDevicesAC, filterDevicesAC, deleteDevicesAC, changeDeviceStateAC, sortDeviceAC} from "../../redux/reducers/devicesAC";
 import {sendRequest} from "../../helpers/sendRequest";
 import C from '../../constants';
 
@@ -29,6 +29,14 @@ class DeviceList extends React.PureComponent {
         selectedItemIdx: '',
         filter: '',
         filterIdx: null,
+        sortBy: '',
+        sortIdx: null,
+        sortReverse: {
+            sort0: false,
+            sort1: false,
+            sort2: false,
+            sort3: false,
+        },
         isItemCardActive: false,
         isControlPanelActive: false,
         lastEdited: {
@@ -178,6 +186,76 @@ class DeviceList extends React.PureComponent {
         },  this.filter)
     };
 
+    sort = () => {
+        let {sortBy} = this.state;
+        let {sort0, sort1, sort2, sort3} = this.state.sortReverse; // true - REVERSE SORT
+        let devices = [...this.state.devices.devices];
+        let sorted;
+
+        if (sortBy === 'Номер устройства'){
+            if (sort0){
+                sorted = devices.sort( (a,b) => (a.Info.Id > b.Info.Id) ? 1 : -1);
+            } else {
+                sorted = devices.sort( (a,b) => (a.Info.Id < b.Info.Id) ? 1 : -1);
+            }
+        }
+        if (sortBy === 'Адрес установки'){
+            if (sort1){
+                sorted = devices.sort( (a,b) => (a.Info.Address > b.Info.Address) ? 1 : -1);
+            } else {
+                sorted = devices.sort( (a,b) => (a.Info.Address < b.Info.Address) ? 1 : -1);
+            }
+        }
+        if (sortBy === 'Модель устройства'){
+            if (sort2){
+                sorted = devices.sort( (a,b) => (a.Info.Model < b.Info.Model) ? 1 : -1);
+            } else {
+                sorted = devices.sort( (a,b) => (a.Info.Model > b.Info.Model) ? 1 : -1);
+            }
+        }
+        if (sortBy === 'Статус'){
+            if (sort3){
+                sorted = devices.sort( (a,b) => (a.Info.Status < b.Info.Status) ? 1 : -1);
+            } else {
+                sorted = devices.sort( (a,b) => (a.Info.Status > b.Info.Status) ? 1 : -1);
+            }
+        }
+
+        this.props.dispatch(sortDeviceAC(sorted));
+    };
+
+    sortHandler = (e) => {
+        let sortIdx = parseInt(e.target.id.match(/\d+/)[0]);
+        if (sortIdx === 0){
+            this.setState({
+                sortBy: e.target.textContent,
+                sortIdx: sortIdx,
+                sortReverse: {...this.state.sortReverse, sort0: !this.state.sortReverse.sort0}
+            }, this.sort)
+        }
+        if (sortIdx === 1){
+            this.setState({
+                sortBy: e.target.textContent,
+                sortIdx: sortIdx,
+                sortReverse: {...this.state.sortReverse, sort1: !this.state.sortReverse.sort1}
+            }, this.sort)
+        }
+        if (sortIdx === 2){
+            this.setState({
+                sortBy: e.target.textContent,
+                sortIdx: sortIdx,
+                sortReverse: {...this.state.sortReverse, sort2: !this.state.sortReverse.sort2}
+            }, this.sort)
+        }
+        if (sortIdx === 3){
+            this.setState({
+                sortBy: e.target.textContent,
+                sortIdx: sortIdx,
+                sortReverse: {...this.state.sortReverse, sort3: !this.state.sortReverse.sort3}
+            }, this.sort)
+        }
+    };
+
     dragStartResizer = (e) => {
         console.log('resizing.....');
         e.target.style.opacity = '0.3';
@@ -210,7 +288,7 @@ class DeviceList extends React.PureComponent {
                                   onDragEnd={this.dragEndResizer}
                                   draggable
                             />
-                            <span>{title}</span>
+                            <span onClick={this.sortHandler} id={`sort${index}`}>{title}</span>
                             <input onKeyUp={this.filterHandler} id={`filterInput${index}`}/>
                         </th>
                     )
@@ -293,7 +371,6 @@ class DeviceList extends React.PureComponent {
                 </table>
                 <Paginator
                     currentPage={this.state.currentPage}
-                    /*itemsCount={this.state.devices.devices.length}*/
                     pagesCount={Math.ceil(this.state.devices.devices.length/this.props.devicesPerPage)}
                     cbCurrentPageChanged={this.currentPageChanged}
                 />
