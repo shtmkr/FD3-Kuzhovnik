@@ -173,9 +173,6 @@ class DeviceList extends React.PureComponent {
         else {
             list = [...this.props.devices.loaded];
         }
-        /*if (this.state.sorted){ //TODO sort?
-            list.sort();
-        }*/
         this.props.dispatch(filterDevicesAC(list));
     };
 
