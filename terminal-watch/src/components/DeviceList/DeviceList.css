@@ -86,3 +86,8 @@
     cursor: col-resize;
     border: 1px solid transparent;
 }
+
+.sortArrows {
+    vertical-align: bottom;
+    font-size: 22px!important;
+}

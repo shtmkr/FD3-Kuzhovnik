@@ -277,6 +277,8 @@ class DeviceList extends React.PureComponent {
         currResizer.parentElement.style.width = (colWidth + offsetX).toString() + 'px';
     };
 
+    sortArrows = ['unfold_more', 'expand_less', 'expand_more'];
+
     createHead = () => {
         if (this.props.resizable) {
             return titles.map((title, index) => {
@@ -288,6 +290,16 @@ class DeviceList extends React.PureComponent {
                                   onDragEnd={this.dragEndResizer}
                                   draggable
                             />
+                            <i className='material-icons md-18 sortArrows'>
+                                { this.state.sortIdx === null
+                                    ? this.sortArrows[0]
+                                    : this.state.sortIdx === index
+                                        ? this.state.sortReverse[`sort${index}`]
+                                            ? this.sortArrows[1]
+                                            : this.sortArrows[2]
+                                        : this.sortArrows[0]
+                                }
+                            </i>
                             <span onClick={this.sortHandler} id={`sort${index}`}>{title}</span>
                             <input onKeyUp={this.filterHandler} id={`filterInput${index}`}/>
                         </th>
