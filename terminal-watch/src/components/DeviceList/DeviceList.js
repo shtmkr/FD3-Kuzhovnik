@@ -8,7 +8,7 @@ import {listUnitsEvents, msg} from "../../events/events";
 import Card from "../Card/Card";
 import DetailsContainer from "../DetailsContainer/DetailsContainer";
 import Paginator from "../Paginator/Paginator";
-import {loadDevicesAC, filterDevicesAC, deleteDevicesAC, changeDeviceStateAC, sortDeviceAC} from "../../redux/reducers/devicesAC";
+import {loadDevicesAC, filterDevicesAC, deleteDevicesAC, changeDeviceStateAC, sortDeviceAC, devicesLoadingAC, devicesErrorAC} from "../../redux/reducers/devicesAC";
 import {sendRequest} from "../../helpers/sendRequest";
 import C from '../../constants';
 
@@ -57,6 +57,7 @@ class DeviceList extends React.PureComponent {
         }
         if (newProps.dataPath !== this.props.dataPath){
             if (newProps.dataPath){
+                this.props.dispatch( devicesLoadingAC() );
                 sendRequest(newProps.dataPath, result => {
                     if (result){
                         this.props.dispatch(loadDevicesAC(result));
@@ -79,6 +80,7 @@ class DeviceList extends React.PureComponent {
             this.setState({currentPage: parseInt(pageNum[0])});// selected page number from URL
         }
         if (this.props.dataPath){
+            this.props.dispatch( devicesLoadingAC() );
             sendRequest(this.props.dataPath, result => {
                 if (result){
                     this.props.dispatch(loadDevicesAC(result))
@@ -372,6 +374,13 @@ class DeviceList extends React.PureComponent {
     };
 
     render () {
+
+        if ( this.props.devices.status <= 1 )
+            return "загрузка...";
+
+        if ( this.props.devices.status === 2 )
+            return "ошибка загрузки данных";
+
         console.log('DeviceList render');
         if (this.state.devices){
             console.log(this.state.devices.devices);

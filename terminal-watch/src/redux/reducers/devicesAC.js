@@ -1,5 +1,17 @@
 import C from '../../constants';
 
+const devicesLoadingAC = () => (
+    {
+        type: C.DEVICES_LOADING,
+    }
+);
+
+const devicesErrorAC = () => (
+    {
+        type: C.DEVICES_ERROR,
+    }
+);
+
 const loadDevicesAC = (devices, loaded) => (
     {
         type: C.LOAD_DEVICES,
@@ -39,4 +51,5 @@ const sortDeviceAC = (devices) => (
     }
 );
 
-export  { loadDevicesAC, filterDevicesAC, deleteDevicesAC, changeDeviceStateAC, sortDeviceAC };
+export  { loadDevicesAC, filterDevicesAC, deleteDevicesAC,
+    changeDeviceStateAC, sortDeviceAC, devicesLoadingAC, devicesErrorAC };

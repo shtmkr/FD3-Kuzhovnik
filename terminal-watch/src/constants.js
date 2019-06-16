@@ -1,4 +1,6 @@
 const constants = {
+    DEVICES_LOADING: 'DEVICES_LOADING',
+    DEVICES_ERROR: 'DEVICES_ERROR',
     LOAD_DEVICES: 'LOAD_DEVICES',
     FILTER_DEVICES: 'FILTER_DEVICES',
     DELETE_DEVICE: 'DELETE_DEVICE',
@@ -12,7 +14,8 @@ const constants = {
         headers: {
             'Content-Type': 'application/json',
         },
-        body: ''}
+        body: ''
+    }
 };
 
 export default constants

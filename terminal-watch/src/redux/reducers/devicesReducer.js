@@ -11,6 +11,20 @@ function devicesReducer( state = initState, action ) {
 
     switch (action.type) {
 
+        case C.DEVICES_LOADING: {
+            return {
+                ...state,
+                status: 1,
+            };
+        }
+
+        case C.DEVICES_ERROR: {
+            return {
+                ...state,
+                status: 2,
+            };
+        }
+
         case C.LOAD_DEVICES: {
             return {
                 status: 3,
