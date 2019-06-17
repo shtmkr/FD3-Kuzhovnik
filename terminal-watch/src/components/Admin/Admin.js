@@ -93,8 +93,8 @@ class Admin extends React.PureComponent {
 
     render () {
         console.log('Admin render');
-        sendRequest('/auth/setPath', response => console.log(response),
-            {...C.OPTIONS_POST, body: JSON.stringify({path: this.props.location.pathname})});
+        /*sendRequest('/auth/setPath', response => console.log(response),
+            {...C.OPTIONS_POST, body: JSON.stringify({path: this.props.location.pathname})});*/
         let currPage;
         if (this.props.history.location.pathname.match(/\d/)){
             currPage = this.props.history.location.pathname.match(/\d/);

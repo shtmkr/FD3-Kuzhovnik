@@ -11,3 +11,64 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+
+@media all and (max-width: 575px) {
+
+  .Toolbar {
+    flex-flow: wrap;
+  }
+  .toolbar-list {
+    flex-flow: wrap;
+  }
+  .toolbar-item-link {
+    padding: 0.314em 0.457em!important;
+  }
+  .ControlPanel {
+    flex-flow: wrap;
+  }
+  .toolbar-additional {
+    width: 100%;
+    justify-content: space-between!important;
+  }
+  .DeviceList th, .DeviceList td {
+    padding: .1rem!important;
+    word-wrap: break-word;
+    font-size: 14px;
+  }
+  #root .MessageHistory {
+    display: block;
+    position: inherit;
+    width: 99%;
+    height: 50px;
+    bottom: -20px;
+    border: 1px solid gray;
+    margin-left: 2px;
+    margin-bottom: 2px;
+  }
+  #root .paginator-summary {
+    text-align: center;
+  }
+  #root .DetailsContainer {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    padding: 5px;
+    flex-flow: column;
+    height: auto;
+  }
+  #root .Chart {
+    width: 100%!important;
+    height: auto!important;
+    display: inline-block;
+    min-height: 256px;
+  }
+  #root .repair-table {
+    width: 100%!important;
+  }
+  .repair-table th, .repair-table td {
+    padding: .1rem!important;
+    word-wrap: break-word;
+    font-size: 14px;
+  }
+}

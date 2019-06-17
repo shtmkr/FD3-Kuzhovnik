@@ -13,7 +13,7 @@ import {sendRequest} from "../../helpers/sendRequest";
 import C from '../../constants';
 import Loader from "../Loader/Loader";
 
-const titles = ['Номер устройства','Адрес установки', 'Модель устройства', 'Статус'];
+const titles = ['Номер устройства','Адрес установки', 'Модель устройства', 'Статус устройства'];
 
 class DeviceList extends React.PureComponent {
 
