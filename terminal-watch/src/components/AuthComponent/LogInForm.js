@@ -1,10 +1,15 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {withRouter} from "react-router-dom";
 
 import './AuthComponent.css';
 import {sendRequest} from "../../helpers/sendRequest";
 
 class LogInForm extends React.PureComponent {
+
+    static propTypes = {
+        cbLogin: PropTypes.func,
+    };
 
     state = {
         result: '',

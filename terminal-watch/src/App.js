@@ -12,9 +12,6 @@ export const appEvents = new EventEmitter(); /// Main stream of events
 
 class App extends React.PureComponent {
 
-    static propTypes = {
-    };
-
     state = {
         logged: true,
     };
