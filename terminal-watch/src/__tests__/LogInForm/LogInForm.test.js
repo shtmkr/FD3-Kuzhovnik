@@ -12,9 +12,17 @@ it('renders without crashing', () => {
 });
 
 it('click log-in button', () => {
-    renderer.create(
+    let BR = renderer.create(
         <BrowserRouter>
-            <LogInForm cbLogin={}/>
+            <LogInForm/>
         </BrowserRouter>
-    );
+    ).root;
+    let LogIn = BR.findByType(LogInForm);
+    console.log(LogIn.state);
+    let inputs = LogIn.findAllByType('input');
+    let name = inputs[0];
+    let pass = inputs[1];
+
+    let form = LogIn.findByType('form');
+    //console.log(form.props.onSubmit({preventDefault: () => console.log('preventDefault')}))
 });

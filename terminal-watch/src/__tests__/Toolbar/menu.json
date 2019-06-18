@@ -1,0 +1,63 @@
+[
+  {
+    "label": "Устройства",
+    "icon": "device_hub",
+    "nested": [
+      {
+        "label": "Банкоматы",
+        "icon": "atm"
+      },
+      {
+        "label": "Инфокиоски",
+        "icon": "device_hub"
+      }
+    ]
+  },
+  {
+    "label": "События",
+    "icon": "notification_important",
+    "nested": [
+      {
+        "label": "Предупреждения",
+        "icon": "warning"
+      },
+      {
+        "label": "Ошибки",
+        "icon": "error"
+      }
+    ]
+  },
+  {
+    "label": "Тикеты",
+    "icon": "list_alt",
+    "nested": [
+      {
+        "label": "Все",
+        "icon": "unarchive"
+      },
+      {
+        "label": "Открытые",
+        "icon": "drafts"
+      },
+      {
+        "label": "На рассмотрении",
+        "icon": "next_week"
+      }
+    ]
+  },
+  {
+    "label": "Статистика",
+    "icon": "show_chart",
+    "nested": [
+      {
+        "label": "Инкассация",
+        "icon": "details"
+      },
+      {
+        "label": "Ремонты",
+        "icon": "build"
+      }
+    ]
+  },
+  {"label": "Настройки", "icon": "settings"}
+]
