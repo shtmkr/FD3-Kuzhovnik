@@ -71,6 +71,7 @@ code {
   #root .DetailsContainer {
     display: flex;
     width: 100%;
+    max-height: 600px;
     justify-content: space-evenly;
     padding: 5px;
     flex-flow: column;
