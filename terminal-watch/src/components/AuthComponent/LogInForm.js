@@ -15,7 +15,7 @@ class LogInForm extends React.PureComponent {
             console.log(response);
             if (response.result === 'logged'){
                 this.props.cbLogin();
-                sendRequest('/auth/getPath', response => this.props.history.push(response.path));
+              /*  sendRequest('/auth/getPath', response => this.props.history.push(response.path));*/
             }
         })
     }

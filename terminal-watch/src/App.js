@@ -1,5 +1,4 @@
 import React, {Fragment} from 'react';
-import PropTypes from 'prop-types';
 import LogInForm from './components/AuthComponent/LogInForm';
 import Admin from './components/Admin/Admin';
 import {BrowserRouter, Route, Redirect} from "react-router-dom";
@@ -17,7 +16,7 @@ class App extends React.PureComponent {
     };
 
     state = {
-        logged: false,
+        logged: true,
     };
 
     componentDidMount() {

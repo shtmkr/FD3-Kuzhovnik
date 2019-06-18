@@ -1,9 +1,10 @@
 .MessageHistory {
     display: block;
-    position: absolute;
+    position: fixed;
+    bottom: 0;
     width: 99%;
     height: 50px;
-    bottom: -20px;
+
     border: 1px solid gray;
     margin-left: 9px;
     margin-bottom: 10px;
