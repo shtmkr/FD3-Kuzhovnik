@@ -14,7 +14,8 @@ addDevice       - add new device request
 
 let msg = new EventEmitter();
 /*
-* log   -       log message to MessageHistory
+* log                - log message to MessageHistory
+* newDeviceResult    - log result add new device cmd
 * */
 
 export {listUnitsEvents, msg};

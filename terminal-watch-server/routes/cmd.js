@@ -11,6 +11,23 @@ router.post('/change_state', function (req, res, next) {
     }
 });
 
+router.post('/isDeviceExist', function (req, res, next) {
+    var id = req.body.deviceId;
+    var type = req.body.type;
+    var isExist = false;
+    if (type === 'ATM'){
+        if (store.tmpATM.find( atm => atm.Info.Id === id)){
+            isExist = true;
+        }
+    }
+    if (type === 'KIOSK'){
+        if (store.tmpKIOSK.find( kiosk => kiosk.Info.Id === id)){
+            isExist = true;
+        }
+    }
+    res.json({isExist: isExist})
+});
+
 router.post('/delete_device', function (req, res, next) {
     console.log('POST delete_device');
     console.log(req.body);

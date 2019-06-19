@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import './NewDeviceCard.css';
 import Button from "../Button/Button";
-import {listUnitsEvents} from "../../events/events";
+import {listUnitsEvents, msg} from "../../events/events";
 
 class NewDeviceCard extends React.PureComponent {
 
@@ -20,6 +20,18 @@ class NewDeviceCard extends React.PureComponent {
         isModelValid:false,
         isIpValid: false,
         result: '',
+    };
+
+    componentDidMount = () => {
+        msg.addListener('newDeviceResult', this.setResult);
+    };
+
+    componentWillUnmount = () => {
+        msg.removeListener('newDeviceResult', this.setResult);
+    };
+
+    setResult = (result) => {
+        this.setState({result: result});
     };
 
     close = () => {

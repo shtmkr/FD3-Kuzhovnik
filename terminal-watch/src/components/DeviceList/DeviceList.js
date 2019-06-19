@@ -112,38 +112,46 @@ class DeviceList extends React.PureComponent {
         this.setState({isNewDeviceCardActive: true});
     };
 
-    addNewDevice = (newDeviceData) => {
-        console.log('starting add new device in list...');
+    checkIsDeviceExist = (newDeviceData) => {
+        console.log('starting check exist new device in list...');
         console.log(newDeviceData.Id); /// send req to check if exist
-        let newDevice = {
-            Info: {
-                Bank: newDeviceData.Bank,
-                Id: newDeviceData.Id,
-                Address: newDeviceData.Address,
-                Serial: newDeviceData.Serial,
-                Model: newDeviceData.Model,
-                Status: "Out Of Service"
-            },
-            Network: {
-                IP: newDeviceData.IP,
-                Port: "666",
-                Config: "7000",
-                Config_type: "",
-                Last_reboot: ""
-            },
-            Software: {
-                Agi: "",
-                Sub_1: "Some ver",
-                Sub_2: "Some ver",
-                Sub_3: "Some ver",
-                Sub_4: "Some ver"
-            },
-            Stats: {
-                Repairs: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                Sp: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                Ink: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-            },
-        };
+        sendRequest('/cmd/isDeviceExist', response => !response.isExist
+            ? this.addNewDevice(newDeviceData)
+            : msg.emit('newDeviceResult',` Устройство с Id ${newDeviceData.Id} уже существует`),
+            {...C.OPTIONS_POST, body: JSON.stringify({deviceId: newDeviceData.Id, type: newDeviceData.type})});
+
+    };
+
+    addNewDevice = (newDeviceData) => {
+    let newDevice = {
+        Info: {
+            Bank: newDeviceData.Bank,
+            Id: newDeviceData.Id,
+            Address: newDeviceData.Address,
+            Serial: newDeviceData.Serial,
+            Model: newDeviceData.Model,
+            Status: "Out Of Service"
+        },
+        Network: {
+            IP: newDeviceData.IP,
+            Port: "666",
+            Config: "7000",
+            Config_type: "",
+            Last_reboot: ""
+        },
+        Software: {
+            Agi: "",
+            Sub_1: "Some ver",
+            Sub_2: "Some ver",
+            Sub_3: "Some ver",
+            Sub_4: "Some ver"
+        },
+        Stats: {
+            Repairs: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            Sp: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            Ink: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        },
+    };
         console.log('prepare to add new device...', newDevice);
     };
 
@@ -459,7 +467,7 @@ class DeviceList extends React.PureComponent {
                           chartData={this.prepareChartDataForCard()}
                 />
                 <NewDeviceCard isActive={this.state.isNewDeviceCardActive}
-                               proceed={this.addNewDevice}
+                               proceed={this.checkIsDeviceExist}
                 />
                 {this.state.selectedItemIdx && this.devForCard[0] !== undefined && <DetailsContainer chartData={this.prepareChartDataForCard()} repairs={this.devForCard[0].Repairs} />}
             </Fragment>
