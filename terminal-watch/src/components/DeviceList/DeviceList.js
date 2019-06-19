@@ -87,6 +87,18 @@ class DeviceList extends React.PureComponent {
         } catch (e) {
             msg.emit('log', e);
         }
+        this.loadDevices();
+    };
+
+    componentWillUnmount = () => {
+        listUnitsEvents.removeListener('highlightItem', this.highlightItem);
+        listUnitsEvents.removeListener('performFn', this.contextMenuHandler);
+        listUnitsEvents.removeListener('hideCard', this.hideCard);
+        listUnitsEvents.removeListener('changeState', this.changeDeviceState);
+        listUnitsEvents.removeListener('addDevice', this.handleNewDeviceEvent);
+    };
+
+    loadDevices = () => {
         if (this.props.dataPath){
             this.props.dispatch( devicesLoadingAC() );
             sendRequest(this.props.dataPath, result => {
@@ -97,14 +109,6 @@ class DeviceList extends React.PureComponent {
         } else {
             console.log('no path')
         }
-    };
-
-    componentWillUnmount = () => {
-        listUnitsEvents.removeListener('highlightItem', this.highlightItem);
-        listUnitsEvents.removeListener('performFn', this.contextMenuHandler);
-        listUnitsEvents.removeListener('hideCard', this.hideCard);
-        listUnitsEvents.removeListener('changeState', this.changeDeviceState);
-        listUnitsEvents.removeListener('addDevice', this.handleNewDeviceEvent);
     };
 
     handleNewDeviceEvent = () => {
@@ -155,7 +159,10 @@ class DeviceList extends React.PureComponent {
         console.log('prepare to add new device...', newDevice);
         sendRequest('/cmd/addDevice',
                 response => response.result === 'ok'
-                    ? msg.emit('newDeviceResult', ` Устройство Id ${newDeviceData.Id} добавлено`)
+                    ? msg.emit('newDeviceResult', ` Устройство Id ${newDeviceData.Id} добавлено`) &&  setTimeout( ( ) => {
+                        this.loadDevices();
+                        this.hideCard();
+                }, 2000)
                     : msg.emit('newDeviceResult', ` Ошибка при добавлении устройства`)
             ,
             {...C.OPTIONS_POST, body: JSON.stringify({type: devType, device: newDevice})}
