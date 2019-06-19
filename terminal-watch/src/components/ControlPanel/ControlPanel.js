@@ -91,6 +91,10 @@ class ControlPanel extends React.PureComponent {
         }, 5000);
     };
 
+    add = () => {
+        listUnitsEvents.emit('addDevice'); // emit ADD device
+    };
+
     render() {
 
         console.log("ControlPanel render");
@@ -126,6 +130,9 @@ class ControlPanel extends React.PureComponent {
                         </Tooltip>
                         <Tooltip tooltipText='Скачать логи'>
                             <Button disabled={!this.state.selectedDeviceId} classname='mdc-button mdc-button--raised control-panel-button' iClass='material-icons' cb={this.saveLogs} label='archive'/>
+                        </Tooltip>
+                        <Tooltip tooltipText='Добавить'>
+                            <Button classname='mdc-button mdc-button--raised control-panel-button' iClass='material-icons' cb={this.add} label='add'/>
                         </Tooltip>
                     </div>
                 </div>

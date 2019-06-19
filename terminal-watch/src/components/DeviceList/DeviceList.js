@@ -6,6 +6,7 @@ import Device from "./Device";
 import ContextMenu from '../ContextMenu/ContextMenu'
 import {listUnitsEvents, msg} from "../../events/events";
 import Card from "../Card/Card";
+import NewDeviceCard from "../NewDeviceCard/NewDeviceCard";
 import DetailsContainer from "../DetailsContainer/DetailsContainer";
 import Paginator from "../Paginator/Paginator";
 import {loadDevicesAC, filterDevicesAC, deleteDevicesAC, changeDeviceStateAC, sortDeviceAC, devicesLoadingAC, devicesErrorAC} from "../../redux/reducers/devicesAC";
@@ -40,6 +41,7 @@ class DeviceList extends React.PureComponent {
             sort3: false,
         },
         isItemCardActive: false,
+        isNewDeviceCardActive: false,
         isControlPanelActive: false,
         lastEdited: {
             id: '',
@@ -74,6 +76,7 @@ class DeviceList extends React.PureComponent {
         listUnitsEvents.addListener('performFn', this.contextMenuHandler);
         listUnitsEvents.addListener('hideCard', this.hideCard);
         listUnitsEvents.addListener('changeState', this.changeDeviceState);
+        listUnitsEvents.addListener('addDevice', this.handleNewDeviceEvent);
 
         try {
             let currentUrl = this.props.history.location.pathname;
@@ -100,6 +103,48 @@ class DeviceList extends React.PureComponent {
         listUnitsEvents.removeListener('highlightItem', this.highlightItem);
         listUnitsEvents.removeListener('performFn', this.contextMenuHandler);
         listUnitsEvents.removeListener('hideCard', this.hideCard);
+        listUnitsEvents.removeListener('changeState', this.changeDeviceState);
+        listUnitsEvents.removeListener('addDevice', this.handleNewDeviceEvent);
+    };
+
+    handleNewDeviceEvent = () => {
+        console.log('new device event handle');
+        this.setState({isNewDeviceCardActive: true});
+    };
+
+    addNewDevice = (newDeviceData) => {
+        console.log('starting add new device in list...');
+        console.log(newDeviceData.Id); /// send req to check if exist
+        let newDevice = {
+            Info: {
+                Bank: newDeviceData.Bank,
+                Id: newDeviceData.Id,
+                Address: newDeviceData.Address,
+                Serial: newDeviceData.Serial,
+                Model: newDeviceData.Model,
+                Status: "Out Of Service"
+            },
+            Network: {
+                IP: newDeviceData.IP,
+                Port: "666",
+                Config: "7000",
+                Config_type: "",
+                Last_reboot: ""
+            },
+            Software: {
+                Agi: "",
+                Sub_1: "Some ver",
+                Sub_2: "Some ver",
+                Sub_3: "Some ver",
+                Sub_4: "Some ver"
+            },
+            Stats: {
+                Repairs: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                Sp: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                Ink: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+            },
+        };
+        console.log('prepare to add new device...', newDevice);
     };
 
     changeDeviceState = (id, state) => {
@@ -152,7 +197,7 @@ class DeviceList extends React.PureComponent {
     };
 
     hideCard = () => {
-        this.setState({isItemCardActive: false});
+        this.setState({isItemCardActive: false, isNewDeviceCardActive: false});
     };
 
     currentPageChanged = (pageNum) => {
@@ -412,6 +457,9 @@ class DeviceList extends React.PureComponent {
                 <Card isActive={this.state.isItemCardActive}
                           device={this.devForCard[0]}
                           chartData={this.prepareChartDataForCard()}
+                />
+                <NewDeviceCard isActive={this.state.isNewDeviceCardActive}
+                               proceed={this.addNewDevice}
                 />
                 {this.state.selectedItemIdx && this.devForCard[0] !== undefined && <DetailsContainer chartData={this.prepareChartDataForCard()} repairs={this.devForCard[0].Repairs} />}
             </Fragment>
