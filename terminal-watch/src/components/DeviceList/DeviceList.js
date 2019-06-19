@@ -228,7 +228,7 @@ class DeviceList extends React.PureComponent {
                 sorted = devices.sort( (a,b) => (a.Info.Model > b.Info.Model) ? 1 : -1);
             }
         }
-        if (sortBy === 'Статус'){
+        if (sortBy === 'Статус устройства'){
             if (sort3){
                 sorted = devices.sort( (a,b) => (a.Info.Status < b.Info.Status) ? 1 : -1);
             } else {

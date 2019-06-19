@@ -16,13 +16,17 @@ class LogInForm extends React.PureComponent {
     };
 
     componentDidMount() {
-        sendRequest('/auth/login', response => {
+        this.props.cbLogin();
+
+
+
+        /*sendRequest('/auth/login', response => {
             console.log(response);
             if (response.result === 'logged'){
                 this.props.cbLogin();
-              /*  sendRequest('/auth/getPath', response => this.props.history.push(response.path));*/
+                sendRequest('/auth/getPath', response => this.props.history.push(response.path));
             }
-        })
+        })*/
     }
 
     login = (e) => {
