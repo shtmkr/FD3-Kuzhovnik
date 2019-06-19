@@ -116,13 +116,13 @@ class DeviceList extends React.PureComponent {
         console.log('starting check exist new device in list...');
         console.log(newDeviceData.Id); /// send req to check if exist
         sendRequest('/cmd/isDeviceExist', response => !response.isExist
-            ? this.addNewDevice(newDeviceData)
+            ? this.addNewDevice(newDeviceData, response.type)
             : msg.emit('newDeviceResult',` Устройство с Id ${newDeviceData.Id} уже существует`),
-            {...C.OPTIONS_POST, body: JSON.stringify({deviceId: newDeviceData.Id, type: newDeviceData.type})});
-
+            {...C.OPTIONS_POST, body: JSON.stringify({deviceId: newDeviceData.Id, type: newDeviceData.type})}
+        );
     };
 
-    addNewDevice = (newDeviceData) => {
+    addNewDevice = (newDeviceData, devType) => {
     let newDevice = {
         Info: {
             Bank: newDeviceData.Bank,
@@ -153,6 +153,13 @@ class DeviceList extends React.PureComponent {
         },
     };
         console.log('prepare to add new device...', newDevice);
+        sendRequest('/cmd/addDevice',
+                response => response.result === 'ok'
+                    ? msg.emit('newDeviceResult', ` Устройство Id ${newDeviceData.Id} добавлено`)
+                    : msg.emit('newDeviceResult', ` Ошибка при добавлении устройства`)
+            ,
+            {...C.OPTIONS_POST, body: JSON.stringify({type: devType, device: newDevice})}
+        )
     };
 
     changeDeviceState = (id, state) => {

@@ -25,7 +25,19 @@ router.post('/isDeviceExist', function (req, res, next) {
             isExist = true;
         }
     }
-    res.json({isExist: isExist})
+    res.json({isExist: isExist, type: type})
+});
+
+router.post('/addDevice', function (req, res, next) {
+    var type = req.body.type;
+    var newDevice = req.body.device;
+    if (type === 'ATM'){
+        store.tmpATM.push(newDevice)
+    }
+    if (type === 'KIOSK'){
+        store.tmpKIOSK.push(newDevice)
+    }
+    res.json({result: 'ok'})
 });
 
 router.post('/delete_device', function (req, res, next) {
