@@ -58,6 +58,5 @@
         "icon": "build"
       }
     ]
-  },
-  {"label": "Настройки", "icon": "settings"}
+  }
 ]

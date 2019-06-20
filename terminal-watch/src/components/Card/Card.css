@@ -79,6 +79,9 @@
     border: 1px solid #c8c8c8;
     text-align: center;
 }
+.Card .Chart canvas {
+    max-height: 100%!important;
+}
 .no-results {
     margin: auto;
     height: auto;

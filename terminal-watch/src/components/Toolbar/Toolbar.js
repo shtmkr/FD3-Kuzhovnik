@@ -104,7 +104,7 @@ class Toolbar extends React.PureComponent {
                 </ul>
                 <ControlPanel isControlPanelActive={true}/>
                 <div className='toolbar-additional'>
-                    <input className='toolbar-input-search' type='text' placeholder='Поиск...'/>
+                    {/*<input className='toolbar-input-search' type='text' placeholder='Поиск...'/>*/}
                     <Button classname='mdc-button mdc-button--raised toolbar-logout' iClass='material-icons' cb={this.logout} label='exit_to_app' text='Выйти'/>
                 </div>
             </div>
