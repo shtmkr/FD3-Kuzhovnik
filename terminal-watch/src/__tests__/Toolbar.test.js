@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import Toolbar from '../../components/Toolbar/Toolbar';
+import Toolbar from '../components/Toolbar/Toolbar';
 import {BrowserRouter} from 'react-router-dom';
 import {EventEmitter} from "events";
 import { shallow, mount} from 'enzyme';

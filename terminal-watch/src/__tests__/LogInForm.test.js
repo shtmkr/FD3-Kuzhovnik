@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import LogInForm from "../../components/AuthComponent/LogInForm";
+import LogInForm from "../components/AuthComponent/LogInForm";
 import {BrowserRouter} from "react-router-dom";
 
 it('renders without crashing', () => {
