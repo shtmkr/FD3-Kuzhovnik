@@ -1,6 +1,33 @@
+.NewDeviceCard {
+    top: 5%;
+    width: 40%;
+    left: 30%;
+}
+.NewDeviceCard .card-body {
+    display: flex;
+    justify-content: center;
+}
+.Card .NewDeviceCard  {
+    animation: fadeIn 0.3s linear;
+}
+
+.NewDeviceCard .result {
+
+}
+
 input[type="submit"]:disabled {
     background-color: #f4f4f4;
     color: black;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 .controls-select {

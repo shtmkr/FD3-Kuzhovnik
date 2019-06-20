@@ -131,8 +131,8 @@ class ControlPanel extends React.PureComponent {
                         <Tooltip tooltipText='Скачать логи'>
                             <Button disabled={!this.state.selectedDeviceId} classname='mdc-button mdc-button--raised control-panel-button' iClass='material-icons' cb={this.saveLogs} label='archive'/>
                         </Tooltip>
-                        <Tooltip tooltipText='Добавить'>
-                            <Button classname='mdc-button mdc-button--raised control-panel-button' iClass='material-icons' cb={this.add} label='add'/>
+                        <Tooltip tooltipText='Добавить'> {/*//TODO ADD button migrate to Admin*/}
+                            <Button disabled={!this.state.selectedDeviceId} classname='mdc-button mdc-button--raised control-panel-button' iClass='material-icons' cb={this.add} label='add'/>
                         </Tooltip>
                     </div>
                 </div>

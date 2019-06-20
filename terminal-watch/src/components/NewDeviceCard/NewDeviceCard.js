@@ -109,10 +109,10 @@ class NewDeviceCard extends React.PureComponent {
                     this.props.isActive
                     &&
                     <div className='screen'>
-                        <div className='Card'>
+                        <div className='Card NewDeviceCard'>
                             <div className='card-header'>
                             </div>
-                            <div className='card-body'>
+                            <div className='card-body NewDeviceCard'>
                                 <form className="validate-form" onSubmit={this.add}>
 
                                     <select className='controls-select'>
@@ -142,7 +142,7 @@ class NewDeviceCard extends React.PureComponent {
                                                    className="login-form-btn" type="submit" value="Добавить" />
                                         </div>
                                     </div>
-                                    <span>{this.state.result}</span>
+                                    <span className='NewDeviceCard result'>{this.state.result}</span>
                                 </form>
                             </div>
                             <div className='card-footer'>

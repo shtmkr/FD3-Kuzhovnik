@@ -156,10 +156,13 @@ class DeviceList extends React.PureComponent {
             Ink: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
     };
+    let successMess = `Устройство Id ${newDeviceData.Id} добавлено`;
         console.log('prepare to add new device...', newDevice);
         sendRequest('/cmd/addDevice',
                 response => response.result === 'ok'
-                    ? msg.emit('newDeviceResult', ` Устройство Id ${newDeviceData.Id} добавлено`) &&  setTimeout( ( ) => {
+                    ? msg.emit('newDeviceResult', successMess) &&  setTimeout( ( ) => {
+                        msg.emit('log', successMess);
+                        this.props.evt.emit('info', {type: 'success', message: successMess});
                         this.loadDevices();
                         this.hideCard();
                 }, 2000)
