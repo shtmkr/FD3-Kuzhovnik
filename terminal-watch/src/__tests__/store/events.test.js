@@ -24,7 +24,7 @@ describe(' event Reducer ', () => {
         })
     });
     it('LOAD_EVENTS success', () => {
-        const action = loadEventsAC();
+        const action = loadEventsAC(events);
         const results = eventsReducer(state, action);
         expect(results).toEqual({
             ...state,
