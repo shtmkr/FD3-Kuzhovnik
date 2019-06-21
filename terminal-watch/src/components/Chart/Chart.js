@@ -55,7 +55,7 @@ class Chart extends React.PureComponent {
         let style = Object.assign({
                 width: this.props.width,
                 height: this.props.height
-            }, this.props.style);
+        }, this.props.style);
 
         return (
             <div id={this.props.id} style={style} className='Chart'>

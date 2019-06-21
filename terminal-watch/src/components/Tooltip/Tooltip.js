@@ -32,7 +32,7 @@ class Tooltip extends React.Component {
         let target = e.target;
         switch (e.type) {
             case 'click' :
-                if (this.state.zoomOnClick) { // if zoomOnClick came True from props
+                if (this.state.zoomOnClick) {
                     if (target.nodeName === 'BUTTON') {
                         this._setPos(target, e.pageX, e.pageY);
                         this.setState({isEntered: !this.state.isEntered,  targetSrc: target.src});
@@ -40,7 +40,7 @@ class Tooltip extends React.Component {
                 }
                 break;
             case 'mousemove' :
-                if (!this.state.zoomOnClick) { // if zoomOnClick came False from props or without props
+                if (!this.state.zoomOnClick) {
                     if (target.nodeName === 'BUTTON') {
                         this._setPos(target, e.pageX, e.pageY);
                         this.setState({isEntered: true,  targetSrc: target.src});
