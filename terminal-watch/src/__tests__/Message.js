@@ -2,9 +2,15 @@ import React from 'react';
 import Message from "../components/Message/Message";
 import { shallow } from 'enzyme';
 
-it('renders without crashing', () => {
-    let output = shallow(
+it('Message  show', () => {
+    let comp = shallow(
         <Message/>
-    ).html();
-    expect(output).toMatchSnapshot();
+    );
+    let tree = comp.html();
+    expect(tree).toMatchSnapshot();
+    comp.instance().show({type: 'success', message: 'Welcome to tWatch!'});
+
+    comp.instance().hide();
+    tree = comp.html();
+    expect(tree).toMatchSnapshot();
 });

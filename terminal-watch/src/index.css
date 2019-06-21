@@ -91,4 +91,9 @@ code {
     word-wrap: break-word;
     font-size: 14px;
   }
+  #root .NewDeviceCard {
+    top: 0;
+    width: 100%;
+    left: 0;
+  }
 }
