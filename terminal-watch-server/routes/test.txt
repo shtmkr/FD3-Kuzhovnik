@@ -1,7 +1,0 @@
-Thu Jun 13 19:37:50 2019 UTC - GameOverlay process started: pid: 6040
-                                                   Thu Jun 13 19:37:50 2019 UTC - GameOverlay process connecting to: pid: 7988
-                                                   Thu Jun 13 19:37:51 2019 UTC - BuildID: 1556574584
-                                                   Thu Jun 13 19:37:51 2019 UTC - Steam Path: D:
-                                                   Чт июн 13 19:37:51 2019 UTC - Got gameid on commandline: 282440
-                                                   Чт июн 13 20:06:18 2019 UTC - Game Exit Event signaled.
-                                                   Чт июн 13 20:06:18 2019 UTC - Shutting down overlay
